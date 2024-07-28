@@ -1,13 +1,17 @@
 "use client"
 import Image from "next/image";
+import { Button, ButtonGroup } from '@chakra-ui/react'
+import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
+import Navbar from "../components/Navbar"
+
 
 import { Link } from '@chakra-ui/next-js'
 
-export default function Home() {
+export default function Page() {
   return (
-    <Link href='/about' color='blue.400' _hover={{ color: 'blue.500' }}>
-      About
-    </Link>
+    <div>
+      <Navbar></Navbar>
+    </div>
   )
 }
 

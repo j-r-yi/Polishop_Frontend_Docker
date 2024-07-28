@@ -1,15 +1,17 @@
+// "use client"
 import { Inter } from "next/font/google";
 import "../styles/globals.css";
 
 import { Providers } from './providers'
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "NextJS Online Shop",
   description: "An Online Shop Made with NextJS",
-
 };
+
+
 
 export default function RootLayout({
   children,
