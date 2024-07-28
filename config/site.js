@@ -1,12 +1,12 @@
 // export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-    name: "Next.js + NextUI",
+    name: "Online Shop Made With NextJS, ChakraUI, Tailwind CSS",
     description: "Make beautiful websites regardless of your design experience.",
     navItems: [
         {
             label: "Pokemon-Finder",
-            href: "/pokemon_finder",
+            href: "/cart",
         },
         {
             label: "Home",

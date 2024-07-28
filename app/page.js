@@ -9,8 +9,9 @@ import { Link } from '@chakra-ui/next-js'
 
 export default function Page() {
   return (
-    <div>
+    <div className="bg-stone-300">
       <Navbar></Navbar>
+      {/* <div> Hi</div> */}
     </div>
   )
 }

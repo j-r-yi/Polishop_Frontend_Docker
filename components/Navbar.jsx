@@ -6,6 +6,8 @@ import { Select } from '@chakra-ui/react'
 import { FaShoppingCart } from "react-icons/fa";
 import { Divider } from '@chakra-ui/react'
 
+import ListNavBar from  './ListNavBar'
+import DrawerNav from './DrawerNav'
 
 
 function handleClick(){
@@ -14,8 +16,8 @@ function handleClick(){
 
 export default function Navbar(){
     return(  
-        <div className='flex flex-col justify-center items-center'>
-            <div className='flex flex-row items-center justify-center gap-5 p-5 bg-gradient-to-r from-blue-200 to-cyan-200' w="full" >
+        <div className='flex flex-col justify-center items-center '>
+            <div className='flex flex-row items-center justify-center gap-5 p-5 bg-gradient-to-r from-blue-200 to-cyan-200 w-full'>
             <IconButton isRound={true} variant='solid' colorScheme='teal' aria-label='Done' fontSize='20px'/>
             <h3>Deliver to [username] + [location]</h3>
             <InputGroup size='md'>
@@ -42,6 +44,8 @@ export default function Navbar(){
   colorScheme='blue'
   aria-label='Search Items'
   icon={<SearchIcon />}
+    w="full"
+    border="hidden"
 
 />
       </InputRightAddon>
@@ -54,13 +58,13 @@ export default function Navbar(){
   aria-label='Shopping Cart'
   fontSize='20px'
   icon={<FaShoppingCart />}
-  w="full"
-border="hidden"
+// border="hidden"
 // width='-moz-fit-content'
 />
 </div>
-<div>
-
+<div  className='flex flex-row items-center justify-evenly gap-10 p-2 bg-gradient-to-r from-blue-200 to-cyan-200 w-full'>
+<DrawerNav></DrawerNav>
+<ListNavBar></ListNavBar>
 </div>
 <div><Divider orientation='horizontal' />
 </div>
