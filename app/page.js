@@ -1,19 +1,18 @@
-"use client"
-import Image from "next/image";
-import { Button, ButtonGroup } from '@chakra-ui/react'
-import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
-import Navbar from "../components/Navbar"
+'use client';
+import Image from 'next/image';
+import { Button, ButtonGroup } from '@chakra-ui/react';
+import { Checkbox, CheckboxGroup } from '@chakra-ui/react';
+import Navbar from '../components/Navbar';
+import ProductCard from '../components/ProductCard';
 
+import { Link } from '@chakra-ui/next-js';
 
-import { Link } from '@chakra-ui/next-js'
-
-export default function Page() {
+export default function Home() {
   return (
-    <div className="bg-stone-300">
-      <Navbar></Navbar>
-      {/* <div> Hi</div> */}
+    <div className='bg-gray-100'>
+      <ProductCard></ProductCard>
     </div>
-  )
+  );
 }
 
 // export default function Home() {
