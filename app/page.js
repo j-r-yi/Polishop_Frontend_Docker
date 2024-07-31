@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { Button, ButtonGroup } from '@chakra-ui/react';
 import { Checkbox, CheckboxGroup } from '@chakra-ui/react';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar/Navbar';
 import ProductCard from '../components/ProductCard';
 
 import { Link } from '@chakra-ui/next-js';

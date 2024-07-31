@@ -13,12 +13,13 @@ import {
 } from '@chakra-ui/react';
 import { Select } from '@chakra-ui/react';
 import { Divider } from '@chakra-ui/react';
+import { LinkBox, LinkOverlay } from '@chakra-ui/react';
 
 import ListNavBar from './ListNavBar';
 import DrawerNav from './DrawerNav';
-import ShoppingCartBtn from './ShoppingCartBtn';
-import LocationModal from './LocationModal';
-import ProfileBtns from './ProfileBtns';
+import ShoppingCartBtn from '../Cart/ShoppingCartBtn';
+import LocationModal from '../Navbar/LocationModal';
+import ProfileBtns from '../Account/ProfileBtns';
 
 export default function Navbar() {
   // function handleShoppingCartClick() {
@@ -28,20 +29,15 @@ export default function Navbar() {
 
   return (
     <div className='flex flex-col justify-center items-center '>
-      <div className='flex flex-col sm:flex-row items-center justify-evenly gap-5 pl-10 pr-10 pt-5 bg-gradient-to-r from-blue-200 to-cyan-200 w-full'>
-        <IconButton
-          // isRound={true}
-          variant='solid'
-          // colorScheme='teal'
-          bg='#dbcfff'
-          aria-label='Done'
-          fontSize='20px'
-          w='full'
-        >
-          <NextLink href='/' passHref>
-            <Link>NextJS Shop</Link>
-          </NextLink>
-        </IconButton>
+      <div className='flex flex-col sm:flex-row items-center justify-evenly gap-10 pl-20 pr-20 max-w-full bg-gradient-to-r from-blue-200 to-cyan-200 w-full'>
+        <NextLink href='/' passHref>
+          <LinkBox>
+            {/* <LinkOverlay href='/'> */}
+            NextJS Shop
+            {/* </LinkOverlay> */}
+          </LinkBox>
+        </NextLink>
+
         <InputGroup size='md'>
           <InputLeftAddon>
             <Select w='full' placeholder='All' border='hidden'>
@@ -51,9 +47,8 @@ export default function Navbar() {
             </Select>
           </InputLeftAddon>
           <Input
-            pr='4.5rem'
             placeholder='Search for items...'
-            width='40rem'
+            width='80%'
             variant='filled'
           />
 
@@ -72,11 +67,11 @@ export default function Navbar() {
 
         <ShoppingCartBtn></ShoppingCartBtn>
       </div>
-      <div className='flex flex-row items-center justify-evenly gap-10 p-2 bg-gradient-to-r from-blue-200 to-cyan-200 w-full'>
+      <div className='flex flex-row items-center justify-evenly gap-3 p-2 bg-gradient-to-r from-blue-200 to-cyan-200 w-full'>
         <div>
           <DrawerNav></DrawerNav>
         </div>
-        <div className='display'>
+        <div className='hidden md:block'>
           <ListNavBar></ListNavBar>
         </div>
         <div>

@@ -7,7 +7,7 @@ let isLoggedIn = false;
 
 export default function ProfileBtns() {
   return (
-    <div>
+    <>
       {isLoggedIn ? (
         <></>
       ) : (
@@ -23,6 +23,6 @@ export default function ProfileBtns() {
           <Button>Signup</Button>
         </Box>
       )}
-    </div>
+    </>
   );
 }

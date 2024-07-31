@@ -16,7 +16,7 @@ export default function LcoationModal() {
 
   return (
     <div>
-      <Button onClick={onOpen}>Deliver to [username] + [location]</Button>
+      <Button onClick={onOpen}>Deliver to [location]</Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

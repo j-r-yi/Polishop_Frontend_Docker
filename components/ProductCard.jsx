@@ -7,6 +7,10 @@ import { Heading } from '@chakra-ui/react';
 import { Divider } from '@chakra-ui/react';
 import { Button, ButtonGroup } from '@chakra-ui/react';
 
+const handleAddToCart = function () {
+  localStorage.setItem('product', 'TEST PRODUCT');
+};
+
 export default function ProductCard() {
   return (
     <div>
@@ -32,7 +36,11 @@ export default function ProductCard() {
         <Divider />
         <CardFooter>
           <ButtonGroup spacing='2'>
-            <Button variant='solid' colorScheme='blue'>
+            <Button
+              variant='solid'
+              colorScheme='blue'
+              onClick={handleAddToCart}
+            >
               Buy now
             </Button>
             <Button variant='ghost' colorScheme='blue'>
