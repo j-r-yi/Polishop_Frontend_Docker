@@ -37,8 +37,13 @@ export default function ListNavBar() {
     <div className='flex flex-row gap-5'>
       {listItems.map((curr) => {
         return (
-          <Menu>
-            <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+          <Menu trigger='hover'>
+            <MenuButton
+              trigger='hover'
+              as={Button}
+              bg='transparent'
+              rightIcon={<ChevronDownIcon />}
+            >
               {curr.category}
             </MenuButton>
             <MenuList>
