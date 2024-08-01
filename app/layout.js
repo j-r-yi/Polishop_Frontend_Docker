@@ -28,16 +28,14 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <Providers>
-          <div>
+          <div className='flex flex-col space-between'>
             <Navbar></Navbar>
             <main>{children}</main>
-            <footer></footer>
+            <Footer></Footer>
           </div>
         </Providers>
       </body>
-      <footer>
-        <Footer></Footer>
-      </footer>
+      <footer></footer>
     </html>
   );
 }

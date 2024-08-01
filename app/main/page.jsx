@@ -2,9 +2,5 @@
 import ProductCard from '@/components/ProductCard';
 
 export default function Main() {
-  return (
-    <div>
-      <ProductCard></ProductCard>
-    </div>
-  );
+  return <div className=''></div>;
 }
