@@ -1,7 +1,20 @@
 'use client';
 import { Box } from '@chakra-ui/react';
-import { Button, ButtonGroup } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
 import { Divider } from '@chakra-ui/react';
+import { Icon } from '@chakra-ui/react';
+import { ChevronDownIcon, ChevronRightIcon } from '@chakra-ui/icons';
+import { RxAvatar } from 'react-icons/rx';
+import NextLink from 'next/link';
+import { IoIosLogOut } from 'react-icons/io';
+import { Text } from '@chakra-ui/react';
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuDivider,
+} from '@chakra-ui/react';
 
 let isLoggedIn = false;
 
@@ -9,7 +22,36 @@ export default function ProfileBtns() {
   return (
     <>
       {isLoggedIn ? (
-        <></>
+        <>
+          <Menu direction=''>
+            <MenuButton as={Button} rightIcon={<ChevronDownIcon />} gap='15px'>
+              <Icon as={RxAvatar} boxSize={8}></Icon>
+            </MenuButton>
+            <MenuList>
+              <MenuItem
+                display='flex'
+                flexDirection={'row'}
+                justifyContent={'space-between'}
+                alignItems={'center'}
+                // gap={'10px'}
+              >
+                <Text fontSize='md'>Your Account</Text>
+
+                <Icon as={ChevronRightIcon} boxSize={5}></Icon>
+              </MenuItem>
+              <MenuItem
+                display='flex'
+                flexDirection={'row'}
+                justifyContent={'space-between'}
+                alignItems={'center'}
+                // gap={'10px'}
+              >
+                <Text fontSize='md'>Logout</Text>
+                <Icon as={IoIosLogOut} boxSize={5}></Icon>
+              </MenuItem>
+            </MenuList>
+          </Menu>
+        </>
       ) : (
         <Box
           position='relative'
@@ -18,9 +60,13 @@ export default function ProfileBtns() {
           flex='row'
           border='none'
         >
-          <Button>Login</Button>
+          <NextLink href='/profile/login' passHref>
+            <Button>Login</Button>
+          </NextLink>
           <Divider orientation='vertical' />
-          <Button>Signup</Button>
+          <NextLink href='/profile/signup' passHref>
+            <Button>Signup</Button>
+          </NextLink>
         </Box>
       )}
     </>

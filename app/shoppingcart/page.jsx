@@ -9,11 +9,5 @@ const getCartItems = function () {
 export default function ShoppingCart() {
   const cartItems = getCartItems();
   console.log(cartItems);
-  // return (
-  //   <div>
-  //     {cartItems.map((curr) => {
-  //       return console.log(curr);
-  //     })}
-  //   </div>
-  // );
+  return <div>YOU ARE ON THE SHOPPING CART PAGE</div>;
 }

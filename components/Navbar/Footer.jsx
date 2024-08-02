@@ -4,7 +4,7 @@ import { Text } from '@chakra-ui/react';
 import { Icon } from '@chakra-ui/react';
 import { Input } from '@chakra-ui/react';
 
-import { FaDiscord, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaDiscord, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { AiFillInstagram } from 'react-icons/ai';
 import { RiCustomerService2Fill } from 'react-icons/ri';
 import { GrCertificate } from 'react-icons/gr';
@@ -27,15 +27,15 @@ const footerInfoList = [
   },
   {
     icon: LuPackageCheck,
-    message: 'Delivered with care',
+    message: 'Track Delivery',
   },
   {
     icon: TbTruckDelivery,
-    message: 'Same day delivery',
+    message: 'Same-Day Delivery',
   },
   {
     icon: TbTruckReturn,
-    message: '7 day return',
+    message: '7 Day Return',
   },
 ];
 
@@ -51,7 +51,7 @@ const moreContactList = [
     arialabel: 'discord',
   },
   {
-    icon: FaInstagram,
+    icon: AiFillInstagram,
     link: 'https://www.instagram.com/joshua_.i/',
     arialabel: 'instagram',
   },
@@ -76,15 +76,13 @@ export default function Footer() {
       flexGrow={1}
     >
       <div className='flex flex-row justify-between'>
-        <div>
-          <Text fontSize='md'>
-            We are alway here to help! 24/7 Customer Support
-          </Text>
+        <div className='flex flex-row gap-5'>
+          <Text fontSize='md'>We are alway here to help!</Text>
           <Divider
             orientation='vertical'
             borderWidth='1px'
             borderStyle='solid'
-            color='	#D3D3D3'
+            // color='#5c5c5c'
           />
           <Text fontSize='md'>Contact us at: onlineshop@gmail.com</Text>
         </div>
@@ -102,7 +100,7 @@ export default function Footer() {
           return (
             <div className='flex flex-row gap-4 pl-10 pr-10 items-center justify-center'>
               <Icon as={curr.icon} boxSize={10} />
-              <Text fontSize='xl'>{curr.message}</Text>
+              <Text fontSize='md'>{curr.message}</Text>
             </div>
           );
         })}
@@ -114,7 +112,7 @@ export default function Footer() {
         borderStyle='solid'
         color='	#D3D3D3'
       />
-      <div className='flex flex-row justify-between'>
+      <div className='hidden md:flex flex-row justify-between'>
         <div className='flex flex-row justify-left items-center gap-10'>
           <Text fontSize='xl'>Follow us on:</Text>
           {moreContactList.map((curr) => {
@@ -127,12 +125,13 @@ export default function Footer() {
                   fontSize='20px'
                   border={'none'}
                   as={curr.icon}
+                  boxSize={7}
                 ></IconButton>
               </NextLink>
             );
           })}
         </div>
-        <div className='flex flex-ro items-center'>
+        <div className='flex flex-row items-center'>
           <Input
             // value={value}
             // onChange={handleChange}

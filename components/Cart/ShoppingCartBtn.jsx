@@ -1,5 +1,4 @@
 'use clinet';
-import { LinkBox, LinkOverlay } from '@chakra-ui/react';
 import {
   Popover,
   PopoverTrigger,
