@@ -4,17 +4,24 @@ import { Button, ButtonGroup } from '@chakra-ui/react';
 import { Checkbox, CheckboxGroup } from '@chakra-ui/react';
 import Navbar from '../components/Navbar/Navbar';
 import ProductCard from '../components/ProductCard';
-
-import { Link } from '@chakra-ui/next-js';
+import Footer from '../components/Navbar/Footer';
 
 export default function Home() {
   return (
-    <div className='bg-gray-100'>
-      <ProductCard></ProductCard>
-      <ProductCard></ProductCard>
-      <ProductCard></ProductCard>
-      <ProductCard></ProductCard>
-    </div>
+    <>
+      <div>
+        <Navbar></Navbar>
+      </div>
+      <div className='bg-gray-200'>
+        <ProductCard></ProductCard>
+        <ProductCard></ProductCard>
+        <ProductCard></ProductCard>
+        <ProductCard></ProductCard>
+      </div>
+      <div>
+        <Footer></Footer>
+      </div>
+    </>
   );
 }
 

@@ -3,10 +3,6 @@ import { Inter } from 'next/font/google';
 import '../styles/globals.css';
 import { Providers } from './providers';
 import Home from './page';
-
-import Navbar from '../components/Navbar/Navbar';
-import Footer from '../components/Navbar/Footer';
-
 // const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -28,10 +24,8 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <Providers>
-          <div className='flex flex-col space-between'>
-            <Navbar></Navbar>
+          <div>
             <main>{children}</main>
-            <Footer></Footer>
           </div>
         </Providers>
       </body>
