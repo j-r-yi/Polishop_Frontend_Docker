@@ -35,7 +35,9 @@ export default function ProfileBtns() {
                 alignItems={'center'}
                 // gap={'10px'}
               >
-                <Text fontSize='md'>Your Account</Text>
+                <NextLink href='/profile/account' passHref>
+                  <Text fontSize='md'>Your Account</Text>
+                </NextLink>
 
                 <Icon as={ChevronRightIcon} boxSize={5}></Icon>
               </MenuItem>
@@ -60,11 +62,11 @@ export default function ProfileBtns() {
           flex='row'
           border='none'
         >
-          <NextLink href='/profile/login' passHref>
+          <NextLink href='/login' passHref>
             <Button>Login</Button>
           </NextLink>
           <Divider orientation='vertical' />
-          <NextLink href='/profile/signup' passHref>
+          <NextLink href='/signup' passHref>
             <Button>Signup</Button>
           </NextLink>
         </Box>

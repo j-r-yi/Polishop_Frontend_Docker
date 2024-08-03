@@ -6,6 +6,9 @@ import { Text } from '@chakra-ui/react';
 import { Heading } from '@chakra-ui/react';
 import { Divider } from '@chakra-ui/react';
 import { Button, ButtonGroup } from '@chakra-ui/react';
+import AddToCartBtn from './Cart/AddToCartBtn';
+
+// import AddToCartButton from './Cart/AddToCartBtn';
 
 const handleAddToCart = function () {
   localStorage.setItem('product', 'TEST PRODUCT');
@@ -43,9 +46,7 @@ export default function ProductCard() {
             >
               Buy now
             </Button>
-            <Button variant='ghost' colorScheme='blue'>
-              Add to cart
-            </Button>
+            <AddToCartBtn />
           </ButtonGroup>
         </CardFooter>
       </Card>

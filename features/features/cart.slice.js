@@ -1,4 +1,3 @@
-import { PayloadAction, createSlice, nanoid } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -15,7 +14,9 @@ export const cartSlice = createSlice({
       state.cartItems += action.payload;
     },
     removeFromCart: (state, action) => {},
-    clearCart: (state, action) => {},
+    clearCart: (state, action) => {
+      state.cartItems = 0;
+    },
   },
 });
 

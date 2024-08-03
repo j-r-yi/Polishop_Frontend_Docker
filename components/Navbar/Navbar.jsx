@@ -28,15 +28,10 @@ export default function Navbar() {
   // }
 
   return (
-    // fixed top-0 w-full z-10
-    <div className='flex flex-col justify-center items-center '>
-      <div className='flex flex-col sm:flex-row items-center justify-evenly gap-10 pl-20 pr-20 max-w-full bg-gradient-to-r from-blue-200 to-cyan-200 w-full'>
+    <div className='flex flex-col justify-center items-center w-screen mx-auto'>
+      <div className='flex flex-col sm:flex-row items-center justify-evenly gap-10 pl-20 pr-20 bg-gradient-to-r from-blue-200 to-cyan-200 w-screen'>
         <NextLink href='/' passHref>
-          <LinkBox>
-            {/* <LinkOverlay href='/'> */}
-            NextJS Shop
-            {/* </LinkOverlay> */}
-          </LinkBox>
+          <LinkBox>NextJS Shop</LinkBox>
         </NextLink>
 
         <InputGroup size='md'>
@@ -68,7 +63,7 @@ export default function Navbar() {
 
         <ShoppingCartBtn></ShoppingCartBtn>
       </div>
-      <div className='flex flex-row items-center justify-evenly gap-3 p-2 bg-gradient-to-r from-blue-200 to-cyan-200 w-full'>
+      <div className='flex flex-row items-center justify-evenly gap-3 p-2 bg-gradient-to-r from-blue-200 to-cyan-200 w-screen'>
         <div>
           <DrawerNav></DrawerNav>
         </div>

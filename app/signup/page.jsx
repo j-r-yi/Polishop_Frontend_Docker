@@ -14,40 +14,41 @@ import {
 import { Text } from '@chakra-ui/react';
 import { Input, InputGroup, InputRightElement } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { Link } from '@chakra-ui/react';
 import { Button } from '@chakra-ui/react';
-import { Checkbox, CheckboxGroup } from '@chakra-ui/react';
 
-export default function Login() {
+export default function Signup() {
   const { isOpen, onOpen, onClose } = useDisclosure({ defaultIsOpen: true });
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
-
   return (
     <div>
       <Modal
-        isOpen={isOpen}
+        isOpen={true}
         onClose={onClose}
         blockScrollOnMount={false}
-        motionPreset='slideInBottom'
+        motionPreset='none'
         isCentered={true}
         closeOnEsc={false}
         closeOnOverlayClick={false}
       >
-        <ModalOverlay bg='#E5E7EB' opacity={0.9} />
+        <ModalOverlay bg='#E5E7EB' opacity={1} />
         <ModalContent>
           <ModalHeader>Modal Title</ModalHeader>
+          <NextLink href='/' passHref>
+            <ModalCloseButton />
+          </NextLink>
           <ModalBody display={'flex'} flexDirection={'column'} gap={'2rem'}>
-            <Text>Log In</Text>
-            <Input placeholder='Enter your email' size='md' variant='outline' />
+            <Text>Sign Up</Text>
+            <Input placeholder='Enter a username' size='md' variant='outline' />
+            <Input placeholder='Enter an email' size='md' variant='outline' />
             <InputGroup size='md'>
               <Input
                 pr='4.5rem'
                 type={show ? 'text' : 'password'}
-                placeholder='Enter your password'
+                placeholder='Enter password'
               />
               <InputRightElement width='4.5rem'>
-                <Button h='1.75rem' size='sm' onClick={() => setShow(!show)}>
+                <Button h='1.75rem' size='sm' onClick={handleClick}>
                   {show ? 'Hide' : 'Show'}
                 </Button>
               </InputRightElement>
@@ -57,11 +58,10 @@ export default function Login() {
             <Button colorScheme='blue' mr={3} onClick={() => {}}>
               Log In
             </Button>
-            <Checkbox defaultChecked>Remember me?</Checkbox>
             <div className='flex flex-row items-start gap-5'>
-              <Text size='xs'>Don't have an account yet?</Text>
-              <NextLink href='/profile/signup' passHref>
-                <Link color='teal.500'>Sign Up here</Link>
+              <Text size='xs'>Already have an account?</Text>
+              <NextLink href='/login' passHref>
+                Log in here
               </NextLink>
             </div>
           </ModalFooter>

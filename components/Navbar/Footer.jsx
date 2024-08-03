@@ -71,10 +71,7 @@ const backToTop = function () {
 
 export default function Footer() {
   return (
-    <div
-      className='flex flex-col w-full bg-sky-100 gap-6 pl-20 pr-20 pt-5'
-      flexGrow={1}
-    >
+    <div className='flex flex-col w-screen bg-sky-100 gap-6 pl-20 pr-20 pt-5'>
       <div className='flex flex-row justify-between'>
         <div className='flex flex-row gap-5'>
           <Text fontSize='md'>We are alway here to help!</Text>
@@ -96,9 +93,12 @@ export default function Footer() {
         </div>
       </div>
       <div className='hidden lg:flex flex-row justify-center items-center pt-5 gap-20'>
-        {footerInfoList.map((curr) => {
+        {footerInfoList.map((curr, idx) => {
           return (
-            <div className='flex flex-row gap-4 pl-10 pr-10 items-center justify-center'>
+            <div
+              className='flex flex-row gap-4 pl-10 pr-10 items-center justify-center'
+              key={idx}
+            >
               <Icon as={curr.icon} boxSize={10} />
               <Text fontSize='md'>{curr.message}</Text>
             </div>
@@ -115,9 +115,9 @@ export default function Footer() {
       <div className='hidden md:flex flex-row justify-between'>
         <div className='flex flex-row justify-left items-center gap-10'>
           <Text fontSize='xl'>Follow us on:</Text>
-          {moreContactList.map((curr) => {
+          {moreContactList.map((curr, idx) => {
             return (
-              <NextLink href={curr.link} target='_blank'>
+              <NextLink href={curr.link} target='_blank' key={idx}>
                 <IconButton
                   variant='outline'
                   colorScheme='gray'
