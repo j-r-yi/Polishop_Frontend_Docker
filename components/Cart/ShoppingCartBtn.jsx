@@ -13,6 +13,7 @@ import { border, IconButton, Badge } from '@chakra-ui/react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react';
 import EmptyCart from '../../components/Cart/EmptyCartBtn';
+import { Text } from '@chakra-ui/react';
 
 import { useSelector } from 'react-redux';
 import ClearCartBtn from '../../components/Cart/EmptyCartBtn';
@@ -46,18 +47,24 @@ export default function ShoppingCartBtn() {
             )}
           </div>
         </PopoverTrigger>
-        <PopoverContent>
-          <PopoverHeader>Popover Header</PopoverHeader>
-          <PopoverBody>Popover Body</PopoverBody>
-          <PopoverFooter display='flex'>
-            <NextLink href='/shoppingcart' passHref>
-              <Button variant='solid' colorScheme='blue'>
-                Cart
-              </Button>
-            </NextLink>
-            <ClearCartBtn />
-          </PopoverFooter>
-        </PopoverContent>
+        {cartItems > 0 ? (
+          <PopoverContent>
+            <PopoverHeader>
+              <Text>{cartItems} items in cart</Text>
+              <NextLink href='/shoppingcart' passHref>
+                Go to cart
+              </NextLink>
+            </PopoverHeader>
+            <PopoverBody>Popover Body</PopoverBody>
+            <PopoverFooter display='flex'>
+              <ClearCartBtn />
+            </PopoverFooter>
+          </PopoverContent>
+        ) : (
+          <PopoverContent>
+            <PopoverBody>Shopping Cart Empty</PopoverBody>
+          </PopoverContent>
+        )}
       </Popover>
     </>
   );
