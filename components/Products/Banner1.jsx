@@ -27,7 +27,7 @@ export default function Banner1() {
         paddingBottom: '30px',
         position: 'relative',
       }}
-      className='flex flex-row items-center justify-center w-full'
+      className='flex flex-row items-center justify-center w-full pt-5'
     >
       <Carousel
         additionalTransfrom={0}

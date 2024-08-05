@@ -12,11 +12,12 @@ import NextLink from 'next/link';
 import { border, IconButton, Badge } from '@chakra-ui/react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react';
-import EmptyCart from '../../components/Cart/EmptyCartBtn';
 import { Text } from '@chakra-ui/react';
 
+import EmptyCart from '../../components/Cart/EmptyCartBtn';
 import { useSelector } from 'react-redux';
 import ClearCartBtn from '../../components/Cart/EmptyCartBtn';
+import CartIsEmpty from './CartIsEmpty';
 
 const handleClearCart = function () {
   localStorage.clear();
@@ -51,7 +52,7 @@ export default function ShoppingCartBtn() {
           <PopoverContent>
             <PopoverHeader>
               <Text>{cartItems} items in cart</Text>
-              <NextLink href='/shoppingcart' passHref>
+              <NextLink href='/cart' passHref>
                 Go to cart
               </NextLink>
             </PopoverHeader>
@@ -62,7 +63,9 @@ export default function ShoppingCartBtn() {
           </PopoverContent>
         ) : (
           <PopoverContent>
-            <PopoverBody>Shopping Cart Empty</PopoverBody>
+            <PopoverBody>
+              <CartIsEmpty></CartIsEmpty>
+            </PopoverBody>
           </PopoverContent>
         )}
       </Popover>

@@ -8,8 +8,10 @@ import {
   ModalBody,
   ModalCloseButton,
 } from '@chakra-ui/react';
-import { Button, ButtonGroup } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
 import { useDisclosure } from '@chakra-ui/react';
+import { Input } from '@chakra-ui/react';
+import Map from './Map';
 
 export default function LcoationModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -18,18 +20,26 @@ export default function LcoationModal() {
     <div>
       <Button onClick={onOpen}>Deliver to [location]</Button>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} size='5xl'>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader>Choose your location</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>Some Info</ModalBody>
+          <ModalBody>
+            <div className='border rounded-sm'>Your current location</div>
+            <Map></Map>
+            <div className='flex flex-row items-center justify-center mt-5'>
+              <Input placeholder='medium size' size='md' />
+              <Button colorScheme='teal' size='md'>
+                Apply
+              </Button>
+            </div>
+          </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme='blue' mr={3} onClick={onClose}>
-              Close
+            <Button colorScheme='yellow' mr={3} onClick={onClose}>
+              Done
             </Button>
-            <Button variant='ghost'>Secondary Action</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
