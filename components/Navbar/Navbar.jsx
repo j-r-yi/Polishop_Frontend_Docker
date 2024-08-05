@@ -31,7 +31,7 @@ export default function Navbar() {
     <div className='flex flex-col justify-center items-center w-screen mx-auto'>
       <div className='flex flex-col sm:flex-row items-center justify-evenly gap-10 pl-20 pr-20 bg-gradient-to-r from-blue-200 to-cyan-200 w-screen pb-3'>
         <NextLink href='/' passHref>
-          <LinkBox>NextJS Shop</LinkBox>
+          <LinkBox>Poli Shop</LinkBox>
         </NextLink>
 
         <InputGroup size='md'>

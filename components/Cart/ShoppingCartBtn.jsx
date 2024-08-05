@@ -51,10 +51,12 @@ export default function ShoppingCartBtn() {
         {cartItems > 0 ? (
           <PopoverContent>
             <PopoverHeader>
-              <Text>{cartItems} items in cart</Text>
-              <NextLink href='/cart' passHref>
-                Go to cart
-              </NextLink>
+              <div className='flex flex-row justify-between items-center'>
+                <Text>{cartItems} items in cart</Text>
+                <NextLink href='/cart' passHref>
+                  <Text color='blue'>Go to cart</Text>
+                </NextLink>
+              </div>
             </PopoverHeader>
             <PopoverBody>Popover Body</PopoverBody>
             <PopoverFooter display='flex'>

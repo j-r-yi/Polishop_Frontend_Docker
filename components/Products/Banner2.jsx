@@ -43,7 +43,7 @@ export default function Banner2() {
           <Image
             objectFit='cover'
             borderTopRightRadius={'5%'}
-            src='https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+            src='https://images.pexels.com/photos/3850271/pexels-photo-3850271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
             alt='Clothing'
             fallbackSrc='https://via.placeholder.com/150'
           />
@@ -52,7 +52,7 @@ export default function Banner2() {
           <Image
             objectFit='cover'
             borderBottomLeftRadius={'5%'}
-            src='https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+            src='https://images.pexels.com/photos/2084829/pexels-photo-2084829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
             alt='Clothing'
             fallbackSrc='https://via.placeholder.com/150'
           />
@@ -61,13 +61,13 @@ export default function Banner2() {
           <Image
             objectFit='cover'
             borderBottomRightRadius={'5%'}
-            src='https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+            src='https://images.pexels.com/photos/577769/pexels-photo-577769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
             alt='Clothing'
             fallbackSrc='https://via.placeholder.com/150'
           />
         </NextLink>
         {/* onset-1/2  top-1/2 left-1/2*/}
-        <div className='sm:hidden md:block absolute top-1/2 left-1/2 z-100 w-24 h-24 bg-gray-200 rounded-full transform -translate-x-1/2 -translate-y-1/2 mt-1'></div>
+        <div className='sm:hidden md:block absolute top-1/2 left-1/2 z-100 w-32 h-32 bg-gray-200 rounded-full transform -translate-x-1/2 -translate-y-1/2'></div>
       </div>
     </div>
   );
