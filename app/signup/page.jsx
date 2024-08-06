@@ -15,6 +15,8 @@ import { Text } from '@chakra-ui/react';
 import { Input, InputGroup, InputRightElement } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { Button } from '@chakra-ui/react';
+import { CloseIcon } from '@chakra-ui/icons';
+import { IconButton } from '@chakra-ui/react';
 
 export default function Signup() {
   const { isOpen, onOpen, onClose } = useDisclosure({ defaultIsOpen: true });
@@ -33,12 +35,14 @@ export default function Signup() {
       >
         <ModalOverlay bg='#E5E7EB' opacity={1} />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
-          <NextLink href='/' passHref>
-            <ModalCloseButton />
-          </NextLink>
+          <div className='flex flex-row justify-between items-center pr-5 whitespace-nowrap'>
+            <ModalHeader>Sign Up</ModalHeader>
+            <NextLink href='/' passHref>
+              <IconButton onClick={onClose} icon={<CloseIcon />}></IconButton>
+            </NextLink>
+          </div>
           <ModalBody display={'flex'} flexDirection={'column'} gap={'2rem'}>
-            <Text>Sign Up</Text>
+            {/* <Text>Sign Up</Text> */}
             <Input placeholder='Enter a username' size='md' variant='outline' />
             <Input placeholder='Enter an email' size='md' variant='outline' />
             <InputGroup size='md'>
@@ -61,7 +65,9 @@ export default function Signup() {
             <div className='flex flex-row items-start gap-5'>
               <Text size='xs'>Already have an account?</Text>
               <NextLink href='/login' passHref>
-                Log in here
+                <Text size='xs' color='blue'>
+                  Log in here
+                </Text>
               </NextLink>
             </div>
           </ModalFooter>

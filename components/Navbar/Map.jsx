@@ -1,19 +1,35 @@
 'use client';
-import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet';
-import { useEffect, useState } from 'react';
-import { Button } from '@chakra-ui/react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import {
+  MapContainer,
+  TileLayer,
+  useMap,
+  Marker,
+  Popup,
+  useMapEvent,
+} from 'react-leaflet';
+import { Button, Text } from '@chakra-ui/react';
 import { updateLocation } from '../../features/features/location.slice';
+import { useEffect, useState, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 function UpdateMapView({ latitude, longitude }) {
   const map = useMap();
 
   useEffect(() => {
     if (latitude && longitude) {
-      map.setView([latitude, longitude], map.getZoom());
+      map.flyTo([latitude, longitude], map.getZoom());
     }
   }, [latitude, longitude, map]);
+
+  return null;
+}
+
+function SetViewOnClick({ animateRef }) {
+  const map = useMapEvent('click', (e) => {
+    map.setView(e.latlng, map.getZoom(), {
+      animate: animateRef.current || false,
+    });
+  });
 
   return null;
 }
@@ -22,13 +38,15 @@ export default function Map() {
   const latitude = useSelector((state) => state.location.latitude);
   const longitude = useSelector((state) => state.location.longitude);
   const dispatch = useDispatch();
-  // const defaultCoords = { latitude: 51.505, longitude: -0.09 };
-  // const [coords, setCoords] = useState(defaultCoords);
+  const animateRef = useRef(false);
   let coords;
 
+  // Async function to get user location with geolocation api
   const getPositionAsync = async function () {
     return new Promise((resolve, reject) => {
+      // If browser supports geolocation api
       if (navigator.geolocation) {
+        // Get current location
         navigator.geolocation.getCurrentPosition(resolve, reject);
       } else {
         reject(new Error('Geolocation is not supported by this browser.'));
@@ -36,11 +54,13 @@ export default function Map() {
     });
   };
 
+  // Executes when clicking on 'your location' button
   const handleClick = async function () {
     try {
+      // Awaits user location
       const position = await getPositionAsync();
       const { latitude, longitude } = position.coords;
-      // setCoords({ latitude: latitude, longitude: longitude });
+      // Updates global state (redux)
       dispatch(updateLocation({ latitude, longitude }));
       coords = { latitude, longitude };
     } catch (error) {
@@ -48,36 +68,45 @@ export default function Map() {
     }
   };
 
-  // const { latitude, longitude } = coords;
-
+  // Debugging
   useEffect(() => {
-    console.log('Updated Coordinates:', { latitude, longitude });
+    console.log('Updated Coordinates:', latitude, longitude);
   }, [latitude, longitude]);
 
   return (
     <div id='map'>
-      <div>
-        <Button className='border rounded-sm' onClick={handleClick}>
-          Your current location
+      <div className='mb-3'>
+        <Button
+          className='border rounded-sm'
+          onClick={handleClick}
+          colorScheme={'teal'}
+        >
+          Deliver to your current location
         </Button>
       </div>
       <MapContainer
+        // Map set to default value from global state
         center={[latitude, longitude]}
         zoom={13}
         scrollWheelZoom={true}
         style={{ height: '300px', width: '100%' }}
       >
-        <TileLayer
+        {/* <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+        /> */}
+        <TileLayer
+          attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url='https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png'
         />
+        <SetViewOnClick animateRef={animateRef} />
         <Marker position={[latitude, longitude]}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
+          <Popup>Delivery to this location</Popup>
         </Marker>
+        // Rerenders map / updates map based on new location
         <UpdateMapView latitude={latitude} longitude={longitude} />
       </MapContainer>
+      <Text>Deliver to: </Text>
     </div>
   );
 }

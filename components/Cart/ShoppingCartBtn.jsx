@@ -25,6 +25,7 @@ const handleClearCart = function () {
 
 export default function ShoppingCartBtn() {
   const cartItems = useSelector((state) => state.cart.cartItems);
+  const cartCost = useSelector((state) => state.cart.totalPrice);
 
   return (
     <>
@@ -49,7 +50,7 @@ export default function ShoppingCartBtn() {
           </div>
         </PopoverTrigger>
         {cartItems > 0 ? (
-          <PopoverContent>
+          <PopoverContent width={'500px'} height={'300px'}>
             <PopoverHeader>
               <div className='flex flex-row justify-between items-center'>
                 <Text>{cartItems} items in cart</Text>
@@ -59,12 +60,15 @@ export default function ShoppingCartBtn() {
               </div>
             </PopoverHeader>
             <PopoverBody>Popover Body</PopoverBody>
-            <PopoverFooter display='flex'>
-              <ClearCartBtn />
+            <PopoverFooter>
+              <div className='flex flex-row items-center justify-between'>
+                <Text>Current Cart Cost: ${cartCost}</Text>
+                <ClearCartBtn />
+              </div>
             </PopoverFooter>
           </PopoverContent>
         ) : (
-          <PopoverContent>
+          <PopoverContent width={'400px'} height={'200px'}>
             <PopoverBody>
               <CartIsEmpty></CartIsEmpty>
             </PopoverBody>
