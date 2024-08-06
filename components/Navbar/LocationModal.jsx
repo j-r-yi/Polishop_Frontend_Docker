@@ -10,8 +10,10 @@ import {
 } from '@chakra-ui/react';
 import { Button } from '@chakra-ui/react';
 import { useDisclosure } from '@chakra-ui/react';
+import { useState, useEffect } from 'react';
 import { Input } from '@chakra-ui/react';
 import Map from './Map';
+import { getCurrent } from '@tauri-apps/api/window';
 
 export default function LcoationModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -26,7 +28,6 @@ export default function LcoationModal() {
           <ModalHeader>Choose your location</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <div className='border rounded-sm'>Your current location</div>
             <Map></Map>
             <div className='flex flex-row items-center justify-center mt-5'>
               <Input placeholder='medium size' size='md' />

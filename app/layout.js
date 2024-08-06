@@ -6,6 +6,8 @@ import Home from './page';
 // const inter = Inter({ subsets: ["latin"] });
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Navbar/Footer';
+// import 'leaflet/dist/leaflet.css';
+// import '../styles/globals.css';
 
 export const metadata = {
   title: 'NextJS Online Shop',
