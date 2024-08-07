@@ -6,11 +6,11 @@ export default function AccountLayout({ children }) {
   return (
     <>
       {isLoggedIn ? (
-        <div className='flex flex-row items-center justify-center'>
-          <div className='flex flex-grow'>
+        <div className='flex flex-row items-center justify-center gap-5 py-10'>
+          <div className='flex border-solid border-2'>
             <AccountSideBar></AccountSideBar>
           </div>
-          <div className='inline-block max-w-lg text-center justify-center flex-grow'>
+          <div className='inline-block text-center justify-center w-[80%] border-solid border-2'>
             {children}
           </div>
         </div>
