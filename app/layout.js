@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
             <header>
               <Navbar></Navbar>
             </header>
-            <main className='bg-gray-200'>{children}</main>
+            <main className='bg-gray-100'>{children}</main>
             <footer>
               <Footer></Footer>
             </footer>

@@ -73,17 +73,19 @@ const backToTop = function () {
 
 export default function Footer() {
   return (
-    <div className='flex flex-col w-full bg-sky-100 gap-6 pl-20 pr-20 pt-5'>
+    <div className='flex flex-col w-full bg-sky-100 gap-5 pl-20 pr-20 pt-5'>
       <div className='flex flex-row justify-between'>
-        <div className='flex flex-row gap-5'>
+        <div className='flex flex-row gap-5 items-center justify-center'>
           <Text fontSize='md'>We are alway here to help!</Text>
           <Divider
             orientation='vertical'
             borderWidth='1px'
             borderStyle='solid'
+            borderColor={'gray'}
           />
           <Text fontSize='md'>Contact us at: polishop@gmail.com</Text>
         </div>
+
         <div>
           <Button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -93,7 +95,13 @@ export default function Footer() {
           </Button>
         </div>
       </div>
-      <div className='hidden lg:flex flex-row justify-center items-center pt-5 gap-20'>
+      <Divider
+        orientation='horizontal'
+        borderWidth='1px'
+        borderStyle='solid'
+        borderColor={'gray'}
+      />
+      <div className='hidden lg:flex flex-row justify-center items-center py-3 gap-20'>
         {footerInfoList.map((curr, idx) => {
           return (
             <div
@@ -111,6 +119,7 @@ export default function Footer() {
         borderWidth='1px'
         borderStyle='solid'
         color='	#D3D3D3'
+        borderColor={'gray'}
       />
       <div className='hidden md:flex flex-row justify-between'>
         <div className='flex flex-row justify-left items-center gap-10'>
@@ -141,13 +150,7 @@ export default function Footer() {
           <Button>Submit</Button>
         </div>
       </div>
-      <Divider
-        orientation='horizontal'
-        borderWidth='1px'
-        borderStyle='solid'
-        color='	#D3D3D3'
-      />
-      <div className='pb-10'>
+      <div className='pb-5'>
         <Text as='b'>
           Quality Products, Exceptional Service, Secure Shopping
         </Text>

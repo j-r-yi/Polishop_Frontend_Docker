@@ -1,9 +1,11 @@
 // 'use client';
 
+import { Box, Container } from '@chakra-ui/react';
+
 export default function Favorites() {
   return (
-    <>
-      <div className=''>FAVORITES</div>
-    </>
+    <Box backgroundColor={'white'}>
+      <>Favorites</>
+    </Box>
   );
 }
