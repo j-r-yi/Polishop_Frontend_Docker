@@ -14,6 +14,8 @@ import {
 } from '@chakra-ui/react';
 import AddToCartBtn from './Cart/AddToCartBtn';
 
+import QuantityAdjuster from './Products/QuantityAdjuster';
+
 // import AddToCartButton from './Cart/AddToCartBtn';
 
 const handleAddToCart = function () {
@@ -38,6 +40,9 @@ export default function ProductCard() {
   return (
     <div>
       <Card maxW='sm'>
+        <CardHeader>
+          <QuantityAdjuster></QuantityAdjuster>
+        </CardHeader>
         <CardBody>
           <Image src={product.img} alt={product.alt} borderRadius='lg' />
           <Stack mt='6' spacing='3'>

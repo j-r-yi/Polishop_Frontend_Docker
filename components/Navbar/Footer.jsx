@@ -29,11 +29,11 @@ const footerInfoList = [
   },
   {
     icon: LuPackageCheck,
-    message: 'Track Delivery',
+    message: 'Delivery Tracking',
   },
   {
     icon: TbTruckDelivery,
-    message: 'Same-Day Delivery',
+    message: 'Fast Delivery',
   },
   {
     icon: TbTruckReturn,
@@ -82,7 +82,7 @@ export default function Footer() {
             borderWidth='1px'
             borderStyle='solid'
           />
-          <Text fontSize='md'>Contact us at: onlineshop@gmail.com</Text>
+          <Text fontSize='md'>Contact us at: polishop@gmail.com</Text>
         </div>
         <div>
           <Button
@@ -152,9 +152,9 @@ export default function Footer() {
           Quality Products, Exceptional Service, Secure Shopping
         </Text>
         <Text>
-          NextJS shop is your premier online shopping partner, offering a wide
+          Poli Shop is your premier online shopping partner, offering a wide
           range of carefully selected products, competitive pricing, and a
-          customer-centric approach. We strive to make every shopping experience
+          customer-centric system. We strive to make your shopping experience
           with us a delight.
         </Text>
       </div>

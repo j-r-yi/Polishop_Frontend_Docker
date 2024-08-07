@@ -1,9 +1,12 @@
-export default function Main({ children }) {
+import AccountSideBar from '../../components/Account/AccountSideBar';
+
+export default function AccountLayout({ children }) {
   return (
-    <section className='flex flex-col items-center justify-center gap-4 py-8 md:py-10'>
+    <div className='flex flex-row'>
+      <AccountSideBar></AccountSideBar>
       <div className='inline-block max-w-lg text-center justify-center'>
         {children}
       </div>
-    </section>
+    </div>
   );
 }

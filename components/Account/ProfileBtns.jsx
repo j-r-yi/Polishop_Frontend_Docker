@@ -16,7 +16,7 @@ import {
   MenuDivider,
 } from '@chakra-ui/react';
 
-let isLoggedIn = false;
+let isLoggedIn = true;
 
 export default function ProfileBtns() {
   return (
@@ -35,7 +35,7 @@ export default function ProfileBtns() {
                 alignItems={'center'}
                 // gap={'10px'}
               >
-                <NextLink href='/profile/account' passHref>
+                <NextLink href='/account' passHref>
                   <Text fontSize='md'>Your Account</Text>
                 </NextLink>
 
@@ -62,11 +62,11 @@ export default function ProfileBtns() {
           flex='row'
           border='none'
         >
-          <NextLink href='/login' passHref>
+          <NextLink href='/account/login' passHref>
             <Button>Login</Button>
           </NextLink>
           <Divider orientation='vertical' />
-          <NextLink href='/signup' passHref>
+          <NextLink href='/account/signup' passHref>
             <Button>Signup</Button>
           </NextLink>
         </Box>

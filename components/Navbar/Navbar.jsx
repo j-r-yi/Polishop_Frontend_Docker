@@ -22,11 +22,6 @@ import LocationModal from '../Navbar/LocationModal';
 import ProfileBtns from '../Account/ProfileBtns';
 
 export default function Navbar() {
-  // function handleShoppingCartClick() {
-  //   return (
-  //   );
-  // }
-
   return (
     <div className='flex flex-col justify-center items-center mx-auto'>
       <div className='flex flex-col sm:flex-row items-center justify-evenly gap-10 pl-20 pr-20 bg-gradient-to-r from-blue-200 to-cyan-200 w-full pb-3'>

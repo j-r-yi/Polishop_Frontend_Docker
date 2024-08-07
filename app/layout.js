@@ -10,7 +10,7 @@ import Footer from '../components/Navbar/Footer';
 // import '../styles/globals.css';
 
 export const metadata = {
-  title: 'NextJS Online Shop',
+  title: 'Poli Online Shop',
   description: 'An Online Shop Made with NextJS',
 };
 

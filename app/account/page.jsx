@@ -1,11 +1,9 @@
 'use client';
-// import Navbar from '../../../components/Navbar/Navbar';
-// import Footer from '../../../components/Navbar/Footer';
 
-export default function Account() {
+export default function AccountPage() {
   return (
-    // <div className='flex flex-col w-screen'>
-    <div>YOU ARE ON YOUR ACCOUNT PAGE</div>
-    // </div>
+    <>
+      <div>YOU ARE ON THE ACCOUNT PAGE</div>
+    </>
   );
 }
