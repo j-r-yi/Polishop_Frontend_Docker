@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../../features/features/cart.slice';
-import { Button, ButtonGroup } from '@chakra-ui/react';
+import { addToCart } from '../../features/slices/cart.slice';
+import { Button } from '@chakra-ui/react';
 
 export default function AddToCartBtn({ productDetails }) {
   // Uses redux dispatch

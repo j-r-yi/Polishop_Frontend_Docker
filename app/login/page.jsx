@@ -2,6 +2,9 @@
 import { useDisclosure } from '@chakra-ui/react';
 import { useState } from 'react';
 
+import NextLink from 'next/link';
+import { CloseIcon } from '@chakra-ui/icons';
+
 import {
   Modal,
   ModalOverlay,
@@ -9,15 +12,14 @@ import {
   ModalHeader,
   ModalFooter,
   ModalBody,
-  ModalCloseButton,
+  Text,
+  Input,
+  InputGroup,
+  InputRightElement,
+  Button,
+  Checkbox,
+  IconButton,
 } from '@chakra-ui/react';
-import { Text } from '@chakra-ui/react';
-import { Input, InputGroup, InputRightElement } from '@chakra-ui/react';
-import NextLink from 'next/link';
-import { Button } from '@chakra-ui/react';
-import { Checkbox } from '@chakra-ui/react';
-import { CloseIcon } from '@chakra-ui/icons';
-import { IconButton } from '@chakra-ui/react';
 
 export default function Login() {
   const { isOpen, onOpen, onClose } = useDisclosure({ defaultIsOpen: true });

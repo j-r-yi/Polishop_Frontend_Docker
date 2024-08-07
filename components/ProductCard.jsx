@@ -1,11 +1,17 @@
 'use client';
-import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react';
-import { Image } from '@chakra-ui/react';
-import { Stack, HStack, VStack } from '@chakra-ui/react';
-import { Text } from '@chakra-ui/react';
-import { Heading } from '@chakra-ui/react';
-import { Divider } from '@chakra-ui/react';
-import { Button, ButtonGroup } from '@chakra-ui/react';
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Image,
+  Stack,
+  Text,
+  Heading,
+  Divider,
+  Button,
+  ButtonGroup,
+} from '@chakra-ui/react';
 import AddToCartBtn from './Cart/AddToCartBtn';
 
 // import AddToCartButton from './Cart/AddToCartBtn';

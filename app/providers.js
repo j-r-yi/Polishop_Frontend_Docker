@@ -3,12 +3,12 @@
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import store from '../features/store';
 import { Provider } from 'react-redux';
-// import { theme } from '../components/theme.jsx';
+import { theme } from '../theme';
 
 export function Providers({ children }) {
   return (
     <Provider store={store}>
-      <ChakraProvider>{children}</ChakraProvider>
+      <ChakraProvider theme={theme}>{children}</ChakraProvider>
     </Provider>
   );
 }

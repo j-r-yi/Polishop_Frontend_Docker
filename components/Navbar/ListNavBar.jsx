@@ -1,17 +1,7 @@
 'use client';
-import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
-} from '@chakra-ui/react';
-import { Button, ButtonGroup } from '@chakra-ui/react';
+import { Menu, MenuButton, MenuList, MenuItem, Button } from '@chakra-ui/react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
-import { currentMonitor } from '@tauri-apps/api/window';
+// import { currentMonitor } from '@tauri-apps/api/window';
 
 const listItems = [
   {

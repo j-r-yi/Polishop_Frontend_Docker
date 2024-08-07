@@ -1,8 +1,12 @@
 'use client';
-import { Divider } from '@chakra-ui/react';
-import { Text } from '@chakra-ui/react';
-import { Icon } from '@chakra-ui/react';
-import { Input } from '@chakra-ui/react';
+import {
+  Divider,
+  Text,
+  Icon,
+  Input,
+  IconButton,
+  Button,
+} from '@chakra-ui/react';
 
 import { FaDiscord, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { AiFillInstagram } from 'react-icons/ai';
@@ -10,11 +14,9 @@ import { RiCustomerService2Fill } from 'react-icons/ri';
 import { GrCertificate } from 'react-icons/gr';
 import { TbTruckDelivery, TbTruckReturn } from 'react-icons/tb';
 import { LuPackageCheck } from 'react-icons/lu';
+import { ChevronUpIcon } from '@chakra-ui/icons';
 
 import NextLink from 'next/link';
-import { IconButton } from '@chakra-ui/react';
-import { ChevronUpIcon } from '@chakra-ui/icons';
-import { Button } from '@chakra-ui/react';
 
 const footerInfoList = [
   {
@@ -71,7 +73,7 @@ const backToTop = function () {
 
 export default function Footer() {
   return (
-    <div className='flex flex-col w-screen bg-sky-100 gap-6 pl-20 pr-20 pt-5'>
+    <div className='flex flex-col w-full bg-sky-100 gap-6 pl-20 pr-20 pt-5'>
       <div className='flex flex-row justify-between'>
         <div className='flex flex-row gap-5'>
           <Text fontSize='md'>We are alway here to help!</Text>
@@ -79,7 +81,6 @@ export default function Footer() {
             orientation='vertical'
             borderWidth='1px'
             borderStyle='solid'
-            // color='#5c5c5c'
           />
           <Text fontSize='md'>Contact us at: onlineshop@gmail.com</Text>
         </div>
@@ -107,7 +108,6 @@ export default function Footer() {
       </div>
       <Divider
         orientation='horizontal'
-        // size='10px'
         borderWidth='1px'
         borderStyle='solid'
         color='	#D3D3D3'
@@ -143,7 +143,6 @@ export default function Footer() {
       </div>
       <Divider
         orientation='horizontal'
-        // size='10px'
         borderWidth='1px'
         borderStyle='solid'
         color='	#D3D3D3'

@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { clearCart } from '../../features/features/cart.slice';
+import { clearCart } from '../../features/slices/cart.slice';
 import { border, IconButton } from '@chakra-ui/react';
 import { Button } from '@chakra-ui/react';
 

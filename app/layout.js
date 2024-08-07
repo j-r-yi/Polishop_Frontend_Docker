@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import '../styles/globals.css';
 import { Providers } from './providers';
 import Home from './page';
-// const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ['latin'] });
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Navbar/Footer';
 // import 'leaflet/dist/leaflet.css';
@@ -16,7 +16,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en'>
+    <html lang='en' className='Inter'>
       <head>
         <link rel='icon' href='/favicon.ico' sizes='any' />
         <link
@@ -41,13 +41,13 @@ export default function RootLayout({ children }) {
       <body>
         <Providers>
           <div>
-            <div>
+            <header>
               <Navbar></Navbar>
-            </div>
-            <main>{children}</main>
-            <div>
+            </header>
+            <main className='bg-gray-200'>{children}</main>
+            <footer>
               <Footer></Footer>
-            </div>
+            </footer>
           </div>
         </Providers>
       </body>

@@ -19,30 +19,28 @@ export default function ShoppingCart() {
   // const cartItems = getCartItems();
   // console.log(cartItems);
   return (
-    <>
-      <div>
-        <Text fontSize='4xl'>Shopping Cart</Text>
-        <div className='flex flex-row gap-10'>
-          <div className='flex-5'>
-            {cartItems > 0 ? (
+    <div className=''>
+      <Text fontSize='4xl'>Shopping Cart</Text>
+      <div className='flex flex-row gap-10'>
+        <div className='flex-5'>
+          {cartItems > 0 ? (
+            <>
               <>
-                <>
-                  <ProductCardDetailed></ProductCardDetailed>
-                </>
+                <ProductCardDetailed></ProductCardDetailed>
               </>
-            ) : (
-              <>
-                <CartIsEmpty></CartIsEmpty>
-              </>
-            )}
-          </div>
-          <div className='flex-2'>
-            <CheckoutSummary
-              cartInfo={{ cartNumItems: cartItems, cartCost: 0 }}
-            ></CheckoutSummary>
-          </div>
+            </>
+          ) : (
+            <>
+              <CartIsEmpty></CartIsEmpty>
+            </>
+          )}
+        </div>
+        <div className='flex-2'>
+          <CheckoutSummary
+            cartInfo={{ cartNumItems: cartItems, cartCost: 0 }}
+          ></CheckoutSummary>
         </div>
       </div>
-    </>
+    </div>
   );
 }

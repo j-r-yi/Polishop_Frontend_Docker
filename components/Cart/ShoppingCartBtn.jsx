@@ -1,4 +1,6 @@
 'use client';
+import NextLink from 'next/link';
+
 import {
   Popover,
   PopoverTrigger,
@@ -6,13 +8,14 @@ import {
   PopoverHeader,
   PopoverBody,
   PopoverFooter,
+  Button,
+  border,
+  IconButton,
+  Badge,
+  Text,
 } from '@chakra-ui/react';
-import { Button } from '@chakra-ui/react';
-import NextLink from 'next/link';
-import { border, IconButton, Badge } from '@chakra-ui/react';
+
 import { FaShoppingCart } from 'react-icons/fa';
-import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react';
-import { Text } from '@chakra-ui/react';
 
 import EmptyCart from '../../components/Cart/EmptyCartBtn';
 import { useSelector } from 'react-redux';

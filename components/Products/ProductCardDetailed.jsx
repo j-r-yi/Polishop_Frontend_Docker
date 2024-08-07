@@ -1,8 +1,13 @@
-import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react';
-import { Button, ButtonGroup } from '@chakra-ui/react';
-import { Heading } from '@chakra-ui/react';
-import { Image } from '@chakra-ui/react';
-import { Text } from '@chakra-ui/react';
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Button,
+  Heading,
+  Image,
+  Text,
+} from '@chakra-ui/react';
 
 export default function ProductCardDetailed() {
   return (

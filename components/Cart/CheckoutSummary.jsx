@@ -1,8 +1,14 @@
-import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react';
-import { Stack, HStack, VStack, StackDivider } from '@chakra-ui/react';
-import { Box } from '@chakra-ui/react';
-import { Heading } from '@chakra-ui/react';
-import { Text } from '@chakra-ui/react';
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Stack,
+  StackDivider,
+  Box,
+  Heading,
+  Text,
+} from '@chakra-ui/react';
 
 export default function CheckoutSummary({ cartInfo }) {
   return (

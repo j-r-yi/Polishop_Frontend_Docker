@@ -1,7 +1,6 @@
 'use client';
-import { Link } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { border, IconButton } from '@chakra-ui/react';
+
 import { SearchIcon } from '@chakra-ui/icons';
 import {
   Input,
@@ -10,10 +9,11 @@ import {
   InputRightAddon,
   InputLeftElement,
   InputLeftAddon,
+  IconButton,
+  Select,
+  Divider,
+  LinkBox,
 } from '@chakra-ui/react';
-import { Select } from '@chakra-ui/react';
-import { Divider } from '@chakra-ui/react';
-import { LinkBox, LinkOverlay } from '@chakra-ui/react';
 
 import ListNavBar from './ListNavBar';
 import DrawerNav from './DrawerNav';
@@ -28,8 +28,8 @@ export default function Navbar() {
   // }
 
   return (
-    <div className='flex flex-col justify-center items-center w-screen mx-auto'>
-      <div className='flex flex-col sm:flex-row items-center justify-evenly gap-10 pl-20 pr-20 bg-gradient-to-r from-blue-200 to-cyan-200 w-screen pb-3'>
+    <div className='flex flex-col justify-center items-center mx-auto'>
+      <div className='flex flex-col sm:flex-row items-center justify-evenly gap-10 pl-20 pr-20 bg-gradient-to-r from-blue-200 to-cyan-200 w-full pb-3'>
         <NextLink href='/' passHref>
           <LinkBox>Poli Shop</LinkBox>
         </NextLink>
@@ -63,7 +63,7 @@ export default function Navbar() {
 
         <ShoppingCartBtn></ShoppingCartBtn>
       </div>
-      <div className='flex flex-row items-center justify-evenly gap-3 p-2 bg-gradient-to-r from-blue-200 to-cyan-200 w-screen pb-3'>
+      <div className='flex flex-row items-center justify-evenly gap-3 p-2 bg-gradient-to-r from-blue-200 to-cyan-200 w-full pb-3'>
         <div>
           <DrawerNav></DrawerNav>
         </div>
