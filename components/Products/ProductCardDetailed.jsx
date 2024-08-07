@@ -13,8 +13,8 @@ export default function ProductCardDetailed() {
   return (
     <>
       <Card
+        // maxW='full'
         direction={{ base: 'column', sm: 'row' }}
-        overflow='hidden'
         variant='outline'
       >
         <Image

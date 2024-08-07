@@ -71,7 +71,7 @@ export default function ShoppingCartBtn() {
             </PopoverFooter>
           </PopoverContent>
         ) : (
-          <PopoverContent width={'400px'} height={'200px'}>
+          <PopoverContent width={'500px'} height={'300px'}>
             <PopoverBody>
               <CartIsEmpty></CartIsEmpty>
             </PopoverBody>

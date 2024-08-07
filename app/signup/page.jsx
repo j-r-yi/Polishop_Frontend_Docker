@@ -63,7 +63,7 @@ export default function Signup() {
           </ModalBody>
           <ModalFooter display={'flex'} flexDirection={'column'} gap={'2rem'}>
             <Button colorScheme='blue' mr={3} onClick={() => {}}>
-              Log In
+              Sign Up
             </Button>
             <div className='flex flex-row items-start gap-5'>
               <Text size='xs'>Already have an account?</Text>

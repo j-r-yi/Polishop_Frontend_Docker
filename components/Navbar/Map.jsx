@@ -39,6 +39,7 @@ export default function Map() {
   const longitude = useSelector((state) => state.location.longitude);
   const dispatch = useDispatch();
   const animateRef = useRef(false);
+  const zoomLevel = 13;
   let coords;
 
   // Async function to get user location with geolocation api
@@ -87,7 +88,7 @@ export default function Map() {
       <MapContainer
         // Map set to default value from global state
         center={[latitude, longitude]}
-        zoom={13}
+        zoom={18}
         scrollWheelZoom={true}
         style={{ height: '300px', width: '100%' }}
       >
