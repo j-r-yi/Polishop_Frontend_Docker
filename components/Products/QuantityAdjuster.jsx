@@ -8,17 +8,34 @@ import {
 } from '@chakra-ui/react';
 import { AddIcon, MinusIcon, DeleteIcon } from '@chakra-ui/icons';
 
+import { useDispatch } from 'react-redux';
+import {
+  increment,
+  decrement,
+  deleteFromCart,
+} from '../../features/slices/cart.slice';
+
 import AddToCartBtn from '../Cart/AddToCartBtn';
 
-const handleAdd = function () {
-  return;
-};
-
-const handleMinus = function () {
-  return;
-};
-
 export default function QuantityAdjuster({ product }) {
+  const dispatch = useDispatch();
+  // console.log('This is a print statement', product);
+
+  const handleAdd = function () {
+    // console.log('THis is a print', product);
+    dispatch(increment({ productId: product.productId, price: product.price }));
+  };
+
+  const handleMinus = function () {
+    dispatch(decrement({ productId: product.productId, price: product.price }));
+  };
+
+  const handleDelete = function () {
+    dispatch(
+      deleteFromCart({ productId: product.productId, price: product.price }),
+    );
+  };
+
   return (
     <>
       {product?.quantity > 0 ? (
@@ -29,16 +46,18 @@ export default function QuantityAdjuster({ product }) {
             </InputLeftElement>
             <Input
               isReadOnly={true}
-              defaultValue={product.quantity}
+              value={product.quantity}
               textAlign={'center'}
             ></Input>
-
             <InputRightElement>
               {product.quantity == 1 ? (
-                <></>
+                <IconButton
+                  icon={<DeleteIcon />}
+                  onClick={handleDelete}
+                ></IconButton>
               ) : (
                 <IconButton
-                  icon={product.quantity == 1 ? <Delete /> : <MinusIcon />}
+                  icon={<MinusIcon />}
                   onClick={handleMinus}
                 ></IconButton>
               )}

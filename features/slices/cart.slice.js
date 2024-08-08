@@ -68,18 +68,57 @@ export const cartSlice = createSlice({
 
       updateCartStorage(state.cartItems);
     },
-    removeFromCart: (state, action) => {
-      state.cartItemCount -= action.payload;
-      state.totalPrice -= action.payload;
+
+    deleteFromCart: (state, action) => {
+      const item = state.cartItems.find((curr) => {
+        return curr.productId === action.payload.productId;
+      });
+
+      if (item) {
+        state.cartItemCount -= 1;
+        state.totalPrice -= item.price;
+        state.cartItems = state.cartItems.filter((curr) => {
+          return curr.productId !== action.payload.productId;
+        });
+        updateCartStorage(state.cartItems);
+      }
     },
+
     clearCart: (state, action) => {
       state.cartItems = [];
       state.cartItemCount = 0;
       state.totalPrice = 0;
       localStorage.removeItem('cartItems');
     },
+
+    increment: (state, action) => {
+      const item = state.cartItems.find((curr) => {
+        return curr.productId === action.payload.productId;
+      });
+      console.log(item);
+      if (item) {
+        item.quantity += 1;
+        state.cartItemCount += 1;
+        state.totalPrice += action.payload.price;
+        updateCartStorage(state.cartItems);
+      }
+    },
+
+    decrement: (state, action) => {
+      const item = state.cartItems.find((curr) => {
+        return curr.productId === action.payload.productId;
+      });
+      console.log(item);
+      if (item) {
+        item.quantity -= 1;
+        state.cartItemCount -= 1;
+        state.totalPrice -= action.payload.price;
+        updateCartStorage(state.cartItems);
+      }
+    },
   },
 });
 
-export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
+export const { addToCart, deleteFromCart, clearCart, increment, decrement } =
+  cartSlice.actions;
 export default cartSlice.reducer;
