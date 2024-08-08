@@ -13,6 +13,7 @@ import {
   Select,
   Divider,
   LinkBox,
+  Text,
 } from '@chakra-ui/react';
 
 import ListNavBar from './ListNavBar';
@@ -24,9 +25,11 @@ import ProfileBtns from '../Account/ProfileBtns';
 export default function Navbar() {
   return (
     <div className='flex flex-col justify-center items-center mx-auto'>
-      <div className='flex flex-col sm:flex-row items-center justify-evenly gap-10 pl-20 pr-20 bg-gradient-to-r from-blue-200 to-cyan-200 w-full pb-3'>
+      <div className='flex flex-col sm:flex-row items-center justify-evenly gap-10 pl-20 pr-20 bg-gradient-to-r from-blue-200 to-cyan-100 w-full pb-3 pt-6'>
         <NextLink href='/' passHref>
-          <LinkBox>Poli Shop</LinkBox>
+          <Text as='b' color='white' fontSize='xl'>
+            Poli Shop
+          </Text>
         </NextLink>
 
         <InputGroup size='md'>
@@ -58,7 +61,7 @@ export default function Navbar() {
 
         <ShoppingCartBtn></ShoppingCartBtn>
       </div>
-      <div className='flex flex-row items-center justify-evenly gap-3 p-2 bg-gradient-to-r from-blue-200 to-cyan-200 w-full pb-3'>
+      <div className='flex flex-row items-center justify-evenly gap-3 p-2 bg-gradient-to-r from-blue-200 to-cyan-100 w-full pb-3'>
         <div>
           <DrawerNav></DrawerNav>
         </div>

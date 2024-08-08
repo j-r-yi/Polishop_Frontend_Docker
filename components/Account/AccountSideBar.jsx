@@ -17,7 +17,7 @@ const accountItems = [
 export default function AccountSideBar() {
   return (
     <div className=''>
-      <Box>
+      <Box boxShadow='md'>
         <Menu>
           <MenuItem background={'white'}>
             <Avatar bg='teal.500' src='https://bit.ly/broken-link' />

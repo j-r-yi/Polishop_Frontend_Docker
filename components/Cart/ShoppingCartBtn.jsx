@@ -27,7 +27,7 @@ const handleClearCart = function () {
 };
 
 export default function ShoppingCartBtn() {
-  const cartItems = useSelector((state) => state.cart.cartItems);
+  const cartItems = useSelector((state) => state.cart.cartItemCount);
   const cartCost = useSelector((state) => state.cart.totalPrice);
 
   return (

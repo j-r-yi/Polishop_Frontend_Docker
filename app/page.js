@@ -8,11 +8,8 @@ import Banner2 from '../components/Products/Banner2';
 export default function Home() {
   return (
     <div className='bg-gray-100'>
-      <Banner1></Banner1>
-      <Banner2></Banner2>
-      <ProductCard></ProductCard>
-      <ProductCard></ProductCard>
-      <ProductCard></ProductCard>
+      {/* <Banner1></Banner1>
+      <Banner2></Banner2> */}
       <ProductCard></ProductCard>
     </div>
   );
