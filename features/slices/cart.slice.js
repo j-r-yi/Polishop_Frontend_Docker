@@ -32,15 +32,16 @@ const getCartItemCount = function () {
 };
 
 const getCartCost = function () {
-  return initialItems.reduce((accum, currItem) => {
+  const cost = initialItems.reduce((accum, currItem) => {
     return accum + currItem.price * currItem.quantity;
-  });
+  }, 0);
+  return cost;
 };
 
 const initialState = {
   cartItems: initialItems,
   cartItemCount: getCartItemCount(),
-  totalPrice: 0,
+  totalPrice: getCartCost(),
 };
 
 export const cartSlice = createSlice({

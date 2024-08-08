@@ -27,7 +27,7 @@ const handleClearCart = function () {
 };
 
 export default function ShoppingCartBtn() {
-  const cartItems = useSelector((state) => state.cart.cartItemCount);
+  const cartItemCounter = useSelector((state) => state.cart.cartItemCount);
   const cartCost = useSelector((state) => state.cart.totalPrice);
 
   return (
@@ -43,20 +43,20 @@ export default function ShoppingCartBtn() {
               color='teal'
               icon={<FaShoppingCart />}
             ></IconButton>
-            {cartItems > 0 ? (
+            {cartItemCounter > 0 ? (
               <span className='absolute bg-red-400 rounded-md w-5 h-5 p-0.5 text-center text-xs text-white'>
-                {cartItems}
+                {cartItemCounter}
               </span>
             ) : (
               <></>
             )}
           </div>
         </PopoverTrigger>
-        {cartItems > 0 ? (
+        {cartItemCounter > 0 ? (
           <PopoverContent width={'500px'} height={'300px'}>
             <PopoverHeader>
               <div className='flex flex-row justify-between items-center'>
-                <Text>{cartItems} items in cart</Text>
+                <Text>{cartItemCounter} items in cart</Text>
                 <NextLink href='/cart' passHref>
                   <Text color='blue'>Go to cart</Text>
                 </NextLink>

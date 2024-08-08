@@ -15,9 +15,7 @@ import { useSelector } from 'react-redux';
 // };
 
 export default function ShoppingCart() {
-  const cartItems = useSelector((state) => state.cart.cartItems);
-  // const cartItems = getCartItems();
-  // console.log(cartItems);
+  const cartItems = useSelector((state) => state.cart.cartItemCount);
   return (
     <div className='flex flex-col px-10'>
       <Text fontSize='4xl'>Shopping Cart</Text>
@@ -46,9 +44,7 @@ export default function ShoppingCart() {
           </Box>
         </Container>
         <div className='flex-grow basis-1/4'>
-          <CheckoutSummary
-            cartInfo={{ cartNumItems: cartItems, cartCost: 0 }}
-          ></CheckoutSummary>
+          <CheckoutSummary></CheckoutSummary>
         </div>
       </div>
     </div>

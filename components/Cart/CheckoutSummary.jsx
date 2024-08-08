@@ -9,14 +9,18 @@ import {
   Heading,
   Text,
 } from '@chakra-ui/react';
+import { useSelector } from 'react-redux';
 
-export default function CheckoutSummary({ cartInfo }) {
+export default function CheckoutSummary() {
+  const cartItems = useSelector((state) => state.cart.cartItemCount);
+  const cartCost = useSelector((state) => state.cart.totalPrice);
+
   return (
     <Card>
       <CardHeader>
         <Heading size='md'>
-          Subtotal ({cartInfo.cartNumItems}{' '}
-          {cartInfo.cartNumItems > 1 ? 'items' : 'item'}): {cartInfo.cartCost}$
+          Subtotal ({cartItems}
+          {cartItems > 1 ? 'items' : 'item'}){cartCost}$
         </Heading>
       </CardHeader>
 
