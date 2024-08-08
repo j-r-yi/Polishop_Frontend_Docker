@@ -9,7 +9,7 @@ import {
 } from 'react-leaflet';
 import { Button, Text } from '@chakra-ui/react';
 import { updateLocation } from '../../features/slices/location.slice';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 function UpdateMapView({ latitude, longitude }) {
@@ -38,7 +38,6 @@ export default function Map() {
   const latitude = useSelector((state) => state.location.latitude);
   const longitude = useSelector((state) => state.location.longitude);
   const dispatch = useDispatch();
-  const animateRef = useRef(false);
   const zoomLevel = 13;
   let coords;
 
@@ -96,7 +95,6 @@ export default function Map() {
           attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url='https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png'
         />
-        {/* <SetViewOnClick animateRef={animateRef} /> */}
         <Marker position={[latitude, longitude]}>
           <Popup>Delivery to this location</Popup>
         </Marker>

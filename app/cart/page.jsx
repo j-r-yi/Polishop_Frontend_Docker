@@ -7,36 +7,29 @@ import CartIsEmpty from '../../components/Cart/CartIsEmpty';
 import { Text, Container, Box } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
 
-// const getCartItems = function () {
-//   const key = 'product';
-//   const allItems = localStorage.getItem(key);
-//   // const allItems = JSON.parse(localStorage.getItem(key));
-//   return allItems;
-// };
-
 export default function ShoppingCart() {
-  const cartItems = useSelector((state) => state.cart.cartItemCount);
+  const cartItemsCount = useSelector((state) => state.cart.cartItemCount);
+  const cartItems = useSelector((state) => state.cart.cartItems);
   return (
     <div className='flex flex-col px-10'>
       <Text fontSize='4xl'>Shopping Cart</Text>
       <div className='flex flex-row gap-10'>
-        <Container maxW='container.md' flexBasis='3/4'>
+        <Container maxW='container.lg' flexBasis='3/4'>
           <Box
             display='flex'
             flexDirection='column'
             overflowY='auto'
-            height='800px' // Set the height to trigger vertical scrolling
-            // borderWidth={1}
+            // height='800px' // Set the height to trigger vertical scrolling
             borderRadius='lg'
             borderColor='gray.200'
           >
-            {cartItems > 0 ? (
+            {cartItemsCount > 0 ? (
               <>
-                <ProductCardDetailed></ProductCardDetailed>
-                <ProductCardDetailed></ProductCardDetailed>
-                <ProductCardDetailed></ProductCardDetailed>
-                <ProductCardDetailed></ProductCardDetailed>
-                <ProductCardDetailed></ProductCardDetailed>
+                {cartItems.map((curr) => {
+                  return (
+                    <ProductCardDetailed product={curr}></ProductCardDetailed>
+                  );
+                })}
               </>
             ) : (
               <CartIsEmpty></CartIsEmpty>

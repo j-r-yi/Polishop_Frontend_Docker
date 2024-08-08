@@ -7,40 +7,49 @@ import {
   Heading,
   Image,
   Text,
+  Stat,
+  StatLabel,
+  StatNumber,
+  StatHelpText,
+  StatArrow,
 } from '@chakra-ui/react';
 
-export default function ProductCardDetailed() {
+import QuantityAdjuster from './QuantityAdjuster';
+
+export default function ProductCardDetailed({ product }) {
   return (
-    <>
+    <div>
       <Card
         // maxW='full'
         direction={{ base: 'column', sm: 'row' }}
         variant='outline'
       >
         <Image
-          objectFit='cover'
-          maxW={{ base: '100%', sm: '200px' }}
-          src='https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60'
+          // objectFit='cover'
+          maxW={{ base: '100%', sm: '300px' }}
+          src={product.img}
           alt='Caffe Latte'
         />
 
         <div className='flex flex-col'>
           <CardBody>
-            <Heading size='md'>The perfect latte</Heading>
-
-            <Text py='2'>
-              Caffè latte is a coffee beverage of Italian origin made with
-              espresso and steamed milk.
-            </Text>
+            <Heading size='md'>{product.name}</Heading>
+            <Text py='2'>{product.description}</Text>
+            <Stat>
+              <StatLabel>Sent</StatLabel>
+              <StatNumber>${product.price.toLocaleString()}</StatNumber>
+              <StatHelpText>
+                <StatArrow type='increase' />
+                23.36%
+              </StatHelpText>
+            </Stat>
           </CardBody>
 
           <CardFooter>
-            <Button variant='solid' colorScheme='blue'>
-              Buy Latte
-            </Button>
+            <QuantityAdjuster product={product} />
           </CardFooter>
         </div>
       </Card>
-    </>
+    </div>
   );
 }

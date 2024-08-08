@@ -4,8 +4,9 @@ import {
   InputLeftElement,
   InputRightElement,
   IconButton,
+  Text,
 } from '@chakra-ui/react';
-import { AddIcon, MinusIcon } from '@chakra-ui/icons';
+import { AddIcon, MinusIcon, DeleteIcon } from '@chakra-ui/icons';
 
 import AddToCartBtn from '../Cart/AddToCartBtn';
 
@@ -17,12 +18,10 @@ const handleMinus = function () {
   return;
 };
 
-const count = 1;
-
-export default function QuantityAdjuster() {
+export default function QuantityAdjuster({ product }) {
   return (
     <>
-      {count > 0 ? (
+      {product?.quantity > 0 ? (
         <div className='flex flex-row items-center justify-center'>
           <InputGroup>
             <InputLeftElement>
@@ -30,21 +29,24 @@ export default function QuantityAdjuster() {
             </InputLeftElement>
             <Input
               isReadOnly={true}
-              defaultValue={'1'}
+              defaultValue={product.quantity}
               textAlign={'center'}
             ></Input>
+
             <InputRightElement>
-              <IconButton
-                icon={<MinusIcon />}
-                onClick={handleMinus}
-              ></IconButton>
+              {product.quantity == 1 ? (
+                <></>
+              ) : (
+                <IconButton
+                  icon={product.quantity == 1 ? <Delete /> : <MinusIcon />}
+                  onClick={handleMinus}
+                ></IconButton>
+              )}
             </InputRightElement>
           </InputGroup>
         </div>
       ) : (
-        <>
-          <AddToCartBtn></AddToCartBtn>
-        </>
+        <>{/* <AddToCartBtn product={product}></AddToCartBtn> */}</>
       )}
     </>
   );

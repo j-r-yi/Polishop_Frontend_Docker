@@ -24,9 +24,9 @@ export default function AccountSideBar() {
             [Username]
           </MenuItem>
           <>
-            {accountItems.map((curr) => {
+            {accountItems.map((curr, idx) => {
               return (
-                <NextLink href={curr.ref} passHref>
+                <NextLink href={curr.ref} passHref key={idx}>
                   <MenuItem
                     background={'white'}
                     color={'teal.500'}

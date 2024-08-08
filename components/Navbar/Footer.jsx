@@ -74,7 +74,7 @@ const backToTop = function () {
 export default function Footer() {
   return (
     <div className='flex flex-col w-full bg-sky-100 gap-5 pl-20 pr-20 pt-5'>
-      <div className='flex flex-row justify-between'>
+      <div className='flex flex-col sm:flex-row justify-between'>
         <div className='flex flex-row gap-5 items-center justify-center'>
           <Text fontSize='md'>We are alway here to help!</Text>
           <Divider
@@ -101,7 +101,7 @@ export default function Footer() {
         borderStyle='solid'
         borderColor={'gray'}
       />
-      <div className='hidden lg:flex flex-row justify-center items-center py-3 gap-20'>
+      <div className='hidden lg:flex justify-center items-center py-3 gap-20'>
         {footerInfoList.map((curr, idx) => {
           return (
             <div
@@ -114,13 +114,15 @@ export default function Footer() {
           );
         })}
       </div>
-      <Divider
-        orientation='horizontal'
-        borderWidth='1px'
-        borderStyle='solid'
-        color='	#D3D3D3'
-        borderColor={'gray'}
-      />
+      <div className='hidden lg:block'>
+        <Divider
+          orientation='horizontal'
+          borderWidth='1px'
+          borderStyle='solid'
+          color='	#D3D3D3'
+          borderColor={'gray'}
+        />
+      </div>
       <div className='hidden md:flex flex-row justify-between'>
         <div className='flex flex-row justify-left items-center gap-10'>
           <Text fontSize='xl'>Follow us on:</Text>
