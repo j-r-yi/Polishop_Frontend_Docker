@@ -12,8 +12,7 @@ const product = {
   price: 450,
   color: null,
   discount: 0,
-  description:
-    'This sofa is perfect for modern tropical spaces, baroque inspired spaces, earthy toned spaces and for people who love a chic design with a sprinkle of vintage design.',
+  description: 'Green Sofa.',
   rating: 4.7,
   quantity: 0,
   stockQuantity: 10,

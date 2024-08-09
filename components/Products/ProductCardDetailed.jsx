@@ -25,10 +25,10 @@ export default function ProductCardDetailed({ product }) {
         variant='outline'
       >
         <Image
-          // objectFit='cover'
-          maxW={{ base: '100%', sm: '300px' }}
+          objectFit='cover'
+          maxW={{ base: '80%', sm: '200px' }}
           src={product.img}
-          alt='Caffe Latte'
+          alt={product.alt}
         />
 
         <div className='flex flex-col'>
