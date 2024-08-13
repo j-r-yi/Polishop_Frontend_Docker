@@ -27,7 +27,7 @@ export default function Banner1() {
   const [bannerData, setBannerData] = useState([]);
 
   useEffect(() => {
-    fetch(``)
+    fetch(`http://127.0.0.1:8000/banners/`)
       .then((res) => res.json())
       .then((data) => setBannerData(data));
   }, []);

@@ -1,6 +1,7 @@
 'use client';
 import { useDisclosure } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import {
   Modal,
@@ -25,6 +26,41 @@ export default function Signup() {
   const { isOpen, onOpen, onClose } = useDisclosure({ defaultIsOpen: true });
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
+
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleUsernameChange = function (e) {
+    setUsername(e.target.value);
+  };
+  const handleEmailChange = function (e) {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = function (e) {
+    setPassword(e.target.value);
+  };
+
+  const handleSignupClick = async function (e) {
+    // console.log('You clicked the button');
+    e.preventDefault();
+    const newUser = {
+      username: username,
+      email: email,
+      password: password,
+    };
+    try {
+      const response = await axios.post(
+        'http://127.0.0.1:8000/usersPost',
+        newUser,
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <Modal
@@ -46,13 +82,27 @@ export default function Signup() {
           </div>
           <ModalBody display={'flex'} flexDirection={'column'} gap={'2rem'}>
             {/* <Text>Sign Up</Text> */}
-            <Input placeholder='Enter a username' size='md' variant='outline' />
-            <Input placeholder='Enter an email' size='md' variant='outline' />
+            <Input
+              placeholder='Enter a username'
+              size='md'
+              variant='outline'
+              value={username}
+              onChange={handleUsernameChange}
+            />
+            <Input
+              placeholder='Enter an email'
+              size='md'
+              variant='outline'
+              value={email}
+              onChange={handleEmailChange}
+            />
             <InputGroup size='md'>
               <Input
                 pr='4.5rem'
                 type={show ? 'text' : 'password'}
                 placeholder='Enter password'
+                value={password}
+                onChange={handlePasswordChange}
               />
               <InputRightElement width='4.5rem'>
                 <Button h='1.75rem' size='sm' onClick={handleClick}>
@@ -62,7 +112,7 @@ export default function Signup() {
             </InputGroup>
           </ModalBody>
           <ModalFooter display={'flex'} flexDirection={'column'} gap={'2rem'}>
-            <Button colorScheme='blue' mr={3} onClick={() => {}}>
+            <Button colorScheme='blue' mr={3} onClick={handleSignupClick}>
               Sign Up
             </Button>
             <div className='flex flex-row items-start gap-5'>

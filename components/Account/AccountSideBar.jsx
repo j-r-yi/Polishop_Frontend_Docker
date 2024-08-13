@@ -20,7 +20,7 @@ export default function AccountSideBar() {
       <Box boxShadow='md'>
         <Menu>
           <MenuItem background={'white'}>
-            <Avatar bg='teal.500' src='https://bit.ly/broken-link' />
+            <Avatar bg='teal.500' src='' />
             [Username]
           </MenuItem>
           <>
