@@ -67,7 +67,7 @@ export default function Signup() {
             </Button>
             <div className='flex flex-row items-start gap-5'>
               <Text size='xs'>Already have an account?</Text>
-              <NextLink href='/login' passHref>
+              <NextLink href='/account/login' passHref>
                 <Text size='xs' color='blue'>
                   Log in here
                 </Text>

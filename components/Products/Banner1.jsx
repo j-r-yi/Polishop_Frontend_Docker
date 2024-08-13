@@ -2,6 +2,7 @@
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { Image } from '@chakra-ui/react';
+import { useEffect, useState } from 'react';
 
 export default function Banner1() {
   const responsive = {
@@ -21,6 +22,16 @@ export default function Banner1() {
       slidesToSlide: 1, // optional, default to 1.
     },
   };
+
+  const [isLoaded, setLoaded] = useState(false);
+  const [bannerData, setBannerData] = useState([]);
+
+  useEffect(() => {
+    fetch(``)
+      .then((res) => res.json())
+      .then((data) => setBannerData(data));
+  }, []);
+
   return (
     <div
       style={{
@@ -83,7 +94,17 @@ export default function Banner1() {
         <Image
           borderRadius='2%'
           boxSize='100px'
-          src='https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+          src={bannerData[0]?.image_source}
+          fallbackSrc='https://via.placeholder.com/150'
+          display={'block'}
+          height={'100%'}
+          marigin={'auto'}
+          width={'100%'}
+        />
+        <Image
+          borderRadius='20px'
+          boxSize='100px'
+          src={bannerData[5]?.image_source}
           alt='Clothing'
           fallbackSrc='https://via.placeholder.com/150'
           display={'block'}
@@ -94,7 +115,7 @@ export default function Banner1() {
         <Image
           borderRadius='20px'
           boxSize='100px'
-          src='https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+          src={bannerData[6]?.image_source}
           alt='Clothing'
           fallbackSrc='https://via.placeholder.com/150'
           display={'block'}
@@ -105,18 +126,7 @@ export default function Banner1() {
         <Image
           borderRadius='20px'
           boxSize='100px'
-          src='https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-          alt='Clothing'
-          fallbackSrc='https://via.placeholder.com/150'
-          display={'block'}
-          height={'100%'}
-          marigin={'auto'}
-          width={'100%'}
-        />
-        <Image
-          borderRadius='20px'
-          boxSize='100px'
-          src='https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+          src={bannerData[7]?.image_source}
           alt='Clothing'
           fallbackSrc='https://via.placeholder.com/150'
           display={'block'}

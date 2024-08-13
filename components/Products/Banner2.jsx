@@ -1,40 +1,26 @@
 import NextLink from 'next/link';
 import { Image } from '@chakra-ui/react';
 
-// const banner2ImgList = [
-//   {
-//     src: 'https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-//   },
-//   {
-//     src: 'https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-//   },
-//   {
-//     src: 'https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-//   },
-//   {
-//     src: 'https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-//   },
-// ];
+import { useState, useEffect } from 'react';
 
 export default function Banner2() {
+  const [isLoaded, setLoaded] = useState(false);
+  const [bannerData, setBannerData] = useState([]);
+
+  useEffect(() => {
+    fetch(``)
+      .then((res) => res.json())
+      .then((data) => setBannerData(data));
+  }, []);
+
   return (
     <div className='flex flex-row justify-center relative mt-20'>
       <div className='container grid grid-cols-1 md:grid-cols-2 gap-5'>
-        {/* {banner2ImgList.map((curr) => {
-          return (
-            <Image
-              borderTopLeftRadius={'3%'}
-              src={curr.src}
-              alt='Clothing'
-              fallbackSrc='https://via.placeholder.com/150'
-            />
-          );
-        })} */}
         <NextLink href='/' passHref>
           <Image
             objectFit='cover'
             borderTopLeftRadius={'5%'}
-            src='https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+            src={bannerData[0]?.image_source}
             alt='Clothing'
             fallbackSrc='https://via.placeholder.com/150'
           />
@@ -43,7 +29,7 @@ export default function Banner2() {
           <Image
             objectFit='cover'
             borderTopRightRadius={'5%'}
-            src='https://images.pexels.com/photos/3850271/pexels-photo-3850271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+            src={bannerData[0]?.image_source}
             alt='Clothing'
             fallbackSrc='https://via.placeholder.com/150'
           />
@@ -52,7 +38,7 @@ export default function Banner2() {
           <Image
             objectFit='cover'
             borderBottomLeftRadius={'5%'}
-            src='https://images.pexels.com/photos/2084829/pexels-photo-2084829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+            src={bannerData[0]?.image_source}
             alt='Clothing'
             fallbackSrc='https://via.placeholder.com/150'
           />
@@ -61,7 +47,7 @@ export default function Banner2() {
           <Image
             objectFit='cover'
             borderBottomRightRadius={'5%'}
-            src='https://images.pexels.com/photos/577769/pexels-photo-577769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+            src={bannerData[0]?.image_source}
             alt='Clothing'
             fallbackSrc='https://via.placeholder.com/150'
           />

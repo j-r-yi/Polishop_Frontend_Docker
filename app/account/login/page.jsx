@@ -1,6 +1,6 @@
 'use client';
 import { useDisclosure } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import NextLink from 'next/link';
 import { CloseIcon } from '@chakra-ui/icons';
@@ -26,6 +26,21 @@ export default function Login() {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
 
+  const [usernameValue, setUsernameValue] = useState('');
+  const [passwordValue, setPasswordValue] = useState('');
+
+  const handleLogIn = function () {
+    console.log(usernameValue, passwordValue);
+  };
+
+  const onUsernameChange = function (event) {
+    setUsernameValue(event.target.value);
+  };
+
+  const onPasswordChange = function (event) {
+    setPasswordValue(event.target.value);
+  };
+
   return (
     <div>
       <Modal
@@ -46,13 +61,20 @@ export default function Login() {
             </NextLink>
           </div>
           <ModalBody display={'flex'} flexDirection={'column'} gap={'2rem'}>
-            {/* <Text>Log In</Text> */}
-            <Input placeholder='Enter your email' size='md' variant='outline' />
+            <Input
+              placeholder='Enter your email'
+              size='md'
+              variant='outline'
+              value={usernameValue}
+              onChange={onUsernameChange}
+            />
             <InputGroup size='md'>
               <Input
                 pr='4.5rem'
                 type={show ? 'text' : 'password'}
                 placeholder='Enter your password'
+                value={passwordValue}
+                onChange={onPasswordChange}
               />
               <InputRightElement width='4.5rem'>
                 <Button h='1.75rem' size='sm' onClick={() => setShow(!show)}>
@@ -62,13 +84,13 @@ export default function Login() {
             </InputGroup>
           </ModalBody>
           <ModalFooter display={'flex'} flexDirection={'column'} gap={'2rem'}>
-            <Button colorScheme='blue' mr={3} onClick={() => {}}>
+            <Button colorScheme='blue' mr={3} onClick={handleLogIn}>
               Log In
             </Button>
             <Checkbox defaultChecked>Remember me?</Checkbox>
             <div className='flex flex-row items-start gap-5'>
               <Text size='xs'>Don't have an account yet?</Text>
-              <NextLink href='/signup' passHref>
+              <NextLink href='/account/signup' passHref>
                 <Text size='xs' color='blue'>
                   Sign up here
                 </Text>
