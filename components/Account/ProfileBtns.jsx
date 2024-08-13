@@ -16,7 +16,7 @@ import {
   MenuDivider,
 } from '@chakra-ui/react';
 
-let isLoggedIn = true;
+let isLoggedIn = false;
 
 export default function ProfileBtns() {
   return (

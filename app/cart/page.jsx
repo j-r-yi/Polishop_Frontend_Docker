@@ -25,9 +25,12 @@ export default function ShoppingCart() {
           >
             {cartItemsCount > 0 ? (
               <>
-                {cartItems.map((curr) => {
+                {cartItems.map((curr, idx) => {
                   return (
-                    <ProductCardDetailed product={curr}></ProductCardDetailed>
+                    <ProductCardDetailed
+                      product={curr}
+                      key={idx}
+                    ></ProductCardDetailed>
                   );
                 })}
               </>
@@ -36,8 +39,10 @@ export default function ShoppingCart() {
             )}
           </Box>
         </Container>
-        <div className='flex-grow basis-1/4'>
+        <div className='sticky flex-grow basis-1/4'>
+          {/* <div className='mr-1'> */}
           <CheckoutSummary></CheckoutSummary>
+          {/* </div> */}
         </div>
       </div>
     </div>

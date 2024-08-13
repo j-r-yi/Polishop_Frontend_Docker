@@ -82,10 +82,11 @@ export default function ShoppingCartBtn() {
                   >
                     {cartItemCount > 0 ? (
                       <div className='max-h-[50px]'>
-                        {cartItems.map((curr) => {
+                        {cartItems.map((curr, idx) => {
                           return (
                             <ProductCardDetailed
                               product={curr}
+                              key={idx}
                             ></ProductCardDetailed>
                           );
                         })}

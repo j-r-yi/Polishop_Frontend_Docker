@@ -25,7 +25,7 @@ export default function ProductCardDetailed({ product }) {
         variant='outline'
       >
         <Image
-          objectFit='cover'
+          objectFit='scale-down'
           maxW={{ base: '80%', sm: '200px' }}
           src={product.img}
           alt={product.alt}
@@ -36,11 +36,11 @@ export default function ProductCardDetailed({ product }) {
             <Heading size='md'>{product.name}</Heading>
             <Text py='2'>{product.description}</Text>
             <Stat>
-              <StatLabel>Sent</StatLabel>
+              {/* <StatLabel>Sent</StatLabel> */}
               <StatNumber>${product.price.toLocaleString()}</StatNumber>
               <StatHelpText>
-                <StatArrow type='increase' />
-                23.36%
+                <StatArrow type='decrease' />$
+                {product.discount.toLocaleString()}
               </StatHelpText>
             </Stat>
           </CardBody>

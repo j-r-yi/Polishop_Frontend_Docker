@@ -48,7 +48,8 @@ export default function Navbar() {
 
           <InputRightAddon width='4.5rem'>
             <IconButton
-              colorScheme='blue'
+              colorScheme='white'
+              color='black'
               aria-label='Search Items'
               icon={<SearchIcon />}
               w='full'

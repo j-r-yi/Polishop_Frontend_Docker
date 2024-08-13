@@ -8,9 +8,7 @@ export default function AddToCartBtn({ productDetails }) {
 
   // Cart reducer (redux) to update global state of cart items and store item in local storage
   const handleAddItem = function () {
-    // console.log(productDetails);
     dispatch(addToCart(productDetails));
-    // localStorage.setItem('product', productDetails);
   };
 
   return <Button onClick={handleAddItem}>Add to cart</Button>;

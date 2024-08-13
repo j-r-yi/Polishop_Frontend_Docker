@@ -95,7 +95,7 @@ export const cartSlice = createSlice({
       const item = state.cartItems.find((curr) => {
         return curr.productId === action.payload.productId;
       });
-      console.log(item);
+      // console.log(item);
       if (item) {
         item.quantity += 1;
         state.cartItemCount += 1;
@@ -108,7 +108,7 @@ export const cartSlice = createSlice({
       const item = state.cartItems.find((curr) => {
         return curr.productId === action.payload.productId;
       });
-      console.log(item);
+      // console.log(item);
       if (item) {
         item.quantity -= 1;
         state.cartItemCount -= 1;

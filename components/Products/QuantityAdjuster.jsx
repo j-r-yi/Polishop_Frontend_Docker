@@ -19,10 +19,8 @@ import AddToCartBtn from '../Cart/AddToCartBtn';
 
 export default function QuantityAdjuster({ product }) {
   const dispatch = useDispatch();
-  // console.log('This is a print statement', product);
 
   const handleAdd = function () {
-    // console.log('THis is a print', product);
     dispatch(increment({ productId: product.productId, price: product.price }));
   };
 

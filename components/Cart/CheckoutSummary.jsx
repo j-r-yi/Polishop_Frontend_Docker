@@ -7,6 +7,7 @@ import {
   StackDivider,
   Box,
   Heading,
+  Button,
   Text,
 } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
@@ -35,12 +36,7 @@ export default function CheckoutSummary() {
             </Text>
           </Box>
           <Box>
-            <Heading size='xs' textTransform='uppercase'>
-              Overview
-            </Heading>
-            <Text pt='2' fontSize='sm'>
-              Check out the overview of your clients.
-            </Text>
+            <Button>Go to checkout</Button>
           </Box>
         </Stack>
       </CardBody>
