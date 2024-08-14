@@ -1,11 +1,12 @@
 'use client';
 import { Button, ButtonGroup, Input } from '@chakra-ui/react';
 import { useState } from 'react';
+import axios from 'axios';
 
 export default function AccountPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
+  const [usernameDelete, setUsernameDelete] = useState('');
 
   const onUsernameChange = function (e) {
     setUsername(e.target.value);
@@ -15,16 +16,33 @@ export default function AccountPage() {
     setPassword(e.target.value);
   };
 
-  const onEmailChange = function (e) {
-    setEmail(e.target.value);
+  const onUsernameDeleteChange = function (e) {
+    setUsernameDelete(e.target.value);
   };
 
-  const handleDeleteAccount = function () {
-    console.log(email);
+  const handleResetPassword = async function (e) {
+    e.preventDefault();
+    try {
+      const response = await axios.put(
+        `http://127.0.0.1:8000/password_update/${username}`,
+        { new_password: password },
+      );
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const handleResetPassword = function () {
-    console.log(username, password);
+  const handleDeleteAccount = async function (e) {
+    e.preventDefault();
+    // console.log(usernameDelete);
+    try {
+      const response = await axios.delete(
+        `http://127.0.0.1:8000/users_delete/${usernameDelete}`,
+      );
+    } catch (error) {
+      console.log(error);
+    }
+    setUsernameDelete('');
   };
 
   return (
@@ -33,9 +51,9 @@ export default function AccountPage() {
 
       <Input
         variant='outline'
-        placeholder='Enter email to delete account'
-        value={email}
-        onChange={onEmailChange}
+        placeholder='Enter username to delete account'
+        value={usernameDelete}
+        onChange={onUsernameDeleteChange}
       />
       <Button onClick={handleDeleteAccount}>Delete Account</Button>
       <Input

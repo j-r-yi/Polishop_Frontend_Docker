@@ -52,7 +52,7 @@ export default function Signup() {
     };
     try {
       const response = await axios.post(
-        'http://127.0.0.1:8000/usersPost',
+        'http://127.0.0.1:8000/users_post',
         newUser,
       );
       console.log(response.data);
@@ -80,8 +80,8 @@ export default function Signup() {
               <IconButton onClick={onClose} icon={<CloseIcon />}></IconButton>
             </NextLink>
           </div>
-          <ModalBody display={'flex'} flexDirection={'column'} gap={'2rem'}>
-            {/* <Text>Sign Up</Text> */}
+          <ModalBody display={'flex'} flexDirection={'column'} gap={'1rem'}>
+            <Text>Username</Text>
             <Input
               placeholder='Enter a username'
               size='md'
@@ -89,6 +89,7 @@ export default function Signup() {
               value={username}
               onChange={handleUsernameChange}
             />
+            <Text>Email</Text>
             <Input
               placeholder='Enter an email'
               size='md'
@@ -96,6 +97,7 @@ export default function Signup() {
               value={email}
               onChange={handleEmailChange}
             />
+            <Text>Password</Text>
             <InputGroup size='md'>
               <Input
                 pr='4.5rem'
@@ -110,6 +112,14 @@ export default function Signup() {
                 </Button>
               </InputRightElement>
             </InputGroup>
+            {/* <Text>Confirm Password</Text>
+            <Input
+              pr='4.5rem'
+              type={show ? 'text' : 'password'}
+              placeholder='Enter password'
+              value={password}
+              onChange={handlePasswordChange}
+            /> */}
           </ModalBody>
           <ModalFooter display={'flex'} flexDirection={'column'} gap={'2rem'}>
             <Button colorScheme='blue' mr={3} onClick={handleSignupClick}>
