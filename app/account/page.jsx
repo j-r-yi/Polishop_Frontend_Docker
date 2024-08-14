@@ -34,7 +34,6 @@ export default function AccountPage() {
 
   const handleDeleteAccount = async function (e) {
     e.preventDefault();
-    // console.log(usernameDelete);
     try {
       const response = await axios.delete(
         `http://127.0.0.1:8000/users_delete/${usernameDelete}`,

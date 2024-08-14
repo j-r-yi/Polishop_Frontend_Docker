@@ -30,6 +30,7 @@ export default function Signup() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleUsernameChange = function (e) {
     setUsername(e.target.value);
@@ -43,7 +44,6 @@ export default function Signup() {
   };
 
   const handleSignupClick = async function (e) {
-    // console.log('You clicked the button');
     e.preventDefault();
     const newUser = {
       username: username,
@@ -55,7 +55,9 @@ export default function Signup() {
         'http://127.0.0.1:8000/users_post',
         newUser,
       );
-      console.log(response.data);
+      if (response.data?.Error) {
+        setErrorMessage(response.data?.Error);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -120,6 +122,11 @@ export default function Signup() {
               value={password}
               onChange={handlePasswordChange}
             /> */}
+            {errorMessage == '' ? (
+              <></>
+            ) : (
+              <Text color={'red'}>{errorMessage}</Text>
+            )}
           </ModalBody>
           <ModalFooter display={'flex'} flexDirection={'column'} gap={'2rem'}>
             <Button colorScheme='blue' mr={3} onClick={handleSignupClick}>
