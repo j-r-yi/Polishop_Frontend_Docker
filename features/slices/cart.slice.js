@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { get } from 'http';
 
 // Returns an array of product objects
 const getCurrentCartItems = function () {
@@ -8,9 +7,10 @@ const getCurrentCartItems = function () {
     // const cartItems = localStorage.getItem('cartItems');
     if (localStorage.getItem('cartItems') == null) {
       return [];
+    } else {
+      const parsedItems = JSON.parse(localStorage.getItem('cartItems'));
+      return parsedItems;
     }
-    const parsedItems = JSON.parse(localStorage.getItem('cartItems'));
-    return parsedItems;
   } else {
     return [];
   }
@@ -116,9 +116,21 @@ export const cartSlice = createSlice({
         updateCartStorage(state.cartItems);
       }
     },
+    initializeCart: (state, action) => {
+      localStorage.clear();
+      console.log(action.payload.cart);
+      state.cartItems = action.payload.cart;
+      updateCartStorage(state.cartItems);
+    },
   },
 });
 
-export const { addToCart, deleteFromCart, clearCart, increment, decrement } =
-  cartSlice.actions;
+export const {
+  addToCart,
+  deleteFromCart,
+  clearCart,
+  increment,
+  decrement,
+  initializeCart,
+} = cartSlice.actions;
 export default cartSlice.reducer;

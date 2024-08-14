@@ -1,9 +1,14 @@
 'use client';
-import { useDisclosure } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
 import NextLink from 'next/link';
 import { CloseIcon } from '@chakra-ui/icons';
+
+import { useDispatch } from 'react-redux';
+import { logIn } from '../../../features/slices/account.slice';
+// import { initializeCart } from '../../../features/slices/cart.slice';
 
 import {
   Modal,
@@ -19,22 +24,50 @@ import {
   Button,
   Checkbox,
   IconButton,
+  useDisclosure,
 } from '@chakra-ui/react';
 
 export default function Login() {
+  const dispatch = useDispatch();
+
   const { isOpen, onOpen, onClose } = useDisclosure({ defaultIsOpen: true });
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
 
-  const [usernameValue, setUsernameValue] = useState('');
+  const [emailValue, setEmailValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleLogIn = function () {
-    console.log(usernameValue, passwordValue);
+  const router = useRouter();
+
+  const handleLogIn = async function (e) {
+    console.log(emailValue, passwordValue);
+    e.preventDefault();
+    const userPackage = {
+      email: emailValue,
+      password: passwordValue,
+    };
+    try {
+      const response = await axios.post(
+        'http://127.0.0.1:8000/login',
+        userPackage,
+      );
+      if (response.data?.Error) {
+        setErrorMessage(response.data?.Error);
+      } else {
+        dispatch(logIn(response.data));
+        // dispatch(initializeCart(response.data));
+        console.log('Dispatch successful!');
+        router.push('/');
+        router.refresh();
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const onUsernameChange = function (event) {
-    setUsernameValue(event.target.value);
+  const onEmailChange = function (event) {
+    setEmailValue(event.target.value);
   };
 
   const onPasswordChange = function (event) {
@@ -65,8 +98,8 @@ export default function Login() {
               placeholder='Enter your email'
               size='md'
               variant='outline'
-              value={usernameValue}
-              onChange={onUsernameChange}
+              value={emailValue}
+              onChange={onEmailChange}
             />
             <InputGroup size='md'>
               <Input
@@ -84,6 +117,11 @@ export default function Login() {
             </InputGroup>
           </ModalBody>
           <ModalFooter display={'flex'} flexDirection={'column'} gap={'2rem'}>
+            {errorMessage == '' ? (
+              <></>
+            ) : (
+              <Text color={'red'}>{errorMessage}</Text>
+            )}
             <Button colorScheme='blue' mr={3} onClick={handleLogIn}>
               Log In
             </Button>

@@ -16,8 +16,9 @@ import {
 } from '@chakra-ui/react';
 import { FaShoppingCart } from 'react-icons/fa';
 
-import EmptyCart from '../../components/Cart/EmptyCartBtn';
 import { useSelector } from 'react-redux';
+
+import EmptyCart from '../../components/Cart/EmptyCartBtn';
 import ClearCartBtn from '../../components/Cart/EmptyCartBtn';
 import CartIsEmpty from './CartIsEmpty';
 import ProductCardDetailed from '../Products/ProductCardDetailed';

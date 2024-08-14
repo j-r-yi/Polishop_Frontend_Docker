@@ -1,7 +1,7 @@
 'use client';
-import { useDisclosure } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
 import {
   Modal,
@@ -17,6 +17,7 @@ import {
   InputRightElement,
   Button,
   IconButton,
+  useDisclosure,
 } from '@chakra-ui/react';
 
 import NextLink from 'next/link';
@@ -31,6 +32,8 @@ export default function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+
+  const router = useRouter();
 
   const handleUsernameChange = function (e) {
     setUsername(e.target.value);
@@ -57,6 +60,8 @@ export default function Signup() {
       );
       if (response.data?.Error) {
         setErrorMessage(response.data?.Error);
+      } else {
+        router.push('/');
       }
     } catch (error) {
       console.log(error);

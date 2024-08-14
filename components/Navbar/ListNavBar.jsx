@@ -1,7 +1,6 @@
 'use client';
 import { Menu, MenuButton, MenuList, MenuItem, Button } from '@chakra-ui/react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
-// import { currentMonitor } from '@tauri-apps/api/window';
 
 const listItems = [
   {

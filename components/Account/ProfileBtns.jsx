@@ -1,24 +1,26 @@
 'use client';
-import { Box } from '@chakra-ui/react';
-import { Button } from '@chakra-ui/react';
-import { Divider } from '@chakra-ui/react';
-import { Icon } from '@chakra-ui/react';
-import { ChevronDownIcon, ChevronRightIcon } from '@chakra-ui/icons';
-import { RxAvatar } from 'react-icons/rx';
-import NextLink from 'next/link';
-import { IoIosLogOut } from 'react-icons/io';
-import { Text } from '@chakra-ui/react';
 import {
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
   MenuDivider,
+  Box,
+  Button,
+  Divider,
+  Icon,
+  Text,
 } from '@chakra-ui/react';
 
-let isLoggedIn = false;
+import { ChevronDownIcon, ChevronRightIcon } from '@chakra-ui/icons';
+import { RxAvatar } from 'react-icons/rx';
+import { IoIosLogOut } from 'react-icons/io';
+
+import NextLink from 'next/link';
+import { useSelector } from 'react-redux';
 
 export default function ProfileBtns() {
+  const isLoggedIn = useSelector((state) => state.account.isLoggedIn);
   return (
     <>
       {isLoggedIn ? (
@@ -47,6 +49,7 @@ export default function ProfileBtns() {
                 justifyContent={'space-between'}
                 alignItems={'center'}
                 // gap={'10px'}
+                // onClick={}
               >
                 <Text fontSize='md'>Logout</Text>
                 <Icon as={IoIosLogOut} boxSize={5}></Icon>
