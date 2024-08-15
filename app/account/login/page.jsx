@@ -56,10 +56,12 @@ export default function Login() {
         setErrorMessage(response.data?.Error);
       } else {
         dispatch(logIn(response.data));
-        // dispatch(initializeCart(response.data));
         console.log('Dispatch successful!');
-        router.push('/');
-        router.refresh();
+        localStorage.setItem('user', response.data?.username);
+        await router.push('/');
+        setTimeout(() => {
+          window.location.reload(true);
+        }, 100);
       }
     } catch (error) {
       console.log(error);

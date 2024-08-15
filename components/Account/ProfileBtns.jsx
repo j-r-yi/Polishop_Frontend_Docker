@@ -16,11 +16,26 @@ import { ChevronDownIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { RxAvatar } from 'react-icons/rx';
 import { IoIosLogOut } from 'react-icons/io';
 
+import { useRouter } from 'next/navigation';
 import NextLink from 'next/link';
 import { useSelector } from 'react-redux';
 
 export default function ProfileBtns() {
-  const isLoggedIn = useSelector((state) => state.account.isLoggedIn);
+  let isLoggedIn = useSelector((state) => state.account.isLoggedIn);
+  isLoggedIn = localStorage.getItem('user') != null;
+
+  const router = useRouter();
+
+  const handleLogOut = async function () {
+    //  Before clearing local storage handle update database
+    localStorage.clear();
+    isLoggedIn = false;
+    await router.push('/');
+    setTimeout(() => {
+      window.location.reload(true);
+    }, 100);
+  };
+
   return (
     <>
       {isLoggedIn ? (
@@ -49,7 +64,7 @@ export default function ProfileBtns() {
                 justifyContent={'space-between'}
                 alignItems={'center'}
                 // gap={'10px'}
-                // onClick={}
+                onClick={handleLogOut}
               >
                 <Text fontSize='md'>Logout</Text>
                 <Icon as={IoIosLogOut} boxSize={5}></Icon>
