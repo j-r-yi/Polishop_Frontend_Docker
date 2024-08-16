@@ -30,10 +30,10 @@ export default function ProfileBtns() {
     //  Before clearing local storage handle update database
     localStorage.clear();
     isLoggedIn = false;
-    await router.push('/');
     setTimeout(() => {
       window.location.reload(true);
     }, 100);
+    await router.push('/');
   };
 
   return (

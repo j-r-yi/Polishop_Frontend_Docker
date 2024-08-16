@@ -55,13 +55,14 @@ export default function Login() {
       if (response.data?.Error) {
         setErrorMessage(response.data?.Error);
       } else {
+        console.log('THe response data that is dispatched', response.data);
         dispatch(logIn(response.data));
         console.log('Dispatch successful!');
         localStorage.setItem('user', response.data?.username);
-        await router.push('/');
         setTimeout(() => {
           window.location.reload(true);
         }, 100);
+        await router.push('/');
       }
     } catch (error) {
       console.log(error);

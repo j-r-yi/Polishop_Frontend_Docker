@@ -1,5 +1,6 @@
+'use client';
 import AccountSideBar from '../../components/Account/AccountSideBar';
-
+// import { useSelector } from 'react-redux';
 let isLoggedIn = true;
 
 export default function AccountLayout({ children }) {
@@ -15,7 +16,9 @@ export default function AccountLayout({ children }) {
           </div>
         </div>
       ) : (
-        <p>Please Log In Or Sign Up</p>
+        <div className='flex items-center justify-center bg-white py-60'>
+          Please Log In Or Sign Up
+        </div>
       )}
     </>
   );

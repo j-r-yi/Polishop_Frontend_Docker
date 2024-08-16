@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   isLoggedIn: false,
   currentUserId: null,
-  currentUsername: null,
-  currentUserEmail: null,
+  currentUsername: '',
+  currentUserEmail: '',
   currentUserCart: null,
 };
 

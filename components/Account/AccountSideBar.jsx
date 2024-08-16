@@ -1,9 +1,10 @@
 'use client';
 import { Box, Menu, MenuItem, Avatar, Text, Flex } from '@chakra-ui/react';
-
 import { ChevronRightIcon } from '@chakra-ui/icons';
 
 import NextLink from 'next/link';
+
+import { useSelector } from 'react-redux';
 
 const accountItems = [
   { title: 'Profile', ref: '/account' },
@@ -15,13 +16,17 @@ const accountItems = [
 ];
 
 export default function AccountSideBar() {
+  const username =
+    localStorage.getItem('user') != null
+      ? localStorage.getItem('user')
+      : 'UNKNOWN USER';
   return (
     <div className=''>
       <Box boxShadow='md'>
         <Menu>
           <MenuItem background={'white'}>
             <Avatar bg='teal.500' src='' />
-            [Username]
+            {username}
           </MenuItem>
           <>
             {accountItems.map((curr, idx) => {
