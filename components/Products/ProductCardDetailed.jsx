@@ -33,8 +33,8 @@ export default function ProductCardDetailed({ product }) {
 
         <div className='flex flex-col'>
           <CardBody>
-            <Heading size='md'>{product.name}</Heading>
-            <Text py='2'>{product.description}</Text>
+            <Heading size='md'>{product.productname}</Heading>
+            {/* <Text py='2'>{product.description}</Text> */}
             <Stat>
               {/* <StatLabel>Sent</StatLabel> */}
               <StatNumber>${product.price.toLocaleString()}</StatNumber>

@@ -1,8 +1,4 @@
 'use client';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useRouter } from 'next/navigation';
-
 import {
   Modal,
   ModalOverlay,
@@ -20,10 +16,19 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/navigation';
 import NextLink from 'next/link';
 import { CloseIcon } from '@chakra-ui/icons';
 
+import { logIn } from '../../../features/slices/account.slice';
+
 export default function Signup() {
+  const dispatch = useDispatch();
+  const router = useRouter();
+
   const { isOpen, onOpen, onClose } = useDisclosure({ defaultIsOpen: true });
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
@@ -32,8 +37,6 @@ export default function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-
-  const router = useRouter();
 
   const handleUsernameChange = function (e) {
     setUsername(e.target.value);
@@ -61,6 +64,8 @@ export default function Signup() {
       if (response.data?.Error) {
         setErrorMessage(response.data?.Error);
       } else {
+        dispatch(logIn(response.data));
+        localStorage.setItem('user', response.data?.username);
         router.push('/');
       }
     } catch (error) {

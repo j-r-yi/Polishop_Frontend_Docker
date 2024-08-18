@@ -27,12 +27,12 @@ export default function LcoationModal() {
           <ModalCloseButton />
           <ModalBody>
             <Map></Map>
-            <div className='flex flex-row items-center justify-center mt-5'>
+            {/* <div className='flex flex-row items-center justify-center mt-5'>
               <Input placeholder='medium size' size='md' />
               <Button colorScheme='teal' size='md'>
                 Apply
               </Button>
-            </div>
+            </div> */}
           </ModalBody>
 
           <ModalFooter>

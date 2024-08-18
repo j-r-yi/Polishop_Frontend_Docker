@@ -22,12 +22,18 @@ const handleBuyNow = function () {
 
 export default function ProductCard({ product }) {
   return (
-    <div className='flex flex-row'>
-      <Card maxW='sm'>
+    <div className=''>
+      <Card w='300px' h='600px'>
         <CardBody>
-          <Image src={product.img} alt={product.alt} borderRadius='lg' />
-          <Stack mt='6' spacing='3'>
-            <Heading size='md'>{product.name}</Heading>
+          <Image
+            objectFit='cover'
+            boxSize='300px'
+            src={product.img}
+            alt={product.alt}
+            borderRadius='lg'
+          />
+          <Stack spacing='1'>
+            <Heading size='md'>{product.productname}</Heading>
             <Text>{product.description}</Text>
             <Text color='blue.600' fontSize='2xl'>
               ${product.price}

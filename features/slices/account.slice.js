@@ -5,7 +5,7 @@ const initialState = {
   currentUserId: null,
   currentUsername: '',
   currentUserEmail: '',
-  currentUserCart: null,
+  currentUserCart: [],
 };
 
 export const accountSlice = createSlice({
@@ -19,7 +19,11 @@ export const accountSlice = createSlice({
         state.isLoggedIn = true;
         state.currentUsername = action.payload.username;
         state.currentUserEmail = action.payload.email;
-        state.currentUserCart = action.payload.cart;
+        if (action.payload.cart != null) {
+          state.currentUserCart = action.payload.cart;
+        } else {
+          state.currentUserCart = [];
+        }
         localStorage.setItem('cartItems', state.currentUserCart);
       } catch (error) {
         console.log(error);

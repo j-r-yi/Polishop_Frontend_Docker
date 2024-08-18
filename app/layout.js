@@ -37,7 +37,6 @@ export default function RootLayout({ children }) {
           crossOrigin=''
         ></script>
       </head>
-      {/* className='overflow-x-hidden' */}
       <body>
         <Providers>
           <div>
