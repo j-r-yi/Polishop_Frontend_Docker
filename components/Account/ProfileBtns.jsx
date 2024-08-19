@@ -19,21 +19,39 @@ import { IoIosLogOut } from 'react-icons/io';
 import { useRouter } from 'next/navigation';
 import NextLink from 'next/link';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 export default function ProfileBtns() {
   let isLoggedIn = useSelector((state) => state.account.isLoggedIn);
   isLoggedIn = localStorage.getItem('user') != null;
 
   const router = useRouter();
+  // const currentUsername = useSelector((state) => state.account.currentUsername);
+  const currentUsername = localStorage.getItem('user');
+  console.log('The current username is', currentUsername);
 
   const handleLogOut = async function () {
-    //  Before clearing local storage handle update database
-    localStorage.clear();
-    isLoggedIn = false;
-    setTimeout(() => {
-      window.location.reload(true);
-    }, 100);
-    await router.push('/');
+    try {
+      const updated_cart = {
+        new_cart: localStorage.getItem('cartItems'),
+      };
+      const response = await axios.put(
+        `http://127.0.0.1:8000/logout/${currentUsername}`,
+        updated_cart,
+      );
+      if (response.data?.Error) {
+        console.log(response.Error);
+      } else {
+        localStorage.clear();
+        isLoggedIn = false;
+        setTimeout(() => {
+          window.location.reload(true);
+        }, 100);
+        await router.push('/');
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
