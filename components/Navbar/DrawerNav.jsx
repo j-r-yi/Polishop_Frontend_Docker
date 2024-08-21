@@ -44,7 +44,10 @@ export default function DrawerNav() {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>Hello [Username]</DrawerHeader>
+          <DrawerHeader>
+            Hello{' '}
+            {localStorage.getItem('user') ? localStorage.getItem('user') : ''}
+          </DrawerHeader>
 
           <DrawerBody>
             <Accordion defaultIndex={[0]} allowMultiple>

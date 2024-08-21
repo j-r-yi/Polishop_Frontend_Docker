@@ -20,7 +20,7 @@ export default function Banner2() {
           <Image
             objectFit='cover'
             borderTopLeftRadius={'5%'}
-            src={bannerData[0]?.image_source}
+            src={bannerData[8]?.image_source}
             alt='Clothing'
             fallbackSrc='https://via.placeholder.com/150'
           />
@@ -29,7 +29,7 @@ export default function Banner2() {
           <Image
             objectFit='cover'
             borderTopRightRadius={'5%'}
-            src={bannerData[0]?.image_source}
+            src={bannerData[9]?.image_source}
             alt='Clothing'
             fallbackSrc='https://via.placeholder.com/150'
           />
@@ -38,7 +38,7 @@ export default function Banner2() {
           <Image
             objectFit='cover'
             borderBottomLeftRadius={'5%'}
-            src={bannerData[0]?.image_source}
+            src={bannerData[10]?.image_source}
             alt='Clothing'
             fallbackSrc='https://via.placeholder.com/150'
           />
@@ -47,7 +47,7 @@ export default function Banner2() {
           <Image
             objectFit='cover'
             borderBottomRightRadius={'5%'}
-            src={bannerData[0]?.image_source}
+            src={bannerData[11]?.image_source}
             alt='Clothing'
             fallbackSrc='https://via.placeholder.com/150'
           />
