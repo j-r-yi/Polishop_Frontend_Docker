@@ -23,31 +23,35 @@ const handleBuyNow = function () {
 export default function ProductCard({ product }) {
   return (
     <div className=''>
-      <Card w='300px' h='600px'>
+      <Card w='400px' h='600px'>
         <CardBody>
-          <Image
-            objectFit='cover'
-            boxSize='300px'
-            src={product.img}
-            alt={product.alt}
-            borderRadius='lg'
-          />
-          <Stack spacing='1'>
-            <Heading size='md'>{product.productname}</Heading>
-            <Text>{product.description}</Text>
-            <Text color='blue.600' fontSize='2xl'>
-              ${product.price}
-            </Text>
-          </Stack>
+          <div className='flex items-center justify-center'>
+            <Image
+              objectFit='cover'
+              boxSize='300px'
+              src={product.img}
+              alt={product.alt}
+              borderRadius='lg'
+            />
+          </div>
+          <div className='pt-5'>
+            <Stack spacing='2'>
+              <Heading size='md'>{product.productname}</Heading>
+              <Text>{product.description}</Text>
+              <Text color='blue.600' fontSize='2xl'>
+                ${product.price}
+              </Text>
+            </Stack>
+          </div>
         </CardBody>
         <Divider />
         <CardFooter>
-          <ButtonGroup spacing='2'>
+          <div className='flex justify-center items-center gap-10'>
             <Button variant='solid' colorScheme='blue' onClick={handleBuyNow}>
               Buy now
             </Button>
             <AddToCartBtn productDetails={product} />
-          </ButtonGroup>
+          </div>
         </CardFooter>
       </Card>
     </div>
