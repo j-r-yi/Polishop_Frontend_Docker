@@ -88,7 +88,14 @@ export default function Login() {
         closeOnEsc={false}
         closeOnOverlayClick={false}
       >
-        <ModalOverlay bg='#E5E7EB' opacity={1} />
+        <ModalOverlay
+          bg='#E5E7EB'
+          opacity={1}
+          bgImage={'/oceanbg.jpg'}
+          bgPosition='center'
+          bgRepeat='no-repeat'
+          bgSize='cover'
+        />
         <ModalContent>
           <div className='flex flex-row justify-between items-center pr-5 whitespace-nowrap'>
             <ModalHeader>Log In</ModalHeader>
