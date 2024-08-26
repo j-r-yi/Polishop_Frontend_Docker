@@ -43,7 +43,7 @@ export default function ShoppingCartBtn() {
               border='hidden'
               aria-label='Shopping Cart'
               fontSize='35px'
-              color='teal'
+              color='#3182ce'
               icon={<FaShoppingCart />}
             ></IconButton>
             {cartItemCount > 0 ? (

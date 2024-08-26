@@ -32,6 +32,12 @@ export default function ListNavBar() {
               as={Button}
               bg='transparent'
               rightIcon={<ChevronDownIcon />}
+              _hover={{
+                background: 'none',
+                border: 'solid',
+                borderColor: 'white',
+              }}
+              _active={{ background: 'none' }}
             >
               {curr.category}
             </MenuButton>

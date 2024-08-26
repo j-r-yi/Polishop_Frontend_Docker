@@ -38,17 +38,21 @@ export default function Banner1() {
         paddingBottom: '20px',
         position: 'relative',
         display: 'flex',
-        justifyContent: 'center', // Center the carousel
-        width: '100%',
+        justifyContent: 'center',
         paddingTop: '20px',
+        maxWidth: '80%',
+        margin: '0 auto',
+        width: '100%',
+        boxSizing: 'border-box',
       }}
     >
       <div
         style={{
-          maxWidth: '1200px',
-          // maxHeight: '1000px',
+          maxWidth: '100%',
           width: '100%',
           margin: '0 auto',
+          display: 'flex',
+          justifyContent: 'center',
         }}
       >
         <Carousel

@@ -79,7 +79,7 @@ export default function Map() {
         <Button
           className='border rounded-sm'
           onClick={handleClick}
-          colorScheme={'teal'}
+          colorScheme={'blue'}
         >
           Deliver to your current location
         </Button>

@@ -6,7 +6,7 @@ import Banner1 from '../components/Products/Banner1';
 import Banner2 from '../components/Products/Banner2';
 import { useEffect, useState } from 'react';
 
-import { Text } from '@chakra-ui/react';
+import { Text, SimpleGrid } from '@chakra-ui/react';
 
 export default function Home() {
   const [isLoaded, setLoaded] = useState(false);
@@ -22,13 +22,17 @@ export default function Home() {
     <div className='bg-gray-100'>
       <Banner1></Banner1>
       <Banner2></Banner2>
-      <div className='mt-10  ml-5'>
-        <Text fontSize='xl'>Sample Products</Text>
-      </div>
-      <div className='flex flex-col sm:flex-row mt-3 pb-10 items-center justify-center gap-10 flex-wrap'>
-        {productsData.map((curr, idx) => {
-          return <ProductCard product={curr} key={idx}></ProductCard>;
-        })}
+      <div className='max-w-[80%] relative my-0 mx-auto '>
+        <div className='mt-10 flex flex-col'>
+          <Text fontSize='3xl' as='b'>
+            Featured Products
+          </Text>
+          <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} spacing={10} mt={5}>
+            {productsData.map((curr, idx) => {
+              return <ProductCard product={curr} key={idx}></ProductCard>;
+            })}
+          </SimpleGrid>
+        </div>
       </div>
     </div>
   );

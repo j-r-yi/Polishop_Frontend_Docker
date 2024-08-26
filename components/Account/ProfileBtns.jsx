@@ -59,7 +59,13 @@ export default function ProfileBtns() {
       {isLoggedIn ? (
         <>
           <Menu direction=''>
-            <MenuButton as={Button} rightIcon={<ChevronDownIcon />} gap='15px'>
+            <MenuButton
+              as={Button}
+              rightIcon={<ChevronDownIcon />}
+              gap='15px'
+              // _hover={{ backgroundColor: '#3182ce' }}
+              background={'none'}
+            >
               <Icon as={RxAvatar} boxSize={8}></Icon>
             </MenuButton>
             <MenuList>

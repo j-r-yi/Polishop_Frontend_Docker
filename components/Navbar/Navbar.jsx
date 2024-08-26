@@ -24,12 +24,12 @@ import ProfileBtns from '../Account/ProfileBtns';
 
 export default function Navbar() {
   return (
-    <div className='flex flex-col justify-center items-center mx-auto'>
-      <div className='flex flex-col sm:flex-row items-center justify-evenly gap-10 pl-20 pr-20 bg-gradient-to-r from-blue-200 to-cyan-100 w-full pb-3 pt-6'>
+    <div className='flex flex-col justify-center items-center mx-auto bg-gradient-to-br from-blue-200 to-cyan-100'>
+      <div className='flex flex-col sm:flex-row items-center justify-evenly gap-10 pl-20 pr-20 w-full pb-3 pt-6'>
         <NextLink href='/' passHref>
           <Text
             as='b'
-            color='white'
+            color='black'
             fontSize='xl'
             className='whitespace-nowrap'
           >
@@ -67,10 +67,8 @@ export default function Navbar() {
 
         <ShoppingCartBtn></ShoppingCartBtn>
       </div>
-      <div className='flex flex-row items-center justify-evenly gap-3 p-2 bg-gradient-to-r from-blue-200 to-cyan-100 w-full pb-3'>
-        <div>
-          <DrawerNav></DrawerNav>
-        </div>
+      <div className='flex flex-row items-center justify-evenly gap-3 p-2 w-full pb-3'>
+        <DrawerNav></DrawerNav>
         <div className='hidden md:block'>
           <ListNavBar></ListNavBar>
         </div>

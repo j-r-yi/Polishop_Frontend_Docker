@@ -25,7 +25,7 @@ export default function AccountSideBar() {
       <Box boxShadow='md'>
         <Menu>
           <MenuItem background={'white'}>
-            <Avatar bg='teal.500' src='' />
+            <Avatar bg='blue.500' src='' />
             {username}
           </MenuItem>
           <>
@@ -34,9 +34,9 @@ export default function AccountSideBar() {
                 <NextLink href={curr.ref} passHref key={idx}>
                   <MenuItem
                     background={'white'}
-                    color={'teal.500'}
+                    color={'blue.500'}
                     _hover={{
-                      background: 'teal.500',
+                      background: 'blue.500',
                       color: 'white',
                     }}
                   >

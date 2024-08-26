@@ -114,7 +114,14 @@ export default function Login() {
           <div className='flex flex-row justify-between items-center pr-5 whitespace-nowrap'>
             <ModalHeader>Log In</ModalHeader>
             <NextLink href='/' passHref>
-              <IconButton onClick={onClose} icon={<CloseIcon />}></IconButton>
+              <IconButton
+                onClick={onClose}
+                icon={<CloseIcon />}
+                bg={'none'}
+                _hover={{
+                  background: 'none',
+                }}
+              ></IconButton>
             </NextLink>
           </div>
           <ModalBody display={'flex'} flexDirection={'column'} gap={'2rem'}>

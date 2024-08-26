@@ -73,7 +73,7 @@ const backToTop = function () {
 
 export default function Footer() {
   return (
-    <div className='flex flex-col w-full bg-sky-100 gap-5 pl-20 pr-20 pt-5'>
+    <div className='flex flex-col w-full gap-5 pl-20 pr-20 pt-5 bg-gradient-to-tr from-blue-200 to-cyan-100'>
       <div className='flex flex-col sm:flex-row justify-between'>
         <div className='flex flex-row gap-5 items-center justify-center'>
           <Text fontSize='md'>We are alway here to help!</Text>

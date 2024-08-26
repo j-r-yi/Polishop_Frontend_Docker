@@ -29,7 +29,7 @@ export default function DrawerNav() {
     <div>
       <Button
         ref={btnRef}
-        colorScheme='teal'
+        colorScheme='blue'
         onClick={onOpen}
         rightIcon={<ChevronDownIcon />}
       >
@@ -50,7 +50,11 @@ export default function DrawerNav() {
           </DrawerHeader>
 
           <DrawerBody>
-            <Accordion defaultIndex={[0]} allowMultiple>
+            <Accordion
+              defaultIndex={[]}
+              // allowMultiple={false}
+              allowToggle={true}
+            >
               <AccordionItem>
                 <h2>
                   <AccordionButton>
@@ -73,6 +77,23 @@ export default function DrawerNav() {
                   <AccordionButton>
                     <Box as='span' flex='1' textAlign='left'>
                       Section 2 title
+                    </Box>
+                    <AccordionIcon />
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </AccordionPanel>
+              </AccordionItem>
+
+              <AccordionItem>
+                <h2>
+                  <AccordionButton>
+                    <Box as='span' flex='1' textAlign='left'>
+                      Section 3 title
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>

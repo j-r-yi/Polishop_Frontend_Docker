@@ -5,7 +5,10 @@ const getCurrentCartItems = function () {
   // Check if user browser supports local storage
   if (typeof Storage !== 'undefined') {
     // const cartItems = localStorage.getItem('cartItems');
-    if (localStorage.getItem('cartItems') == null) {
+    if (
+      localStorage.getItem('cartItems') == null ||
+      localStorage.getItem('cartItems') == ''
+    ) {
       return [];
     } else {
       const parsedItems = JSON.parse(localStorage.getItem('cartItems'));

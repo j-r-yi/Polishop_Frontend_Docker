@@ -134,7 +134,14 @@ export default function Signup() {
           <div className='flex flex-row justify-between items-center pr-5 whitespace-nowrap'>
             <ModalHeader>Sign Up</ModalHeader>
             <NextLink href='/' passHref>
-              <IconButton onClick={onClose} icon={<CloseIcon />}></IconButton>
+              <IconButton
+                onClick={onClose}
+                icon={<CloseIcon />}
+                bg={'none'}
+                _hover={{
+                  background: 'none',
+                }}
+              ></IconButton>
             </NextLink>
           </div>
           <ModalBody display={'flex'} flexDirection={'column'} gap={'1rem'}>
@@ -168,7 +175,10 @@ export default function Signup() {
                 </Button>
               </InputRightElement>
             </InputGroup>
-            <Text>Notice: Avoid using real information on this demo site</Text>
+            <Text>
+              *NOTE*: Please refrain from using real information on this project
+              site
+            </Text>
             {errorMessage == '' ? (
               <></>
             ) : (

@@ -14,7 +14,7 @@ export default function Banner2() {
   }, []);
 
   return (
-    <div className='flex flex-row justify-center relative mt-20'>
+    <div className='flex flex-row justify-center relative mt-20 max-w-[80%] my-0 mx-auto'>
       <div className='container grid grid-cols-1 md:grid-cols-2 gap-5'>
         <NextLink href='/' passHref>
           <Image
