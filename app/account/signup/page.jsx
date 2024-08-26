@@ -25,6 +25,23 @@ import { CloseIcon } from '@chakra-ui/icons';
 
 import { logIn } from '../../../features/slices/account.slice';
 
+const validateEmail = (email) => {
+  return String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+    );
+};
+
+function isPasswordStrong(password) {
+  const regex =
+    // /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>\/\\])[A-Za-z\d!@#$%^&*(),.?":{}|<>\/\\]{10,30}$/;
+    // /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,30}$/;
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\/])[A-Za-z\d@$!%*?&\/]{5,30}$/;
+
+  return regex.test(password);
+}
+
 export default function Signup() {
   const dispatch = useDispatch();
   const router = useRouter();
@@ -51,6 +68,27 @@ export default function Signup() {
 
   const handleSignupClick = async function (e) {
     e.preventDefault();
+
+    if (username.length == 0) {
+      setErrorMessage('Username must not be empty');
+      return;
+    } else if (username.length > 15) {
+      setErrorMessage('Username must not be greater than 15 characters');
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      setErrorMessage('You must use a valid email address');
+      return;
+    }
+
+    if (!isPasswordStrong(password)) {
+      setErrorMessage(
+        'Passwords require at least 1 uppercase, 1 lowercase, 1 number, 1 symbol, and be 5-30 characters',
+      );
+      return;
+    }
+
     const newUser = {
       username: username,
       email: email,
@@ -78,7 +116,7 @@ export default function Signup() {
       <Modal
         isOpen={true}
         onClose={onClose}
-        blockScrollOnMount={false}
+        blockScrollOnMount={true}
         motionPreset='none'
         isCentered={true}
         closeOnEsc={false}
@@ -100,7 +138,7 @@ export default function Signup() {
             </NextLink>
           </div>
           <ModalBody display={'flex'} flexDirection={'column'} gap={'1rem'}>
-            <Text>Username</Text>
+            {/* <Text>Username</Text> */}
             <Input
               placeholder='Enter a username'
               size='md'
@@ -108,7 +146,7 @@ export default function Signup() {
               value={username}
               onChange={handleUsernameChange}
             />
-            <Text>Email</Text>
+            {/* <Text>Email</Text> */}
             <Input
               placeholder='Enter an email'
               size='md'
@@ -116,7 +154,6 @@ export default function Signup() {
               value={email}
               onChange={handleEmailChange}
             />
-            <Text>Password</Text>
             <InputGroup size='md'>
               <Input
                 pr='4.5rem'
@@ -131,14 +168,7 @@ export default function Signup() {
                 </Button>
               </InputRightElement>
             </InputGroup>
-            {/* <Text>Confirm Password</Text>
-            <Input
-              pr='4.5rem'
-              type={show ? 'text' : 'password'}
-              placeholder='Enter password'
-              value={password}
-              onChange={handlePasswordChange}
-            /> */}
+            <Text>Notice: Avoid using real information on this demo site</Text>
             {errorMessage == '' ? (
               <></>
             ) : (

@@ -53,7 +53,7 @@ export default function Banner2() {
           />
         </NextLink>
         {/* onset-1/2  top-1/2 left-1/2*/}
-        <div className='sm:hidden md:block absolute top-1/2 left-1/2 z-100 w-32 h-32 bg-gray-100 rounded-full transform -translate-x-1/2 -translate-y-1/2'></div>
+        <div className='hidden md:block absolute top-1/2 left-1/2 z-100 w-32 h-32 bg-gray-100 rounded-full transform -translate-x-1/2 -translate-y-1/2'></div>
       </div>
     </div>
   );

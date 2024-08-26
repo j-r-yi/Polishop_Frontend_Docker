@@ -40,9 +40,23 @@ export default function Login() {
 
   const router = useRouter();
 
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      );
+  };
+
   const handleLogIn = async function (e) {
     console.log(emailValue, passwordValue);
     e.preventDefault();
+
+    if (!validateEmail(emailValue)) {
+      setErrorMessage('You must enter a valid email address');
+      return;
+    }
+
     const userPackage = {
       email: emailValue,
       password: passwordValue,
@@ -82,7 +96,7 @@ export default function Login() {
       <Modal
         isOpen={isOpen}
         onClose={onClose}
-        blockScrollOnMount={false}
+        blockScrollOnMount={true}
         motionPreset='none'
         isCentered={true}
         closeOnEsc={false}
