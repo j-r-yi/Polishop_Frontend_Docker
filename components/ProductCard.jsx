@@ -21,26 +21,68 @@ const handleBuyNow = function () {
   return;
 };
 
+const starRating = function (rating) {
+  let fullStars = Math.floor(rating);
+  let halfStars = rating - fullStars;
+  if (halfStars >= 0.5) {
+    halfStars = 1;
+  } else {
+    halfStars = 0;
+  }
+  let emptyStars = 5 - fullStars - halfStars;
+
+  const fullStarArr = [...Array(fullStars)];
+  const halfStarArr = [...Array(halfStars)];
+  const emptyStarArr = [...Array(emptyStars)];
+
+  return (
+    <div className='flex flex-row'>
+      {fullStarArr.map((curr, index) => {
+        return <img src='/star.svg' width={15} height={15} key={index}></img>;
+      })}
+      {halfStarArr.map((curr, index) => {
+        return (
+          <img
+            src='/half-star.svg'
+            width={15}
+            height={15}
+            className='clip-path-polygon-left-half'
+            key={index}
+          ></img>
+        );
+      })}
+      {emptyStarArr.map((curr, index) => {
+        return (
+          <img src='/empty-star.svg' width={15} height={15} key={index}></img>
+        );
+      })}
+    </div>
+  );
+};
+
 export default function ProductCard({ product }) {
   return (
     <Card h='100%'>
       <CardBody>
-        <div className='flex flex-col justify-center'>
-          <div className='items-center justify-center'>
-            <AspectRatio ratio={4 / 3} w='100%' maxW='300px'>
-              <Image
-                objectFit='cover'
-                boxSize='300px'
-                src={product.img}
-                alt={product.alt}
-                borderRadius='lg'
-                width='100%'
-                height='100%'
-              />
-            </AspectRatio>
-          </div>
-          {/* <Flex direction='column' justify='evenly' paddingTop='10px'> */}
-          <Stack spacing='2' paddingTop='10px'>
+        <Flex direction='column' alignItems='center'>
+          <AspectRatio ratio={4 / 3} w='100%' maxW='300px'>
+            <Image
+              objectFit='cover'
+              boxSize='300px'
+              src={product.img}
+              alt={product.alt}
+              borderRadius='lg'
+              width='100%'
+              height='100%'
+            />
+          </AspectRatio>
+          <Stack
+            spacing='2'
+            paddingTop='10px'
+            alignItems='flex-start'
+            w='100%'
+            maxW='300px'
+          >
             <Heading size='md'>{product.productname}</Heading>
             <Text>{product.description}</Text>
             <Text color='blue.600' fontSize='2xl'>
@@ -48,11 +90,11 @@ export default function ProductCard({ product }) {
             </Text>
             <div className='flex flex-row gap-2'>
               <Text>{product.rating}</Text>
-              <img src='/star-svgrepo-com.svg' width={20} height={20}></img>
+              {/* <img src='/star-svgrepo-com.svg' width={20} height={20}></img> */}
+              {starRating(product.rating)}
             </div>
           </Stack>
-          {/* </Flex> */}
-        </div>
+        </Flex>
       </CardBody>
       <Divider />
       <CardFooter>
