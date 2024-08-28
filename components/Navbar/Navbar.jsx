@@ -38,16 +38,16 @@ export default function Navbar() {
         </NextLink>
 
         <InputGroup size='md'>
-          <InputLeftAddon>
+          {/* <InputLeftAddon>
             <Select w='full' placeholder='All' border='hidden'>
               <option value='option1'>Option 1</option>
               <option value='option2'>Option 2</option>
               <option value='option3'>Option 3</option>
             </Select>
-          </InputLeftAddon>
+          </InputLeftAddon> */}
           <Input
             placeholder='Search for items...'
-            width='80%'
+            width='90%'
             variant='filled'
           />
 

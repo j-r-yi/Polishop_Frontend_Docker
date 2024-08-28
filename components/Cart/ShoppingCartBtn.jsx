@@ -103,7 +103,7 @@ export default function ShoppingCartBtn() {
                 </PopoverBody>
                 <PopoverFooter>
                   <div className='flex gap-10 items-center'>
-                    <Text>Current Cart Cost: ${cartCost}</Text>
+                    <Text>Current Cart Cost: ${cartCost.toFixed(2)}</Text>
                     <ClearCartBtn />
                   </div>
                 </PopoverFooter>

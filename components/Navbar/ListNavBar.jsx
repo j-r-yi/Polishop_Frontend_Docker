@@ -15,10 +15,6 @@ const listItems = [
     category: 'category3',
     subset: ['item7', 'item8', 'item9'],
   },
-  {
-    category: 'category4',
-    subset: ['item10', 'item11', 'item12'],
-  },
 ];
 
 export default function ListNavBar() {

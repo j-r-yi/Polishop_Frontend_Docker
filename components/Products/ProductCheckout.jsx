@@ -3,20 +3,26 @@ import {
   Card,
   CardHeader,
   CardBody,
-  CardFooter,
   Stack,
   StackDivider,
   Box,
   Heading,
   Button,
   Text,
+  Highlight,
 } from '@chakra-ui/react';
 
-// import QuantityAdjuster from '/QuantityAdjuster';
+import { useSelector } from 'react-redux';
 import QuantityAdjuster from './QuantityAdjuster';
 
 export default function ProductCheckout({ product }) {
-  console.log(product.quantity);
+  // const cartItems = useSelector((state) => state.cart.cartItemCount);
+  // const cartCost = useSelector((state) => state.cart.totalPrice);
+  // console.log(product.quantity);
+
+  let discount = Math.floor((product.discount / product.price) * 100);
+  discount = discount.toString();
+
   return (
     <Card>
       <CardHeader>
@@ -26,12 +32,35 @@ export default function ProductCheckout({ product }) {
       <CardBody>
         <Stack divider={<StackDivider />} spacing='4'>
           <Box>
-            <Heading size='xs' textTransform='uppercase'>
-              Summary
+            <Heading size='s' textTransform='uppercase'>
+              Cost
             </Heading>
-            <Text pt='2' fontSize='sm'>
-              View a summary of all your cart products.
-            </Text>
+            {discount === '0' ? (
+              <></>
+            ) : (
+              <div className='flex flex-row items-center gap-5'>
+                <div>
+                  <Text pt='2' fontSize='md' as='s'>
+                    ${product.price}
+                  </Text>
+                </div>
+                <div>
+                  <Highlight
+                    query={`${discount}% off`}
+                    styles={{
+                      px: '1',
+                      py: '1',
+                      rounded: 'full',
+                      bg: 'blue.100',
+                    }}
+                  >
+                    {`${discount}% off`}
+                  </Highlight>
+                </div>
+              </div>
+            )}
+
+            <Text>${product.price - product.discount}</Text>
           </Box>
           <Box>
             <Button>Go to checkout</Button>

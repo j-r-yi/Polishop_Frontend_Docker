@@ -48,12 +48,9 @@ export default async function ProductPage({ params }) {
     return <div>Product not found</div>;
   }
   return (
-    <div className='flex flex-col md:flex-row py-20 justify-evenly items-center'>
+    <div className='flex flex-col md:flex-row py-20 justify-evenly items-start'>
       <ProductGallery product={product}></ProductGallery>
       <div>
-        <div>This product's id number is: {product.productId}</div>
-        <div>The name of the product is: {product.productname}</div>
-        <div>The cost of the product is: {product.price}</div>
         <ProductDescription product={product}></ProductDescription>
       </div>
       <div>

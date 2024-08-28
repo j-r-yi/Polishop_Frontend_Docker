@@ -7,7 +7,7 @@ export default function ProductGallery({ product }) {
   const [selectedImg, setSelectedImg] = useState(product.img);
 
   return (
-    <div className='flex flex-col w-[400px] mt-5 mb-10'>
+    <div className='flex flex-col w-[400px] mb-10'>
       <div className='mb-1 shadow-xl'>
         <img
           src={mainImg}
@@ -15,7 +15,7 @@ export default function ProductGallery({ product }) {
           className={`object-cover w-full h-[400px] rounded-lg`}
         />
       </div>
-      <div className='flex flex-row shadow-xl gap-1'>
+      <div className='flex flex-row gap-1'>
         <img
           src={product.img}
           alt='gallery main product image'
