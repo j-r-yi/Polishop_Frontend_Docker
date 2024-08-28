@@ -17,6 +17,8 @@ import {
 import AddToCartBtn from './Cart/AddToCartBtn';
 import QuantityAdjuster from './Products/QuantityAdjuster';
 
+import { useRouter } from 'next/navigation';
+
 const handleBuyNow = function () {
   return;
 };
@@ -61,8 +63,16 @@ const starRating = function (rating) {
 };
 
 export default function ProductCard({ product }) {
+  const router = useRouter();
+
   return (
-    <Card h='100%'>
+    <Card
+      h='100%'
+      onClick={() => {
+        router.push(`/products/${product.productId}`);
+      }}
+      cursor='pointer'
+    >
       <CardBody>
         <Flex direction='column' alignItems='center'>
           <AspectRatio ratio={4 / 3} w='100%' maxW='300px'>

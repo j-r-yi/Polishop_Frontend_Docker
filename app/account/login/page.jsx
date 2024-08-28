@@ -1,12 +1,12 @@
 'use client';
-import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
 
 import NextLink from 'next/link';
 import { CloseIcon } from '@chakra-ui/icons';
 
-import { useDispatch } from 'react-redux';
 import { logIn } from '../../../features/slices/account.slice';
 // import { initializeCart } from '../../../features/slices/cart.slice';
 

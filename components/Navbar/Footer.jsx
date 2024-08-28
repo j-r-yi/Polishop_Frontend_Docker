@@ -101,7 +101,7 @@ export default function Footer() {
         borderStyle='solid'
         borderColor={'gray'}
       />
-      <div className='hidden lg:flex justify-center items-center py-3 gap-20'>
+      <div className='hidden xl:flex justify-center items-center py-3 gap-20'>
         {footerInfoList.map((curr, idx) => {
           return (
             <div
@@ -114,7 +114,7 @@ export default function Footer() {
           );
         })}
       </div>
-      <div className='hidden lg:block'>
+      <div className='hidden xl:block'>
         <Divider
           orientation='horizontal'
           borderWidth='1px'
