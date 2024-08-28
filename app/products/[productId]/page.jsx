@@ -1,5 +1,6 @@
 import ProductDescription from '../../../components/Products/ProductDescription';
 import ProductCheckout from '../../../components/Products/ProductCheckout';
+import ProductGallery from '../../../components/Products/ProductGallery';
 
 export async function generateStaticParams() {
   try {
@@ -21,7 +22,9 @@ export async function generateStaticParams() {
 async function getProduct(productId) {
   console.log('Starting fetch');
   try {
-    const res = await fetch(`http://127.0.0.1:8000/products/${productId}`);
+    const res = await fetch(`http://127.0.0.1:8000/products/${productId}`, {
+      cache: 'no-cache',
+    });
     if (!res.ok) {
       throw new Error(`Failed to fetch product with ID: ${productId}`);
     }
@@ -45,13 +48,12 @@ export default async function ProductPage({ params }) {
     return <div>Product not found</div>;
   }
   return (
-    <div className='flex flex-row py-20 justify-evenly items-center'>
+    <div className='flex flex-col md:flex-row py-20 justify-evenly items-center'>
+      <ProductGallery product={product}></ProductGallery>
       <div>
-        <div>This product's id number is: {product.productid}</div>
+        <div>This product's id number is: {product.productId}</div>
         <div>The name of the product is: {product.productname}</div>
         <div>The cost of the product is: {product.price}</div>
-      </div>
-      <div>
         <ProductDescription product={product}></ProductDescription>
       </div>
       <div>

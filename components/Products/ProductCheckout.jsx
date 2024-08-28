@@ -30,7 +30,7 @@ export default function ProductCheckout({ product }) {
               Summary
             </Heading>
             <Text pt='2' fontSize='sm'>
-              View a summary of all your clients over the last month.
+              View a summary of all your cart products.
             </Text>
           </Box>
           <Box>

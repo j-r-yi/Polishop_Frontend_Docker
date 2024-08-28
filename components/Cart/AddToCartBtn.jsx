@@ -7,7 +7,8 @@ export default function AddToCartBtn({ productDetails }) {
   const dispatch = useDispatch();
 
   // Cart reducer (redux) to update global state of cart items and store item in local storage
-  const handleAddItem = function () {
+  const handleAddItem = function (e) {
+    e.stopPropagation();
     dispatch(addToCart(productDetails));
   };
 

@@ -19,7 +19,8 @@ import QuantityAdjuster from './Products/QuantityAdjuster';
 
 import { useRouter } from 'next/navigation';
 
-const handleBuyNow = function () {
+const handleBuyNow = function (e) {
+  e.stopPropagation();
   return;
 };
 

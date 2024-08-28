@@ -22,7 +22,7 @@ export default function Home() {
     <div className='bg-gray-100'>
       <Banner1></Banner1>
       <Banner2></Banner2>
-      <div className='max-w-[80%] relative my-0 mx-auto '>
+      <div className='max-w-[80%] relative my-0 mx-auto pb-20'>
         <div className='mt-10 flex flex-col'>
           <Text fontSize='3xl' as='b'>
             Featured Products
