@@ -13,13 +13,13 @@ import {
   Text,
   Container,
   Box,
+  Button,
   Flex,
 } from '@chakra-ui/react';
 import { FaShoppingCart } from 'react-icons/fa';
 
 import { useSelector } from 'react-redux';
 
-import EmptyCart from '../../components/Cart/EmptyCartBtn';
 import ClearCartBtn from '../../components/Cart/EmptyCartBtn';
 import CartIsEmpty from './CartIsEmpty';
 import ProductCardDetailed from '../Products/ProductCardDetailed';
@@ -65,12 +65,12 @@ export default function ShoppingCartBtn() {
               <div className='flex flex-col justify-evenly items-center'>
                 <PopoverHeader>
                   <div className='flex flex-row justify-between items-center gap-20'>
-                    <Text>
+                    <Text fontSize='xl'>
                       {cartItemCount} item{cartItemCount == 1 ? '' : 's'} in
                       cart
                     </Text>
                     <NextLink href='/cart' passHref>
-                      <Text color='blue'>Go to cart</Text>
+                      <Button colorScheme={'blue'}>Go to cart</Button>
                     </NextLink>
                   </div>
                 </PopoverHeader>
@@ -80,7 +80,7 @@ export default function ShoppingCartBtn() {
                       display='flex'
                       flexDirection='column'
                       overflowY='auto'
-                      height='250px' // Set the height to trigger vertical scrolling
+                      height='270px' // Set the height to trigger vertical scrolling
                       borderRadius='lg'
                     >
                       {cartItemCount > 0 ? (
@@ -102,7 +102,9 @@ export default function ShoppingCartBtn() {
                 </PopoverBody>
                 <PopoverFooter>
                   <div className='flex gap-10 items-center'>
-                    <Text>Current Cart Cost: ${cartCost.toFixed(2)}</Text>
+                    <Text fontSize='xl'>
+                      Current Cart Cost: ${cartCost.toFixed(2)}
+                    </Text>
                     <ClearCartBtn />
                   </div>
                 </PopoverFooter>

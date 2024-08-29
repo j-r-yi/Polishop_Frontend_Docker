@@ -13,6 +13,7 @@ import {
   AspectRatio,
   Flex,
 } from '@chakra-ui/react';
+import { BiSolidPurchaseTag } from 'react-icons/bi';
 
 import AddToCartBtn from './Cart/AddToCartBtn';
 import QuantityAdjuster from './Products/QuantityAdjuster';
@@ -49,7 +50,7 @@ const starRating = function (rating) {
           ></img>
         );
       })}
-      {emptyStarArr.map((curr, index) => {
+      {emptyStarArr.map((_, index) => {
         return (
           <img src='/empty-star.svg' width={15} height={15} key={index}></img>
         );
@@ -112,8 +113,17 @@ export default function ProductCard({ product }) {
       <Divider borderColor={'gray.400'} />
       <CardFooter>
         <div className='flex flex-row justify-evenly items-center w-full'>
-          <Button variant='solid' colorScheme='blue' onClick={handleBuyNow}>
-            Buy now
+          <Button
+            variant='solid'
+            colorScheme='blue'
+            onClick={handleBuyNow}
+            display={'flex'}
+            alignItems={'center'}
+            justifyContent={'center'}
+            gap='5px'
+          >
+            <Text>Buy now</Text>
+            <BiSolidPurchaseTag fontSize={20}></BiSolidPurchaseTag>
           </Button>
           <AddToCartBtn productDetails={product} />
         </div>

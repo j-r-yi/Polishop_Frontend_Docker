@@ -67,6 +67,7 @@ const moreContactList = [
 const footerContactList = [{}];
 
 const backToTop = function () {
+  const isBrowser = () => typeof window !== 'undefined';
   if (!isBrowser()) return;
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
@@ -87,9 +88,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <Button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          >
+          <Button onClick={backToTop}>
             Back to top
             <Icon as={ChevronUpIcon}></Icon>
           </Button>

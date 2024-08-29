@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../features/slices/cart.slice';
-import { Button } from '@chakra-ui/react';
+import { Button, Text } from '@chakra-ui/react';
+
+import { FaCartArrowDown } from 'react-icons/fa';
 
 export default function AddToCartBtn({ productDetails }) {
   // Uses redux dispatch
@@ -12,5 +14,10 @@ export default function AddToCartBtn({ productDetails }) {
     dispatch(addToCart(productDetails));
   };
 
-  return <Button onClick={handleAddItem}>Add to cart</Button>;
+  return (
+    <Button onClick={handleAddItem} display={'flex'} gap='2px'>
+      <Text>Add to cart</Text>
+      <FaCartArrowDown fontSize={20} />
+    </Button>
+  );
 }

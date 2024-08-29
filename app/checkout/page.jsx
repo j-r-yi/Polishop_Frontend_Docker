@@ -30,18 +30,10 @@ export default function Checkout() {
           maxW='container.lg'
           className='flex-grow'
           style={{ flexBasis: '75%' }}
-          // w='75%'
-          // className='flex-grow'
         >
           <CheckoutOptions></CheckoutOptions>
         </Container>
-        <Container
-          maxW='container.sm'
-          className='flex-grow'
-          style={{ flexBasis: '25%' }}
-          // w='25%'
-          // className='flex-grow'
-        >
+        <Container className='flex-grow' style={{ flexBasis: '25%' }}>
           <CheckoutFinal></CheckoutFinal>
         </Container>
       </div>

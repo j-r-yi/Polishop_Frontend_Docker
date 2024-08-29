@@ -12,7 +12,12 @@ export default function ClearCartBtn() {
 
   return (
     <div>
-      <Button variant='solid' colorScheme='red' onClick={handleClearCart}>
+      <Button
+        variant='solid'
+        colorScheme='red'
+        onClick={handleClearCart}
+        size='sm'
+      >
         Empty Cart
       </Button>
     </div>
