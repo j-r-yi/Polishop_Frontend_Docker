@@ -13,6 +13,7 @@ import { FaShoppingCart, FaWallet } from 'react-icons/fa';
 
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
+import { current } from '@reduxjs/toolkit';
 
 export default function CartCheckoutNav() {
   const router = useRouter();
@@ -37,7 +38,7 @@ export default function CartCheckoutNav() {
       <Card w='100%'>
         <CardBody className='flex flex-row items-center justify-evenly'>
           <div
-            className={`flex flex-col items-center justify-center cursor-pointer ${currentPath == '/cart' ? 'bg-gray-200' : ''} w-[100px]`}
+            className={`flex flex-col items-center justify-center cursor-pointer w-[100px]`}
             onClick={handleCartClick}
           >
             <IconButton
@@ -45,11 +46,13 @@ export default function CartCheckoutNav() {
               border='hidden'
               aria-label='Shopping Cart'
               fontSize='35px'
-              color='#3182ce'
+              color={currentPath == '/cart' ? '#3182ce' : '#adcdec'}
               icon={<FaShoppingCart />}
               _hover={{ background: 'none' }}
             />
-            <Text color='blue.500'>Cart</Text>
+            <Text color={currentPath == '/cart' ? '#3182ce' : '#adcdec'}>
+              Cart
+            </Text>
           </div>
           <Divider
             orientation='horizontal'
@@ -59,7 +62,7 @@ export default function CartCheckoutNav() {
             width='100px'
           />
           <div
-            className={`flex flex-col items-center justify-center cursor-pointer ${currentPath == '/checkout' ? 'bg-gray-200' : ''} w-[100px]`}
+            className={`flex flex-col items-center justify-center cursor-pointer w-[100px]`}
             onClick={handleCheckoutClick}
           >
             <IconButton
@@ -67,11 +70,13 @@ export default function CartCheckoutNav() {
               border='hidden'
               aria-label='Shopping Cart'
               fontSize='35px'
-              color='#3182ce'
+              color={currentPath == '/checkout' ? '#3182ce' : '#adcdec'}
               icon={<FaWallet />}
               _hover={{ background: 'none' }}
             />
-            <Text color='blue.500'>Checkout</Text>
+            <Text color={currentPath == '/checkout' ? '#3182ce' : '#adcdec'}>
+              Checkout
+            </Text>
           </div>
         </CardBody>
       </Card>

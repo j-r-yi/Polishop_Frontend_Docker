@@ -13,11 +13,9 @@ import {
   AspectRatio,
   Flex,
 } from '@chakra-ui/react';
-import { BiSolidPurchaseTag } from 'react-icons/bi';
 
 import AddToCartBtn from './Cart/AddToCartBtn';
-import QuantityAdjuster from './Products/QuantityAdjuster';
-
+import BuyNowBtn from './Cart/BuyNowBtn';
 import { useRouter } from 'next/navigation';
 
 const starRating = function (rating) {
@@ -61,14 +59,6 @@ const starRating = function (rating) {
 
 export default function ProductCard({ product }) {
   const router = useRouter();
-
-  const handleBuyNow = function (e) {
-    e.stopPropagation();
-    router.push('/checkout');
-
-    return;
-  };
-
   return (
     <Card
       h='100%'
@@ -104,7 +94,6 @@ export default function ProductCard({ product }) {
             </Text>
             <div className='flex flex-row gap-2'>
               <Text>{product.rating}</Text>
-              {/* <img src='/star-svgrepo-com.svg' width={20} height={20}></img> */}
               {starRating(product.rating)}
             </div>
           </Stack>
@@ -113,18 +102,7 @@ export default function ProductCard({ product }) {
       <Divider borderColor={'gray.400'} />
       <CardFooter>
         <div className='flex flex-row justify-evenly items-center w-full'>
-          <Button
-            variant='solid'
-            colorScheme='blue'
-            onClick={handleBuyNow}
-            display={'flex'}
-            alignItems={'center'}
-            justifyContent={'center'}
-            gap='5px'
-          >
-            <Text>Buy now</Text>
-            <BiSolidPurchaseTag fontSize={20}></BiSolidPurchaseTag>
-          </Button>
+          <BuyNowBtn productDetails={product}></BuyNowBtn>
           <AddToCartBtn productDetails={product} />
         </div>
       </CardFooter>

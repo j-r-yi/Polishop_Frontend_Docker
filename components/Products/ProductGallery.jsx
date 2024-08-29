@@ -15,7 +15,7 @@ export default function ProductGallery({ product }) {
           className={`object-cover w-full lg:h-[400px] h-[300px] rounded-lg`}
         />
       </div>
-      <div className='flex flex-row gap-1'>
+      <div className='flex flex-row'>
         <img
           src={product.img}
           alt='gallery main product image'

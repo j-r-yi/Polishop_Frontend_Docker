@@ -20,7 +20,7 @@ export default function ProductCheckout({ product }) {
   // const cartCost = useSelector((state) => state.cart.totalPrice);
   // console.log(product.quantity);
 
-  let discount = Math.floor((product.discount / product.price) * 100);
+  let discount = Math.round((product.discount / product.price) * 100);
   discount = discount.toString();
 
   return (
