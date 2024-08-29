@@ -37,7 +37,7 @@ export default function CartCheckoutNav() {
       <Card w='100%'>
         <CardBody className='flex flex-row items-center justify-evenly'>
           <div
-            className={`flex flex-col items-center justify-center cursor-pointer ${currentPath == '/cart' ? 'bg-slate-300' : ''}`}
+            className={`flex flex-col items-center justify-center cursor-pointer ${currentPath == '/cart' ? 'bg-gray-200' : ''} w-[100px]`}
             onClick={handleCartClick}
           >
             <IconButton
@@ -59,7 +59,7 @@ export default function CartCheckoutNav() {
             width='100px'
           />
           <div
-            className={`flex flex-col items-center justify-center cursor-pointer ${currentPath == '/checkout' ? 'bg-slate-300' : ''}`}
+            className={`flex flex-col items-center justify-center cursor-pointer ${currentPath == '/checkout' ? 'bg-gray-200' : ''} w-[100px]`}
             onClick={handleCheckoutClick}
           >
             <IconButton

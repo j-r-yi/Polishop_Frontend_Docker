@@ -109,7 +109,7 @@ export default function ProductCard({ product }) {
           </Stack>
         </Flex>
       </CardBody>
-      <Divider />
+      <Divider borderColor={'gray.400'} />
       <CardFooter>
         <div className='flex flex-row justify-evenly items-center w-full'>
           <Button variant='solid' colorScheme='blue' onClick={handleBuyNow}>
