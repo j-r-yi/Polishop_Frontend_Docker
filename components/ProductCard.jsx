@@ -19,11 +19,6 @@ import QuantityAdjuster from './Products/QuantityAdjuster';
 
 import { useRouter } from 'next/navigation';
 
-const handleBuyNow = function (e) {
-  e.stopPropagation();
-  return;
-};
-
 const starRating = function (rating) {
   let fullStars = Math.floor(rating);
   let halfStars = rating - fullStars;
@@ -65,6 +60,13 @@ const starRating = function (rating) {
 
 export default function ProductCard({ product }) {
   const router = useRouter();
+
+  const handleBuyNow = function (e) {
+    e.stopPropagation();
+    router.push('/checkout');
+
+    return;
+  };
 
   return (
     <Card

@@ -23,9 +23,12 @@ export default function ProductCardDetailed({ product }) {
         // maxW='full'
         direction={{ base: 'column', sm: 'row' }}
         variant='outline'
+        // className='py-5'
+        border={'solid'}
+        borderColor={'gray.200'}
       >
         <Image
-          objectFit='scale-down'
+          objectFit='cover'
           maxW={{ base: '80%', sm: '200px' }}
           src={product.img}
           alt={product.alt}

@@ -28,7 +28,6 @@ export default function ProfileBtns() {
   const router = useRouter();
   // const currentUsername = useSelector((state) => state.account.currentUsername);
   const currentUsername = localStorage.getItem('user');
-  console.log('The current username is', currentUsername);
 
   const handleLogOut = async function () {
     try {

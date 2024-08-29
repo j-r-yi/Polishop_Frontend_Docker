@@ -5,14 +5,9 @@ import { SearchIcon } from '@chakra-ui/icons';
 import {
   Input,
   InputGroup,
-  InputRightElement,
   InputRightAddon,
-  InputLeftElement,
-  InputLeftAddon,
   IconButton,
-  Select,
   Divider,
-  LinkBox,
   Text,
 } from '@chakra-ui/react';
 
@@ -22,7 +17,36 @@ import ShoppingCartBtn from '../Cart/ShoppingCartBtn';
 import LocationModal from '../Navbar/LocationModal';
 import ProfileBtns from '../Account/ProfileBtns';
 
+const handleSearch = async function (term) {
+  try {
+    const res = await fetch(`http://127.0.0.1:8000/search/${term}`);
+    if (!res.ok) {
+      throw new Error('Invalid Search');
+    }
+    const data = await res.json();
+  } catch (error) {
+    console.log('Cannot find item', error);
+  }
+};
+
+import { useState } from 'react';
+
 export default function Navbar() {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearchTermChange = function (e) {
+    e.stopPropagation();
+    setSearchTerm(e.target.value);
+  };
+
+  const handleKeyDown = function (e) {
+    if (e.key === 'Enter') {
+      console.log('enter key ');
+      e.preventDefault();
+      handleSearch(searchTerm);
+    }
+  };
+
   return (
     <div className='flex flex-col justify-center items-center mx-auto bg-gradient-to-br from-blue-200 to-cyan-100'>
       <div className='flex flex-col sm:flex-row items-center justify-evenly gap-10 pl-20 pr-20 w-full pb-3 pt-6'>
@@ -38,17 +62,14 @@ export default function Navbar() {
         </NextLink>
 
         <InputGroup size='md'>
-          {/* <InputLeftAddon>
-            <Select w='full' placeholder='All' border='hidden'>
-              <option value='option1'>Option 1</option>
-              <option value='option2'>Option 2</option>
-              <option value='option3'>Option 3</option>
-            </Select>
-          </InputLeftAddon> */}
           <Input
             placeholder='Search for items...'
             width='90%'
             variant='filled'
+            onChange={handleSearchTermChange}
+            onKeyDown={handleKeyDown}
+            bg='gray.100'
+            _focus={{ backgroundColor: 'gray.100' }}
           />
 
           <InputRightAddon width='4.5rem'>
@@ -59,12 +80,20 @@ export default function Navbar() {
               icon={<SearchIcon />}
               w='full'
               border='hidden'
+              onClick={() => {
+                handleSearch(searchTerm);
+              }}
             />
           </InputRightAddon>
         </InputGroup>
 
         <ProfileBtns></ProfileBtns>
-
+        {/* <Divider
+          orientation='vertical'
+          borderWidth='1px'
+          borderStyle='solid'
+          borderColor={'gray'}
+        /> */}
         <ShoppingCartBtn></ShoppingCartBtn>
       </div>
       <div className='flex flex-row items-center justify-evenly gap-3 p-2 w-full pb-3'>
@@ -75,9 +104,6 @@ export default function Navbar() {
         <div>
           <LocationModal></LocationModal>
         </div>
-      </div>
-      <div>
-        <Divider orientation='horizontal' />
       </div>
     </div>
   );

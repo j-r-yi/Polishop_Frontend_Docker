@@ -24,7 +24,7 @@ export default function ProductCheckout({ product }) {
   discount = discount.toString();
 
   return (
-    <Card>
+    <Card w='250px'>
       <CardHeader>
         <Heading size='md'>Subtotal</Heading>
       </CardHeader>
@@ -63,7 +63,7 @@ export default function ProductCheckout({ product }) {
             <Text>${product.price - product.discount}</Text>
           </Box>
           <Box>
-            <Button>Go to checkout</Button>
+            <Button>Checkout</Button>
             <QuantityAdjuster product={product}></QuantityAdjuster>
           </Box>
         </Stack>

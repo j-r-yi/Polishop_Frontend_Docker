@@ -6,7 +6,7 @@ export default function ProductDescription({ product }) {
     formattedStringArr = product.product_details.split(';');
   }
   return (
-    <div>
+    <div className='md:w-[600px] w-[300px]'>
       <Text fontSize='4xl' as='b'>
         {product.productname}
       </Text>

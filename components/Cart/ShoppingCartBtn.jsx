@@ -80,9 +80,8 @@ export default function ShoppingCartBtn() {
                       display='flex'
                       flexDirection='column'
                       overflowY='auto'
-                      height='200px' // Set the height to trigger vertical scrolling
+                      height='250px' // Set the height to trigger vertical scrolling
                       borderRadius='lg'
-                      borderColor='gray.200'
                     >
                       {cartItemCount > 0 ? (
                         <div className='max-h-[50px]'>

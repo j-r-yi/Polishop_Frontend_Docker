@@ -10,11 +10,19 @@ import {
   Button,
   Text,
 } from '@chakra-ui/react';
+
+import { useRouter } from 'next/navigation';
 import { useSelector } from 'react-redux';
 
 export default function CheckoutSummary() {
   const cartItems = useSelector((state) => state.cart.cartItemCount);
   const cartCost = useSelector((state) => state.cart.totalPrice);
+
+  const router = useRouter();
+
+  const handleClick = function () {
+    router.push('/checkout');
+  };
 
   return (
     <Card>
@@ -36,7 +44,7 @@ export default function CheckoutSummary() {
             </Text>
           </Box>
           <Box>
-            <Button>Go to checkout</Button>
+            <Button onClick={handleClick}>Checkout</Button>
           </Box>
         </Stack>
       </CardBody>
