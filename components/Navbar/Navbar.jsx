@@ -9,6 +9,7 @@ import {
   IconButton,
   Divider,
   Text,
+  Image,
 } from '@chakra-ui/react';
 
 import ListNavBar from './ListNavBar';
@@ -51,14 +52,17 @@ export default function Navbar() {
     <div className='flex flex-col justify-center items-center mx-auto bg-gradient-to-br from-blue-200 to-cyan-100'>
       <div className='flex flex-col sm:flex-row items-center justify-evenly gap-10 pl-20 pr-20 w-full pb-3 pt-6'>
         <NextLink href='/' passHref>
-          <Text
-            as='b'
-            color='black'
-            fontSize='xl'
-            className='whitespace-nowrap'
-          >
-            Poli Shop
-          </Text>
+          <div className='flex flex-row items-center gap-2 mr-10'>
+            <Image src='/icon_copy.png' boxSize='50px' />
+            <Text
+              as='b'
+              color='black'
+              fontSize='xl'
+              className='whitespace-nowrap'
+            >
+              Poli Shop
+            </Text>
+          </div>
         </NextLink>
 
         <InputGroup size='md'>
@@ -88,12 +92,6 @@ export default function Navbar() {
         </InputGroup>
 
         <ProfileBtns></ProfileBtns>
-        {/* <Divider
-          orientation='vertical'
-          borderWidth='1px'
-          borderStyle='solid'
-          borderColor={'gray'}
-        /> */}
         <ShoppingCartBtn></ShoppingCartBtn>
       </div>
       <div className='flex flex-row items-center justify-evenly gap-3 p-2 w-full pb-3'>

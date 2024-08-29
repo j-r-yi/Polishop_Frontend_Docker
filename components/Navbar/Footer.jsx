@@ -7,6 +7,7 @@ import {
   IconButton,
   Button,
 } from '@chakra-ui/react';
+import { forwardRef } from 'react';
 
 import { FaDiscord, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { AiFillInstagram } from 'react-icons/ai';
@@ -136,7 +137,8 @@ export default function Footer() {
                   border={'none'}
                   as={curr.icon}
                   boxSize={7}
-                ></IconButton>
+                  _hover={{ background: 'none' }}
+                />
               </NextLink>
             );
           })}
