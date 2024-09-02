@@ -146,21 +146,22 @@ export default function Navbar() {
               mt={2}
               borderRadius='md'
             >
-              <div className='flex flex-col'>
+              <div className='flex flex-col '>
                 {searchResults.map((curr, idx) => (
-                  <div
-                    key={idx}
-                    className='flex flex-row items-center gap-10 w-full justify-start'
-                    onClick={() => {
-                      setSearchResults([]);
-                      setSearchTerm('');
-                      router.push(`/products/${curr.productId}`);
-                    }}
-                  >
-                    <Image src={curr.img} boxSize='50px' alt={curr.name} />
-                    <Text>{curr.productname}</Text>
-                    <Text>${curr.price}</Text>
-                    {/* <Divider /> */}
+                  <div className='border-solid border border-gray-200'>
+                    <div
+                      key={idx}
+                      className='flex flex-row items-center gap-10 w-full justify-start cursor-pointer hover:bg-gray-200 '
+                      onClick={() => {
+                        setSearchResults([]);
+                        setSearchTerm('');
+                        router.push(`/products/${curr.productId}`);
+                      }}
+                    >
+                      <Image src={curr.img} boxSize='50px' alt={curr.name} />
+                      <Text>{curr.productname}</Text>
+                      {/* <Text>${curr.price}</Text> */}
+                    </div>
                   </div>
                 ))}
               </div>

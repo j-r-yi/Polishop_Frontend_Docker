@@ -37,7 +37,7 @@ export default function CheckoutFinal() {
             </Text>
           </Box>
           <Box>
-            <Button>Checkout</Button>
+            <Button>Pay Now</Button>
           </Box>
         </Stack>
       </CardBody>

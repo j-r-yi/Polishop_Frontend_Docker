@@ -20,12 +20,11 @@ export default function ProductCardDetailed({ product }) {
   return (
     <div>
       <Card
-        // maxW='full'
         direction={{ base: 'column', sm: 'row' }}
         variant='outline'
-        // className='py-5'
         border={'solid'}
         borderColor={'gray.200'}
+        className='flex flex-row justify-between'
       >
         <Image
           objectFit='cover'
@@ -34,13 +33,14 @@ export default function ProductCardDetailed({ product }) {
           alt={product.alt}
         />
 
-        <div className='flex flex-col'>
-          <CardBody>
-            <Heading size='md'>{product.productname}</Heading>
-            {/* <Text py='2'>{product.description}</Text> */}
+        <div className='flex flex-col items-center justify-center'>
+          <CardBody w={'80%'}>
+            <Heading size='md' className='text-wrap'>
+              {product.productname}
+            </Heading>
             <Stat>
-              {/* <StatLabel>Sent</StatLabel> */}
               <StatNumber>${product.price.toLocaleString()}</StatNumber>
+              <StatLabel>Discount:</StatLabel>
               <StatHelpText>
                 <StatArrow type='decrease' />$
                 {product.discount.toLocaleString()}

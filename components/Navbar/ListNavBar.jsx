@@ -2,25 +2,38 @@
 import { Menu, MenuButton, MenuList, MenuItem, Button } from '@chakra-ui/react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 
-const listItems = [
-  {
-    category: 'category1',
-    subset: ['item1', 'item2', 'item3'],
-  },
-  {
-    category: 'category2',
-    subset: ['item4', 'item5', 'item6'],
-  },
-  {
-    category: 'category3',
-    subset: ['item7', 'item8', 'item9'],
-  },
-];
+import { useState, useEffect } from 'react';
+
+const get_categories = async function () {
+  try {
+    const res = await fetch(`http://127.0.0.1:8000/category`);
+    if (!res.ok) {
+      throw new Error('Error accessing category endpoint');
+    }
+    const data = await res.json();
+    // console.log(data);
+    return data;
+  } catch (error) {
+    console.log('Error fetching categories', error);
+    return [];
+  }
+};
 
 export default function ListNavBar() {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async function () {
+      const data = await get_categories();
+      setCategories(data);
+    };
+    fetchCategories();
+  }, []);
+
+  console.log(categories);
   return (
     <div className='flex flex-row gap-5'>
-      {listItems.map((curr, id) => {
+      {categories.map((curr, id) => {
         return (
           <Menu trigger='hover' key={id}>
             <MenuButton
@@ -38,7 +51,7 @@ export default function ListNavBar() {
               {curr.category}
             </MenuButton>
             <MenuList>
-              {curr.subset.map((curItem, idx) => {
+              {curr.subcategories.map((curItem, idx) => {
                 return <MenuItem key={idx}>{curItem}</MenuItem>;
               })}
             </MenuList>
