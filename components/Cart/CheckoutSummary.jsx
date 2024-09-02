@@ -29,7 +29,7 @@ export default function CheckoutSummary() {
       <CardHeader>
         <Heading size='md'>
           Subtotal ({cartItems}
-          {cartItems > 1 ? ' items' : ' item'}): ${cartCost}
+          {cartItems > 1 ? ' items' : ' item'}): ${cartCost.toFixed(2)}
         </Heading>
       </CardHeader>
 

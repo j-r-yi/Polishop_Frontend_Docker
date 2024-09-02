@@ -160,14 +160,27 @@ export default function Navbar() {
                     >
                       <Image src={curr.img} boxSize='50px' alt={curr.name} />
                       <Text>{curr.productname}</Text>
-                      {/* <Text>${curr.price}</Text> */}
                     </div>
                   </div>
                 ))}
               </div>
             </Box>
-          ) : (
+          ) : searchTerm == '' ? (
             <></>
+          ) : (
+            <Box
+              position='absolute'
+              // top='100%'
+              width='90%'
+              bg='white'
+              zIndex='1000'
+              boxShadow='md'
+              p={4}
+              mt={2}
+              borderRadius='md'
+            >
+              No Items Found
+            </Box>
           )}
         </div>
 

@@ -5,8 +5,9 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
-  Divider,
+  Box,
   Button,
+  Divider,
   Drawer,
   DrawerBody,
   DrawerFooter,
@@ -14,17 +15,20 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  Box,
 } from '@chakra-ui/react';
 
 import { ChevronDownIcon } from '@chakra-ui/icons';
 
 import { useDisclosure } from '@chakra-ui/react';
 import { useRef } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function DrawerNav() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   const btnRef = useRef();
+  const router = useRouter();
+
   return (
     <div>
       <Button
@@ -47,66 +51,18 @@ export default function DrawerNav() {
           <DrawerHeader>
             Hello{' '}
             {localStorage.getItem('user') ? localStorage.getItem('user') : ''}
+            {' !'}
           </DrawerHeader>
 
           <DrawerBody>
-            <Accordion
-              defaultIndex={[]}
-              // allowMultiple={false}
-              allowToggle={true}
+            <Button
+              onClick={() => {
+                onClose();
+                router.push('/products/category');
+              }}
             >
-              <AccordionItem>
-                <h2>
-                  <AccordionButton>
-                    <Box as='span' flex='1' textAlign='left'>
-                      Section 1 title
-                    </Box>
-                    <AccordionIcon />
-                  </AccordionButton>
-                </h2>
-                <AccordionPanel pb={4}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </AccordionPanel>
-              </AccordionItem>
-
-              <AccordionItem>
-                <h2>
-                  <AccordionButton>
-                    <Box as='span' flex='1' textAlign='left'>
-                      Section 2 title
-                    </Box>
-                    <AccordionIcon />
-                  </AccordionButton>
-                </h2>
-                <AccordionPanel pb={4}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </AccordionPanel>
-              </AccordionItem>
-
-              <AccordionItem>
-                <h2>
-                  <AccordionButton>
-                    <Box as='span' flex='1' textAlign='left'>
-                      Section 3 title
-                    </Box>
-                    <AccordionIcon />
-                  </AccordionButton>
-                </h2>
-                <AccordionPanel pb={4}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </AccordionPanel>
-              </AccordionItem>
-            </Accordion>
-            <Divider orientation='horizontal' />
+              View all Products
+            </Button>
           </DrawerBody>
 
           <DrawerFooter>
@@ -119,3 +75,64 @@ export default function DrawerNav() {
     </div>
   );
 }
+
+/* 
+<Accordion
+  defaultIndex={[]}
+  // allowMultiple={false}
+  allowToggle={true}
+>
+  <AccordionItem>
+    <h2>
+      <AccordionButton>
+        <Box as='span' flex='1' textAlign='left'>
+          Section 1 title
+        </Box>
+        <AccordionIcon />
+      </AccordionButton>
+    </h2>
+    <AccordionPanel pb={4}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+      do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco
+      laboris nisi ut aliquip ex ea commodo consequat.
+    </AccordionPanel>
+  </AccordionItem>
+
+  <AccordionItem>
+    <h2>
+      <AccordionButton>
+        <Box as='span' flex='1' textAlign='left'>
+          Section 2 title
+        </Box>
+        <AccordionIcon />
+      </AccordionButton>
+    </h2>
+    <AccordionPanel pb={4}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+      do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco
+      laboris nisi ut aliquip ex ea commodo consequat.
+    </AccordionPanel>
+  </AccordionItem>
+
+  <AccordionItem>
+    <h2>
+      <AccordionButton>
+        <Box as='span' flex='1' textAlign='left'>
+          Section 3 title
+        </Box>
+        <AccordionIcon />
+      </AccordionButton>
+    </h2>
+    <AccordionPanel pb={4}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+      do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco
+      laboris nisi ut aliquip ex ea commodo consequat.
+    </AccordionPanel>
+  </AccordionItem>
+</Accordion> 
+*/
+
+/* <Divider orientation='horizontal' /> */
