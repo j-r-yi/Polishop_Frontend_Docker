@@ -13,6 +13,8 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
+  Grid,
+  GridItem,
 } from '@chakra-ui/react';
 import {
   FaSortAmountDown,
@@ -20,10 +22,54 @@ import {
   FaSortAmountDownAlt,
   FaSortAmountUpAlt,
 } from 'react-icons/fa';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-export default function CategoryOptions() {
-  const [sortMethod, setSortMethod] = useState('Newest');
+import ProductCard from '../ProductCard';
+
+export default function CategoryOptions({ products }) {
+  console.log(products);
+  const [sortMethod, setSortMethod] = useState('Unsorted');
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [discountSwitch, setDiscountSwitch] = useState(false);
+
+  useEffect(() => {
+    switch (sortMethod) {
+      case 'Newest':
+        setFilteredProducts(
+          [...products].sort((a, b) => {
+            const dateA = new Date(a.date_created);
+            const dateB = new Date(b.date_created);
+            return dateB - dateA;
+          }),
+        );
+        break;
+      case 'Highest Rated':
+        setFilteredProducts(
+          [...products].sort((a, b) => {
+            return b.rating - a.rating;
+          }),
+        );
+        break;
+      case 'Price Ascending':
+        setFilteredProducts(
+          [...products].sort((a, b) => {
+            return a.price - b.price;
+          }),
+        );
+        break;
+      case 'Price Descending':
+        setFilteredProducts(
+          [...products].sort((a, b) => {
+            return b.price - a.price;
+          }),
+        );
+        break;
+      default:
+        setFilteredProducts(products);
+        break;
+    }
+  }, [sortMethod, products]);
+
   return (
     <Card>
       <CardHeader>
@@ -45,6 +91,14 @@ export default function CategoryOptions() {
               Sort By: {sortMethod}
             </MenuButton>
             <MenuList>
+              <MenuItem
+                minH='20px'
+                onClick={() => {
+                  setSortMethod('Unsorted');
+                }}
+              >
+                <Text fontSize='md'>Unsorted</Text>
+              </MenuItem>
               <MenuItem
                 minH='20px'
                 onClick={() => {
@@ -88,12 +142,37 @@ export default function CategoryOptions() {
             <Heading size='sm'>
               <div className='flex flex-row items-center justify-between'>
                 <Text>All Products</Text>
-                <Text>{} products</Text>
+                <Text>
+                  {filteredProducts.length} product
+                  {filteredProducts.length == 1 ? '' : 's'}
+                </Text>
               </div>
             </Heading>
-            <Text pt='2' fontSize='sm'>
-              View a summary of all your cart products
-            </Text>
+          </Box>
+
+          <Box
+            display='flex'
+            flexDirection='column'
+            overflowY='auto'
+            // height='800px' // Set the height to trigger vertical scrolling
+            borderRadius='lg'
+            borderColor='gray.200'
+          >
+            <Grid
+              templateColumns={{ base: '1fr', lg: '1fr 1fr 1fr' }}
+              gap={6}
+              className='mt-3'
+            >
+              {filteredProducts.map((curr, idx) => {
+                return (
+                  <GridItem>
+                    <div className='w-[300px]'>
+                      <ProductCard key={idx} product={curr}></ProductCard>
+                    </div>
+                  </GridItem>
+                );
+              })}
+            </Grid>
           </Box>
         </Stack>
       </CardBody>

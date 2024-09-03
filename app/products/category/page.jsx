@@ -11,7 +11,7 @@ export default function Category() {
         </Text>
       </div>
       <Grid
-        templateColumns={{ base: '1fr', md: '1fr 3fr' }}
+        templateColumns={{ base: '1fr', md: '1fr 4fr' }}
         gap={6}
         className='mt-3'
       >

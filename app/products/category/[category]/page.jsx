@@ -45,7 +45,7 @@ export default function CategorySpecific() {
         </Text>
       </div>
       <Grid
-        templateColumns={{ base: '1fr', lg: '1fr 3fr' }}
+        templateColumns={{ base: '1fr', lg: '1fr 4fr' }}
         gap={6}
         className='mt-3'
       >
@@ -53,7 +53,7 @@ export default function CategorySpecific() {
           <CategorySideBar></CategorySideBar>
         </GridItem>
         <GridItem>
-          <CategoryOptions></CategoryOptions>
+          <CategoryOptions products={data}></CategoryOptions>
         </GridItem>
       </Grid>
     </div>
