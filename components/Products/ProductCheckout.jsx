@@ -15,6 +15,8 @@ import {
 import { useSelector } from 'react-redux';
 import QuantityAdjuster from './QuantityAdjuster';
 
+import BuyNowBtn from '../Cart/BuyNowBtn';
+
 export default function ProductCheckout({ product }) {
   // const cartItems = useSelector((state) => state.cart.cartItemCount);
   // const cartCost = useSelector((state) => state.cart.totalPrice);
@@ -63,7 +65,7 @@ export default function ProductCheckout({ product }) {
             <Text>${product.price - product.discount}</Text>
           </Box>
           <Box>
-            <Button>Checkout</Button>
+            <BuyNowBtn productDetails={product}></BuyNowBtn>
             <QuantityAdjuster product={product}></QuantityAdjuster>
           </Box>
         </Stack>
