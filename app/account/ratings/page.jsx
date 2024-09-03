@@ -1,7 +1,7 @@
 export default function Ratings() {
   return (
     <>
-      <div className=''>Ratings</div>
+      <div className='bg-white py-auto'>No Ratings as of now</div>
     </>
   );
 }

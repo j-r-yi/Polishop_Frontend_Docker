@@ -26,7 +26,7 @@ export default function CategorySidebar() {
   const [value2, setValue2] = useState('9999');
 
   return (
-    <Card w='300px'>
+    <Card>
       <CardHeader>
         <Heading size='md'>Category Adjustments</Heading>
       </CardHeader>

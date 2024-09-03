@@ -3,6 +3,7 @@ import { Menu, MenuButton, MenuList, MenuItem, Button } from '@chakra-ui/react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 const get_categories = async function () {
   try {
@@ -21,6 +22,7 @@ const get_categories = async function () {
 
 export default function ListNavBar() {
   const [categories, setCategories] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchCategories = async function () {
@@ -30,7 +32,7 @@ export default function ListNavBar() {
     fetchCategories();
   }, []);
 
-  console.log(categories);
+  // console.log(categories);
   return (
     <div className='flex flex-row gap-5'>
       {categories.map((curr, id) => {
@@ -52,7 +54,16 @@ export default function ListNavBar() {
             </MenuButton>
             <MenuList>
               {curr.subcategories.map((curItem, idx) => {
-                return <MenuItem key={idx}>{curItem}</MenuItem>;
+                return (
+                  <MenuItem
+                    key={idx}
+                    onClick={() => {
+                      router.push(`/products/category/${curItem}`);
+                    }}
+                  >
+                    {curItem}
+                  </MenuItem>
+                );
               })}
             </MenuList>
           </Menu>

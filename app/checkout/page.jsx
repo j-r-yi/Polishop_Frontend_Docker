@@ -17,7 +17,7 @@ export default function Checkout() {
       <Grid
         templateColumns={{ base: '1fr', md: '3fr 1fr' }}
         gap={6}
-        className='mt-10'
+        className='mt-4'
       >
         <GridItem>
           <CheckoutOptions></CheckoutOptions>

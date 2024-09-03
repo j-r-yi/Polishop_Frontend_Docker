@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux';
 
 const accountItems = [
   { title: 'Profile', ref: '/account' },
-  { title: 'Information', ref: '/account/information' },
   { title: 'Location', ref: '/account/location' },
   { title: 'Orders', ref: '/account/orders' },
   { title: 'Favorites', ref: '/account/favorites' },
