@@ -26,7 +26,7 @@ import { useState, useEffect } from 'react';
 
 import ProductCard from '../ProductCard';
 
-export default function CategoryOptions({ products }) {
+export default function MainCategoroy({ products }) {
   // console.log(products);
   const [sortMethod, setSortMethod] = useState('Unsorted');
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -164,13 +164,13 @@ export default function CategoryOptions({ products }) {
                 sm: '1fr 1fr',
                 xl: '1fr 1fr 1fr',
               }}
-              gap={2}
+              gap={3}
               className='mt-3'
             >
               {filteredProducts.map((curr, idx) => {
                 return (
                   <GridItem key={idx}>
-                    <div className='w-[300px] h-[580px]shadow-md'>
+                    <div className='w-[300px] h-[580px] shadow-md'>
                       <ProductCard product={curr}></ProductCard>
                     </div>
                   </GridItem>

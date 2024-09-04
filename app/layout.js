@@ -37,6 +37,7 @@ export default function RootLayout({ children }) {
           integrity='sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo='
           crossOrigin=''
         ></script>
+        {/* <meta name='viewport' content='width=device-width, initial-scale=1.0' /> */}
       </head>
       <body>
         <Providers>

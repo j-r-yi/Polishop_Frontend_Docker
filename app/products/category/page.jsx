@@ -1,8 +1,40 @@
+'use client';
 import CategorySideBar from '../../../components/Products/CategorySidebar';
-import CategoryOptions from '../../../components/Products/CategoryOptions';
+
+import MainCategoryOptions from '../../../components/Products/MainCategoryOptions';
 import { Text, Grid, GridItem } from '@chakra-ui/react';
 
+import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
+
+const searchProducts = async function () {
+  try {
+    const res = await fetch(`http://127.0.0.1:8000/products`);
+    if (!res.ok) {
+      throw new Error(`Failed to fetch products`);
+    }
+    const data = await res.json();
+    // console.log(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export default function Category() {
+  const router = useRouter();
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async function () {
+      const resultData = await searchProducts(data);
+      setData(resultData);
+    };
+
+    fetchData();
+    // console.log(data);
+  }, [data]);
+
   return (
     <div className='flex flex-col px-10'>
       <div>
@@ -19,7 +51,7 @@ export default function Category() {
           <CategorySideBar></CategorySideBar>
         </GridItem>
         <GridItem>
-          <CategoryOptions></CategoryOptions>
+          <MainCategoryOptions products={data}></MainCategoryOptions>
         </GridItem>
       </Grid>
     </div>

@@ -35,7 +35,7 @@ export default function CategorySidebar() {
         <Stack divider={<StackDivider />} spacing='4'>
           <Box>
             <div className='flex flex-row items-center justify-between'>
-              <Text>Discount items only</Text>
+              <Text>Discounted items</Text>
               <Switch size='md' />
             </div>
           </Box>

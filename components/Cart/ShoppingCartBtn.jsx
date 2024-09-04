@@ -58,9 +58,13 @@ export default function ShoppingCartBtn() {
         {cartItemCount > 0 ? (
           <div className='z-[999999]'>
             <PopoverContent
-              width={'500px'}
-              height={'400px'}
+              // width={'500px'}
               // maxW={{ sm: '200px' }}
+              // height={'400px'}
+              width={'100%'}
+              maxW={{ base: '90vw', md: '500px' }}
+              height={{ base: '450px', md: '400px' }}
+              position='relative'
             >
               <div className='flex flex-col justify-evenly items-center'>
                 <PopoverHeader>
@@ -77,11 +81,17 @@ export default function ShoppingCartBtn() {
                 <PopoverBody>
                   <Container maxW='container.lg' flexBasis='3/4'>
                     <Box
+                      // display='flex'
+                      // flexDirection='column'
+                      // overflowY='auto'
+                      // height='270px' // Set the height to trigger vertical scrolling
+                      // borderRadius='lg'
                       display='flex'
                       flexDirection='column'
                       overflowY='auto'
-                      height='270px' // Set the height to trigger vertical scrolling
+                      height='270px'
                       borderRadius='lg'
+                      padding='4'
                     >
                       {cartItemCount > 0 ? (
                         <div className='max-h-[50px]'>

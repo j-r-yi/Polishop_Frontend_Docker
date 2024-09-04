@@ -126,7 +126,7 @@ export default function Footer() {
       <div className='hidden md:flex flex-row justify-between'>
         <div className='flex flex-row justify-left items-center gap-10'>
           <Text fontSize='xl'>Follow us on:</Text>
-          {moreContactList.map((curr, idx) => {
+          {/* {moreContactList.map((curr, idx) => {
             return (
               <NextLink href={curr.link} target='_blank' key={idx}>
                 <IconButton
@@ -141,7 +141,7 @@ export default function Footer() {
                 />
               </NextLink>
             );
-          })}
+          })} */}
         </div>
         <div className='flex flex-row items-center'>
           <Input
