@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 
 const get_categories = async function () {
   try {
-    const res = await fetch(`http://127.0.0.1:8000/category`);
+    const res = await fetch(`https://api.joshuayi.com/category`);
     if (!res.ok) {
       throw new Error('Error accessing category endpoint');
     }

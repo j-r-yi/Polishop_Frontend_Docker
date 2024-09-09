@@ -35,7 +35,7 @@ export default function ProfileBtns() {
         new_cart: localStorage.getItem('cartItems'),
       };
       const response = await axios.put(
-        `http://127.0.0.1:8000/logout/${currentUsername}`,
+        `https://api.joshuayi.com/logout/${currentUsername}`,
         updated_cart,
       );
       if (response.data?.Error) {

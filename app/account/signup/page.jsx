@@ -96,7 +96,7 @@ export default function Signup() {
     };
     try {
       const response = await axios.post(
-        'http://127.0.0.1:8000/users_post',
+        'https://api.joshuayi.com/users_post',
         newUser,
       );
       if (response.data?.Error) {

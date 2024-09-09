@@ -23,7 +23,7 @@ import ProfileBtns from '../Account/ProfileBtns';
 
 const handleSearch = async function (term, setSearchResults, setSearchData) {
   try {
-    const res = await fetch(`http://127.0.0.1:8000/search/${term}`);
+    const res = await fetch(`https://api.joshuayi.com/search/${term}`);
     if (!res.ok) {
       throw new Error('Invalid Search');
     }

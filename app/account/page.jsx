@@ -24,7 +24,7 @@ export default function AccountPage() {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `http://127.0.0.1:8000/password_update/${username}`,
+        `https://api.joshuayi.com/password_update/${username}`,
         { new_password: password },
       );
     } catch (error) {
@@ -36,7 +36,7 @@ export default function AccountPage() {
     e.preventDefault();
     try {
       const response = await axios.delete(
-        `http://127.0.0.1:8000/users_delete/${usernameDelete}`,
+        `https://api.joshuayi.com/users_delete/${usernameDelete}`,
       );
     } catch (error) {
       console.log(error);
@@ -47,7 +47,7 @@ export default function AccountPage() {
   return (
     <div className='bg-white'>
       <div>YOU ARE ON THE ACCOUNT PAGE</div>
-
+      {/* 
       <Input
         variant='outline'
         placeholder='Enter username to delete account'
@@ -68,7 +68,7 @@ export default function AccountPage() {
         onChange={onPasswordChange}
       />
 
-      <Button onClick={handleResetPassword}>Reset Password</Button>
+      <Button onClick={handleResetPassword}>Reset Password</Button> */}
     </div>
   );
 }
