@@ -60,16 +60,15 @@ const moreContactList = [
 
 const IconWrapper = forwardRef((props, ref) => <Icon {...props} ref={ref} />);
 
-const backToTop = function () {
-  // const isBrowser = () => typeof window !== 'undefined';
-  // if (!isBrowser()) return;
-  // window.scrollTo({ top: 0, behavior: 'smooth' });
-  if (typeof window !== 'undefined') {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-};
-
 export default function Footer() {
+  const backToTop = function () {
+    // const isBrowser = () => typeof window !== 'undefined';
+    // if (!isBrowser()) return;
+    // window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
   return (
     // bg-gradient-to-tr from-blue-200 to-cyan-100
     <div className='flex flex-col w-full gap-5 pl-20 pr-20 pt-5'>

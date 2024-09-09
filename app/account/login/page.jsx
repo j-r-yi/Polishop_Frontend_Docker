@@ -1,6 +1,7 @@
 'use client';
 import axios from 'axios';
 import { useState } from 'react';
+// import { useRouter } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { useDispatch } from 'react-redux';
 
@@ -29,6 +30,7 @@ import {
 
 export default function Login() {
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const { isOpen, onOpen, onClose } = useDisclosure({ defaultIsOpen: true });
   const [show, setShow] = useState(false);
@@ -37,8 +39,6 @@ export default function Login() {
   const [emailValue, setEmailValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-
-  const router = useRouter();
 
   const validateEmail = (email) => {
     return String(email)
