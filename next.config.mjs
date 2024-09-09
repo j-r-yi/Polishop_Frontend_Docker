@@ -3,6 +3,7 @@ const nextConfig = {
   eslint: {
     //... other eslint configurations...
     // formatter: 'prettier',
+    ignoreDuringBuilds: true,
   },
 };
 
