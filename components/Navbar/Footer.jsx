@@ -1,12 +1,5 @@
 'use client';
-import {
-  Divider,
-  Text,
-  Icon,
-  Input,
-  IconButton,
-  Button,
-} from '@chakra-ui/react';
+import { Divider, Text, Icon, Input, Button } from '@chakra-ui/react';
 import { forwardRef } from 'react';
 
 import { FaDiscord, FaGithub, FaLinkedin } from 'react-icons/fa';

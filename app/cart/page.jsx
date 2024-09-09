@@ -5,7 +5,7 @@ import CheckoutSummary from '../../components/Cart/CheckoutSummary';
 import CartIsEmpty from '../../components/Cart/CartIsEmpty';
 import CartCheckoutNav from '../../components/Cart/CartCheckoutNav';
 
-import { Text, Container, Box, Grid, GridItem } from '@chakra-ui/react';
+import { Text, Box, Grid, GridItem } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
 
 export default function ShoppingCart() {

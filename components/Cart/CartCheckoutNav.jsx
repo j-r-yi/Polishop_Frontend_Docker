@@ -1,19 +1,11 @@
 'use client';
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Text,
-  IconButton,
-  Divider,
-} from '@chakra-ui/react';
+import { Card, CardBody, Text, IconButton, Divider } from '@chakra-ui/react';
 
 import { FaShoppingCart, FaWallet } from 'react-icons/fa';
 
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
-import { current } from '@reduxjs/toolkit';
+// import { current } from '@reduxjs/toolkit';
 
 export default function CartCheckoutNav() {
   const router = useRouter();

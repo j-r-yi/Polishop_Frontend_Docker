@@ -11,7 +11,6 @@ import {
   IconButton,
   Text,
   Image,
-  Divider,
   Box,
 } from '@chakra-ui/react';
 

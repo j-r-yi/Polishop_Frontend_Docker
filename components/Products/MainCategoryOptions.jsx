@@ -19,8 +19,8 @@ import {
 import {
   FaSortAmountDown,
   FaSortAmountUp,
-  FaSortAmountDownAlt,
-  FaSortAmountUpAlt,
+  // FaSortAmountDownAlt,
+  // FaSortAmountUpAlt,
 } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 

@@ -5,7 +5,6 @@ import {
   InputLeftElement,
   InputRightElement,
   IconButton,
-  Text,
 } from '@chakra-ui/react';
 import { AddIcon, MinusIcon, DeleteIcon } from '@chakra-ui/icons';
 
@@ -16,7 +15,7 @@ import {
   deleteFromCart,
 } from '../../features/slices/cart.slice';
 
-import AddToCartBtn from '../Cart/AddToCartBtn';
+// import AddToCartBtn from '../Cart/AddToCartBtn';
 
 export default function QuantityAdjuster({ product }) {
   const dispatch = useDispatch();

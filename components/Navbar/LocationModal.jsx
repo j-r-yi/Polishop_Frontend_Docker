@@ -8,7 +8,6 @@ import {
   ModalBody,
   ModalCloseButton,
   Button,
-  Input,
 } from '@chakra-ui/react';
 import { useDisclosure } from '@chakra-ui/react';
 import Map from './Map';

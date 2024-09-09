@@ -4,7 +4,7 @@ import { ChevronRightIcon } from '@chakra-ui/icons';
 
 import NextLink from 'next/link';
 
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 const accountItems = [
   { title: 'Profile', ref: '/account' },

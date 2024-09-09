@@ -7,12 +7,11 @@ import {
   StackDivider,
   Box,
   Heading,
-  Button,
   Text,
   Highlight,
 } from '@chakra-ui/react';
 
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import QuantityAdjuster from './QuantityAdjuster';
 
 import BuyNowBtn from '../Cart/BuyNowBtn';

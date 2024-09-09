@@ -1,12 +1,9 @@
 import {
   Card,
-  CardHeader,
   CardBody,
   CardFooter,
-  Button,
   Heading,
   Image,
-  Text,
   Stat,
   StatLabel,
   StatNumber,

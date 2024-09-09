@@ -1,13 +1,6 @@
 'use client';
 import {
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-  Box,
   Button,
-  Divider,
   Drawer,
   DrawerBody,
   DrawerFooter,
@@ -15,7 +8,6 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  background,
 } from '@chakra-ui/react';
 
 import { ChevronDownIcon } from '@chakra-ui/icons';

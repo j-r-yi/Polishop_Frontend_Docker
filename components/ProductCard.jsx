@@ -1,7 +1,6 @@
 'use client';
 import {
   Card,
-  CardHeader,
   CardBody,
   CardFooter,
   Image,
@@ -9,7 +8,6 @@ import {
   Text,
   Heading,
   Divider,
-  Button,
   AspectRatio,
   Flex,
 } from '@chakra-ui/react';

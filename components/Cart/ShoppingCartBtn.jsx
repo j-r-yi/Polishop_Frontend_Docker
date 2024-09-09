@@ -1,6 +1,5 @@
 'use client';
 import NextLink from 'next/link';
-import { useEffect } from 'react';
 
 import {
   Popover,
@@ -14,9 +13,7 @@ import {
   Container,
   Box,
   Button,
-  Flex,
 } from '@chakra-ui/react';
-import { FaShoppingCart } from 'react-icons/fa';
 import { MdOutlineShoppingCart } from 'react-icons/md';
 
 import { useSelector } from 'react-redux';
