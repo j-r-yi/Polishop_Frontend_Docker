@@ -68,9 +68,12 @@ const moreContactList = [
 const IconWrapper = forwardRef((props, ref) => <Icon {...props} ref={ref} />);
 
 const backToTop = function () {
-  const isBrowser = () => typeof window !== 'undefined';
-  if (!isBrowser()) return;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // const isBrowser = () => typeof window !== 'undefined';
+  // if (!isBrowser()) return;
+  // window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (typeof window !== 'undefined') {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 };
 
 export default function Footer() {
