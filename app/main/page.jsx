@@ -1,5 +1,5 @@
 'use client';
-import ProductCard from '@/components/ProductCard';
+// import ProductCard from '../';
 
 export default function Main() {
   return <div className=''></div>;
