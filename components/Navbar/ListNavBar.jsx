@@ -37,7 +37,7 @@ export default function ListNavBar() {
     <div className='flex flex-row gap-5'>
       {categories.map((curr, id) => {
         return (
-          <Menu trigger='hover' key={id}>
+          <Menu trigger='hover' key={id} autoSelect={false}>
             <MenuButton
               trigger='hover'
               as={Button}
@@ -47,7 +47,6 @@ export default function ListNavBar() {
               color='black'
               _hover={{
                 background: '#D9F1F1',
-                // color: 'white',
               }}
               _active={{ background: '#D9F1F1', color: 'black' }}
             >
@@ -58,7 +57,9 @@ export default function ListNavBar() {
                 return (
                   <MenuItem
                     key={idx}
-                    color='#59c1c1'
+                    color='black'
+                    _hover={{ backgroundColor: '#D9F1F1' }}
+                    _active={{ backgroundColor: '#D9F1F1' }}
                     onClick={() => {
                       router.push(`/products/category/${curItem}`);
                     }}

@@ -57,7 +57,7 @@ export default function ProfileBtns() {
     <>
       {isLoggedIn ? (
         <>
-          <Menu direction=''>
+          <Menu autoSelect={false}>
             <MenuButton
               as={Button}
               rightIcon={<ChevronDownIcon />}
@@ -75,7 +75,9 @@ export default function ProfileBtns() {
                 flexDirection={'row'}
                 justifyContent={'space-between'}
                 alignItems={'center'}
-                color='#59c1c1'
+                color='black'
+                _hover={{ backgroundColor: '#D9F1F1' }}
+                _active={{ backgroundColor: '#D9F1F1' }}
                 // gap={'10px'}
               >
                 <NextLink href='/account' passHref>
@@ -91,7 +93,9 @@ export default function ProfileBtns() {
                 alignItems={'center'}
                 // gap={'10px'}
                 onClick={handleLogOut}
-                color='#59c1c1'
+                color='black'
+                _hover={{ backgroundColor: '#D9F1F1' }}
+                _active={{ backgroundColor: '#D9F1F1' }}
               >
                 <Text fontSize='md'>Logout</Text>
                 <Icon as={IoIosLogOut} boxSize={5}></Icon>

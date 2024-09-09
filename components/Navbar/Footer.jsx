@@ -65,7 +65,7 @@ const moreContactList = [
   },
 ];
 
-const footerContactList = [{}];
+const IconWrapper = forwardRef((props, ref) => <Icon {...props} ref={ref} />);
 
 const backToTop = function () {
   const isBrowser = () => typeof window !== 'undefined';
@@ -75,7 +75,8 @@ const backToTop = function () {
 
 export default function Footer() {
   return (
-    <div className='flex flex-col w-full gap-5 pl-20 pr-20 pt-5 bg-gradient-to-tr from-blue-200 to-cyan-100'>
+    // bg-gradient-to-tr from-blue-200 to-cyan-100
+    <div className='flex flex-col w-full gap-5 pl-20 pr-20 pt-5'>
       <div className='flex flex-col sm:flex-row justify-between'>
         <div className='flex flex-row gap-5 items-center justify-center'>
           <Text fontSize='md'>We are alway here to help!</Text>
@@ -89,7 +90,12 @@ export default function Footer() {
         </div>
 
         <div>
-          <Button onClick={backToTop}>
+          <Button
+            onClick={backToTop}
+            color='black'
+            background='none'
+            _hover={{ backgroundColor: '#D9F1F1' }}
+          >
             Back to top
             <Icon as={ChevronUpIcon}></Icon>
           </Button>
@@ -108,7 +114,7 @@ export default function Footer() {
               className='flex flex-row gap-4 pl-10 pr-10 items-center justify-center'
               key={idx}
             >
-              <Icon as={curr.icon} boxSize={10} />
+              <Icon as={curr.icon} boxSize={10} color='#59c1c1' />
               <Text fontSize='md'>{curr.message}</Text>
             </div>
           );
@@ -126,22 +132,13 @@ export default function Footer() {
       <div className='hidden md:flex flex-row justify-between'>
         <div className='flex flex-row justify-left items-center gap-10'>
           <Text fontSize='xl'>Follow us on:</Text>
-          {/* {moreContactList.map((curr, idx) => {
+          {moreContactList.map((curr, idx) => {
             return (
               <NextLink href={curr.link} target='_blank' key={idx}>
-                <IconButton
-                  variant='outline'
-                  colorScheme='gray'
-                  aria-label={curr.arialabel}
-                  fontSize='20px'
-                  border={'none'}
-                  as={curr.icon}
-                  boxSize={7}
-                  _hover={{ background: 'none' }}
-                />
+                <Icon as={curr.icon} w={8} h={8} color='#59c1c1' />
               </NextLink>
             );
-          })} */}
+          })}
         </div>
         <div className='flex flex-row items-center'>
           <Input
@@ -150,7 +147,9 @@ export default function Footer() {
             placeholder='Your Email'
             size='sm'
           />
-          <Button>Submit</Button>
+          <Button color='black' _hover={{ backgroundColor: '#D9F1F1' }}>
+            Submit
+          </Button>
         </div>
       </div>
       <div className='pb-5'>

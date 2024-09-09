@@ -51,7 +51,7 @@ export default function ShoppingCartBtn() {
             ></IconButton>
             {cartItemCount > 0 ? (
               <span className='absolute bg-teal-500 rounded-md w-5 h-5 p-0.5 text-center text-xs text-white'>
-                {cartItemCount}
+                <Text as='b'>{cartItemCount}</Text>
               </span>
             ) : (
               <></>
@@ -77,7 +77,13 @@ export default function ShoppingCartBtn() {
                       cart
                     </Text>
                     <NextLink href='/cart' passHref>
-                      <Button colorScheme={'blue'}>Go to cart</Button>
+                      <Button
+                        color='#59c1c1'
+                        background='none'
+                        _hover={{ backgroundColor: '#59c1c1', color: 'white' }}
+                      >
+                        Go to cart
+                      </Button>
                     </NextLink>
                   </div>
                 </PopoverHeader>

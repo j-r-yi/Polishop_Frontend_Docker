@@ -14,9 +14,12 @@ export default function ClearCartBtn() {
     <div>
       <Button
         variant='solid'
-        colorScheme='red'
+        // colorScheme='red'
         onClick={handleClearCart}
         size='sm'
+        color='red'
+        background='none'
+        _hover={{ backgroundColor: 'red', color: 'white' }}
       >
         Empty Cart
       </Button>

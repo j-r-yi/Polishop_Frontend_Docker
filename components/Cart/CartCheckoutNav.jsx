@@ -46,11 +46,11 @@ export default function CartCheckoutNav() {
               border='hidden'
               aria-label='Shopping Cart'
               fontSize='35px'
-              color={currentPath == '/cart' ? '#3182ce' : '#adcdec'}
+              color={currentPath == '/cart' ? '#59c1c1' : '#D9F1F1'}
               icon={<FaShoppingCart />}
               _hover={{ background: 'none' }}
             />
-            <Text color={currentPath == '/cart' ? '#3182ce' : '#adcdec'}>
+            <Text color={currentPath == '/cart' ? '#59c1c1' : '#D9F1F1'}>
               Cart
             </Text>
           </div>
@@ -58,7 +58,7 @@ export default function CartCheckoutNav() {
             orientation='horizontal'
             borderWidth='1px'
             borderStyle='solid'
-            borderColor={'blue.500'}
+            borderColor={'#59c1c1'}
             width='100px'
           />
           <div
@@ -70,11 +70,11 @@ export default function CartCheckoutNav() {
               border='hidden'
               aria-label='Shopping Cart'
               fontSize='35px'
-              color={currentPath == '/checkout' ? '#3182ce' : '#adcdec'}
+              color={currentPath == '/checkout' ? '#59c1c1' : '#B9E1E1'}
               icon={<FaWallet />}
               _hover={{ background: 'none' }}
             />
-            <Text color={currentPath == '/checkout' ? '#3182ce' : '#adcdec'}>
+            <Text color={currentPath == '/checkout' ? '#59c1c1' : '#B9E1E1'}>
               Checkout
             </Text>
           </div>

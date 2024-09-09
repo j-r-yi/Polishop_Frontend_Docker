@@ -24,8 +24,8 @@ export default function AccountSideBar() {
       <Box boxShadow='md'>
         <Menu>
           <MenuItem background={'white'}>
-            <Avatar bg='blue.500' src='' />
-            {username}
+            <Avatar bg='#59c1c1' src='' />
+            <div>{username}</div>
           </MenuItem>
           <>
             {accountItems.map((curr, idx) => {
@@ -33,9 +33,9 @@ export default function AccountSideBar() {
                 <NextLink href={curr.ref} passHref key={idx}>
                   <MenuItem
                     background={'white'}
-                    color={'blue.500'}
+                    color={'#59c1c1'}
                     _hover={{
-                      background: 'blue.500',
+                      background: '#59c1c1',
                       color: 'white',
                     }}
                   >
