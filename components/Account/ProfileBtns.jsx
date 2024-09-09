@@ -62,8 +62,10 @@ export default function ProfileBtns() {
               as={Button}
               rightIcon={<ChevronDownIcon />}
               gap='15px'
-              // _hover={{ backgroundColor: '#3182ce' }}
               background={'none'}
+              color='black'
+              _hover={{ backgroundColor: '#D9F1F1', color: 'black' }}
+              _active={{ backgroundColor: '#D9F1F1', color: 'black' }}
             >
               <Icon as={RxAvatar} boxSize={8}></Icon>
             </MenuButton>
@@ -73,6 +75,7 @@ export default function ProfileBtns() {
                 flexDirection={'row'}
                 justifyContent={'space-between'}
                 alignItems={'center'}
+                color='#59c1c1'
                 // gap={'10px'}
               >
                 <NextLink href='/account' passHref>
@@ -88,6 +91,7 @@ export default function ProfileBtns() {
                 alignItems={'center'}
                 // gap={'10px'}
                 onClick={handleLogOut}
+                color='#59c1c1'
               >
                 <Text fontSize='md'>Logout</Text>
                 <Icon as={IoIosLogOut} boxSize={5}></Icon>
@@ -97,18 +101,32 @@ export default function ProfileBtns() {
         </>
       ) : (
         <Box
-          position='relative'
-          padding='5'
+          // position='relative'
+          // padding='5'
           display='flex'
           flex='row'
-          border='none'
+          border='1px'
+          borderColor='gray.300'
+          borderRadius='md'
         >
           <NextLink href='/account/login' passHref>
-            <Button>Login</Button>
+            <Button
+              color='black'
+              background='none'
+              _hover={{ backgroundColor: '#D9F1F1' }}
+            >
+              Login
+            </Button>
           </NextLink>
-          <Divider orientation='vertical' />
+          <Divider orientation='vertical' h='40px' />
           <NextLink href='/account/signup' passHref>
-            <Button>Signup</Button>
+            <Button
+              color='black'
+              background='none'
+              _hover={{ backgroundColor: '#D9F1F1' }}
+            >
+              Signup
+            </Button>
           </NextLink>
         </Box>
       )}

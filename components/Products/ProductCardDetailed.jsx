@@ -39,9 +39,11 @@ export default function ProductCardDetailed({ product }) {
               {product.productname}
             </Heading>
             <Stat>
-              <StatNumber>${product.price.toLocaleString()}</StatNumber>
+              <StatNumber color='#59c1c1'>
+                ${product.price.toLocaleString()}
+              </StatNumber>
               <StatLabel>Discount:</StatLabel>
-              <StatHelpText>
+              <StatHelpText color='#69D1D1'>
                 <StatArrow type='decrease' />$
                 {product.discount.toLocaleString()}
               </StatHelpText>

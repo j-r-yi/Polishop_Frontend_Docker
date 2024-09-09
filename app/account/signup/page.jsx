@@ -132,7 +132,7 @@ export default function Signup() {
         />
         <ModalContent>
           <div className='flex flex-row justify-between items-center pr-5 whitespace-nowrap'>
-            <ModalHeader>Sign Up</ModalHeader>
+            <ModalHeader color='#59c1c1'>Sign Up</ModalHeader>
             <NextLink href='/' passHref>
               <IconButton
                 onClick={onClose}
@@ -186,13 +186,20 @@ export default function Signup() {
             )}
           </ModalBody>
           <ModalFooter display={'flex'} flexDirection={'column'} gap={'2rem'}>
-            <Button colorScheme='blue' mr={3} onClick={handleSignupClick}>
+            <Button
+              color='#59c1c1'
+              backgroundColor='gray.200'
+              _hover={{ color: 'white', backgroundColor: '#59c1c1' }}
+              _active={{ color: 'white', backgroundColor: '#59c1c1' }}
+              mr={3}
+              onClick={handleSignupClick}
+            >
               Sign Up
             </Button>
             <div className='flex flex-row items-start gap-5'>
               <Text size='xs'>Already have an account?</Text>
               <NextLink href='/account/login' passHref>
-                <Text size='xs' color='blue'>
+                <Text size='xs' color='#59c1c1'>
                   Log in here
                 </Text>
               </NextLink>

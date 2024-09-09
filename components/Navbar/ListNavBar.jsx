@@ -43,12 +43,13 @@ export default function ListNavBar() {
               as={Button}
               bg='transparent'
               rightIcon={<ChevronDownIcon />}
+              // color='#59c1c1'
+              color='black'
               _hover={{
-                background: 'none',
-                border: 'solid',
-                borderColor: 'white',
+                background: '#D9F1F1',
+                // color: 'white',
               }}
-              _active={{ background: 'none' }}
+              _active={{ background: '#D9F1F1', color: 'black' }}
             >
               {curr.category}
             </MenuButton>
@@ -57,6 +58,7 @@ export default function ListNavBar() {
                 return (
                   <MenuItem
                     key={idx}
+                    color='#59c1c1'
                     onClick={() => {
                       router.push(`/products/category/${curItem}`);
                     }}

@@ -24,7 +24,7 @@ export default function Home() {
       <Banner2></Banner2>
       <div className='max-w-[80%] relative my-0 mx-auto pb-20'>
         <div className='mt-10 flex flex-col'>
-          <Text fontSize='3xl' as='b'>
+          <Text fontSize='3xl' as='b' color='#59c1c1'>
             Featured Products
           </Text>
           <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} spacing={10} mt={5}>

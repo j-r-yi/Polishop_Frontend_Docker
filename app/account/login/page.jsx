@@ -112,7 +112,7 @@ export default function Login() {
         />
         <ModalContent>
           <div className='flex flex-row justify-between items-center pr-5 whitespace-nowrap'>
-            <ModalHeader>Log In</ModalHeader>
+            <ModalHeader color='#59c1c1'>Log In</ModalHeader>
             <NextLink href='/' passHref>
               <IconButton
                 onClick={onClose}
@@ -153,14 +153,21 @@ export default function Login() {
             ) : (
               <Text color={'red'}>{errorMessage}</Text>
             )}
-            <Button colorScheme='blue' mr={3} onClick={handleLogIn}>
+            <Button
+              color='#59c1c1'
+              backgroundColor='gray.200'
+              _hover={{ color: 'white', backgroundColor: '#59c1c1' }}
+              _active={{ color: 'white', backgroundColor: '#59c1c1' }}
+              mr={3}
+              onClick={handleLogIn}
+            >
               Log In
             </Button>
             <Checkbox defaultChecked>Remember me?</Checkbox>
             <div className='flex flex-row items-start gap-5'>
               <Text size='xs'>Don't have an account yet?</Text>
               <NextLink href='/account/signup' passHref>
-                <Text size='xs' color='blue'>
+                <Text size='xs' color='#59c1c1'>
                   Sign up here
                 </Text>
               </NextLink>

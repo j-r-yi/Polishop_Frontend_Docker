@@ -17,6 +17,7 @@ import {
   Flex,
 } from '@chakra-ui/react';
 import { FaShoppingCart } from 'react-icons/fa';
+import { MdOutlineShoppingCart } from 'react-icons/md';
 
 import { useSelector } from 'react-redux';
 
@@ -43,11 +44,13 @@ export default function ShoppingCartBtn() {
               border='hidden'
               aria-label='Shopping Cart'
               fontSize='35px'
-              color='#3182ce'
-              icon={<FaShoppingCart />}
+              // color='#59c1c1'
+              color='black'
+              icon={<MdOutlineShoppingCart />}
+              _hover={{ backgroundColor: '#D9F1F1' }}
             ></IconButton>
             {cartItemCount > 0 ? (
-              <span className='absolute bg-red-400 rounded-md w-5 h-5 p-0.5 text-center text-xs text-white'>
+              <span className='absolute bg-teal-500 rounded-md w-5 h-5 p-0.5 text-center text-xs text-white'>
                 {cartItemCount}
               </span>
             ) : (

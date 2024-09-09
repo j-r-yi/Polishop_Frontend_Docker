@@ -15,6 +15,7 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
+  background,
 } from '@chakra-ui/react';
 
 import { ChevronDownIcon } from '@chakra-ui/icons';
@@ -33,9 +34,12 @@ export default function DrawerNav() {
     <div>
       <Button
         ref={btnRef}
-        colorScheme='blue'
+        bg='none'
+        color='black'
+        // color='#59c1c1'
         onClick={onOpen}
         rightIcon={<ChevronDownIcon />}
+        _hover={{ color: 'black', background: '#D9F1F1' }}
       >
         All
       </Button>
@@ -75,64 +79,3 @@ export default function DrawerNav() {
     </div>
   );
 }
-
-/* 
-<Accordion
-  defaultIndex={[]}
-  // allowMultiple={false}
-  allowToggle={true}
->
-  <AccordionItem>
-    <h2>
-      <AccordionButton>
-        <Box as='span' flex='1' textAlign='left'>
-          Section 1 title
-        </Box>
-        <AccordionIcon />
-      </AccordionButton>
-    </h2>
-    <AccordionPanel pb={4}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-      do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco
-      laboris nisi ut aliquip ex ea commodo consequat.
-    </AccordionPanel>
-  </AccordionItem>
-
-  <AccordionItem>
-    <h2>
-      <AccordionButton>
-        <Box as='span' flex='1' textAlign='left'>
-          Section 2 title
-        </Box>
-        <AccordionIcon />
-      </AccordionButton>
-    </h2>
-    <AccordionPanel pb={4}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-      do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco
-      laboris nisi ut aliquip ex ea commodo consequat.
-    </AccordionPanel>
-  </AccordionItem>
-
-  <AccordionItem>
-    <h2>
-      <AccordionButton>
-        <Box as='span' flex='1' textAlign='left'>
-          Section 3 title
-        </Box>
-        <AccordionIcon />
-      </AccordionButton>
-    </h2>
-    <AccordionPanel pb={4}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-      do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco
-      laboris nisi ut aliquip ex ea commodo consequat.
-    </AccordionPanel>
-  </AccordionItem>
-</Accordion> 
-*/
-
-/* <Divider orientation='horizontal' /> */

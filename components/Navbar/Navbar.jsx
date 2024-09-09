@@ -52,6 +52,7 @@ export default function Navbar() {
         !searchBarRef.current.contains(event.target)
       ) {
         setSearchResults([]);
+        setSearchTerm('');
       }
     };
 
@@ -91,14 +92,15 @@ export default function Navbar() {
   };
 
   return (
-    <div className='flex flex-col justify-center items-center mx-auto bg-gradient-to-br from-blue-200 to-cyan-100'>
+    //  bg-gradient-to-br from-blue-200 to-cyan-100
+    <div className='flex flex-col justify-center items-center mx-auto border-b-2 border-gray-300 shadow-xl'>
       <div className='flex flex-col lg:flex-row items-center justify-evenly gap-10 pl-20 pr-20 w-full pb-3 pt-6'>
         <NextLink href='/' passHref>
           <div className='flex flex-row items-center gap-2 mr-10'>
             <Image src='/icon_copy.png' boxSize='50px' />
             <Text
               as='b'
-              color='black'
+              color='#59c1c1'
               fontSize='xl'
               className='whitespace-nowrap'
             >

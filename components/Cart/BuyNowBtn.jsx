@@ -29,7 +29,9 @@ export default function BuyNowBtn({ productDetails }) {
   return (
     <Button
       variant='solid'
-      colorScheme='blue'
+      color='white'
+      backgroundColor='#59c1c1'
+      _hover={{ backgroundColor: '#49B1B1' }}
       onClick={handleBuyNow}
       display={'flex'}
       alignItems={'center'}

@@ -89,7 +89,7 @@ export default function ProductCard({ product }) {
           >
             <Heading size='md'>{product.productname}</Heading>
             <Text>{product.description}</Text>
-            <Text color='blue.600' fontSize='2xl'>
+            <Text color='#59c1c1' fontSize='2xl'>
               ${product.price}
             </Text>
             <div className='flex flex-row gap-2'>

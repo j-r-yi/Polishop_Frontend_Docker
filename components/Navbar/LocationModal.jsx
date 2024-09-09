@@ -18,7 +18,14 @@ export default function LcoationModal() {
 
   return (
     <div>
-      <Button onClick={onOpen}>Deliver to [location]</Button>
+      <Button
+        onClick={onOpen}
+        color='black'
+        background={'none'}
+        _hover={{ color: 'black', background: '#D9F1F1' }}
+      >
+        Deliver to [location]
+      </Button>
 
       <Modal isOpen={isOpen} onClose={onClose} size='5xl'>
         <ModalOverlay />
