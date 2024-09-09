@@ -1,6 +1,8 @@
 // "use client"
 import { extendTheme } from '@chakra-ui/react';
 import '@fontsource-variable/montserrat';
+// import '@fontsource/montserrat';
+// import '@fontsource/montserrat/variable.css';
 
 export const theme = extendTheme({
   colors: {
