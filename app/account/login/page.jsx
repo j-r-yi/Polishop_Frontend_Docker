@@ -74,7 +74,9 @@ export default function Login() {
         console.log('Dispatch successful!');
         localStorage.setItem('user', response.data?.username);
         setTimeout(() => {
-          window.location.reload(true);
+          if (typeof window !== 'undefined') {
+            window.location.reload(true);
+          }
         }, 100);
         await router.push('/');
       }

@@ -44,7 +44,9 @@ export default function ProfileBtns() {
         localStorage.clear();
         isLoggedIn = false;
         setTimeout(() => {
-          window.location.reload(true);
+          if (typeof window !== 'undefined') {
+            window.location.reload(true);
+          }
         }, 100);
         await router.push('/');
       }
