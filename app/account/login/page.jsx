@@ -1,6 +1,6 @@
 'use client';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // import { useRouter } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { useDispatch } from 'react-redux';
@@ -40,6 +40,8 @@ export default function Login() {
   const [passwordValue, setPasswordValue] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const validateEmail = (email) => {
     return String(email)
       .toLowerCase()
@@ -69,16 +71,13 @@ export default function Login() {
       if (response.data?.Error) {
         setErrorMessage(response.data?.Error);
       } else {
-        console.log('The response data that is dispatched', response.data);
+        // console.log('The response data that is dispatched', response.data);
         dispatch(logIn(response.data));
-        console.log('Dispatch successful!');
-        localStorage.setItem('user', response.data?.username);
-        setTimeout(() => {
-          if (typeof window !== 'undefined') {
-            window.location.reload(true);
-          }
-        }, 100);
-        await router.push('/');
+
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('user', response.data?.username);
+          setIsLoggedIn(true);
+        }
       }
     } catch (error) {
       console.log(error);
@@ -92,6 +91,17 @@ export default function Login() {
   const onPasswordChange = function (event) {
     setPasswordValue(event.target.value);
   };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      router.push('/');
+      setTimeout(() => {
+        if (typeof window !== 'undefined') {
+          window.location.reload(true);
+        }
+      }, 500);
+    }
+  }, [isLoggedIn]);
 
   return (
     <div>

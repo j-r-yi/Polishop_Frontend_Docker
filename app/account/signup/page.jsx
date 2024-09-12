@@ -54,6 +54,8 @@ export default function Signup() {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const handleUsernameChange = function (e) {
     setUsername(e.target.value);
   };
@@ -102,13 +104,26 @@ export default function Signup() {
         setErrorMessage(response.data?.Error);
       } else {
         dispatch(logIn(response.data));
-        localStorage.setItem('user', response.data?.username);
-        router.push('/');
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('user', response.data?.username);
+          setIsLoggedIn(true);
+        }
       }
     } catch (error) {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      router.push('/');
+      setTimeout(() => {
+        if (typeof window !== 'undefined') {
+          window.location.reload(true);
+        }
+      }, 500);
+    }
+  }, [isLoggedIn]);
 
   return (
     <div>

@@ -4,7 +4,7 @@ import ProductGallery from '../../../components/Products/ProductGallery';
 
 export async function generateStaticParams() {
   try {
-    const res = await fetch('https://api.joshuayi.com/products/');
+    const res = await fetch('https://api.joshuayi.com/products');
     if (!res.ok) {
       throw new Error('Failed to fetch products');
     }

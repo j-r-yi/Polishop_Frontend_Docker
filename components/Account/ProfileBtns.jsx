@@ -19,14 +19,18 @@ import { useRouter } from 'next/navigation';
 import NextLink from 'next/link';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 export default function ProfileBtns() {
-  let isLoggedIn = useSelector((state) => state.account.isLoggedIn);
-  isLoggedIn = localStorage.getItem('user') != null;
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [hasLoggedOut, setHasLoggedOut] = useState(false);
   const router = useRouter();
-  // const currentUsername = useSelector((state) => state.account.currentUsername);
   const currentUsername = localStorage.getItem('user');
+
+  useEffect(() => {
+    const userLoggedIn = localStorage.getItem('user') != null;
+    setIsLoggedIn(userLoggedIn);
+  }, []);
 
   const handleLogOut = async function () {
     try {
@@ -41,18 +45,24 @@ export default function ProfileBtns() {
         console.log(response.Error);
       } else {
         localStorage.clear();
-        isLoggedIn = false;
-        setTimeout(() => {
-          if (typeof window !== 'undefined') {
-            window.location.reload(true);
-          }
-        }, 100);
-        await router.push('/');
+        setIsLoggedIn(false);
+        setHasLoggedOut(true);
       }
     } catch (error) {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    if (hasLoggedOut) {
+      router.push('/');
+      setTimeout(() => {
+        if (typeof window !== 'undefined') {
+          window.location.reload(true);
+        }
+      }, 500);
+    }
+  }, [hasLoggedOut, router]);
 
   return (
     <>

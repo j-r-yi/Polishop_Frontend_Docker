@@ -1,6 +1,6 @@
 'use client';
 import { Divider, Text, Icon, Input, Button } from '@chakra-ui/react';
-import { forwardRef } from 'react';
+import { forwardRef, useEffect } from 'react';
 
 import { FaDiscord, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { AiFillInstagram } from 'react-icons/ai';
@@ -58,17 +58,26 @@ const moreContactList = [
   },
 ];
 
-const IconWrapper = forwardRef((props, ref) => <Icon {...props} ref={ref} />);
-
 export default function Footer() {
-  const backToTop = function () {
-    // const isBrowser = () => typeof window !== 'undefined';
-    // if (!isBrowser()) return;
-    // window.scrollTo({ top: 0, behavior: 'smooth' });
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+  useEffect(() => {
+    const backToTop = function () {
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
+
+    const backToTopButton = document.getElementById('back-to-top-button');
+    if (backToTopButton) {
+      backToTopButton.addEventListener('click', backToTop);
     }
-  };
+
+    return () => {
+      if (backToTopButton) {
+        backToTopButton.removeEventListener('click', backToTop);
+      }
+    };
+  }, []);
+
   return (
     // bg-gradient-to-tr from-blue-200 to-cyan-100
     <div className='flex flex-col w-full gap-5 pl-20 pr-20 pt-5'>
@@ -86,7 +95,8 @@ export default function Footer() {
 
         <div>
           <Button
-            onClick={backToTop}
+            id='back-to-top-button'
+            // onClick={backToTop}
             color='black'
             background='none'
             _hover={{ backgroundColor: '#D9F1F1' }}

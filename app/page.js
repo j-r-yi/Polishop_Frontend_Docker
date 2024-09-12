@@ -1,6 +1,4 @@
 'use client';
-import Navbar from '../components/Navbar/Navbar';
-import Footer from '../components/Navbar/Footer';
 import ProductCard from '../components/ProductCard';
 import Banner1 from '../components/Products/Banner1';
 import Banner2 from '../components/Products/Banner2';

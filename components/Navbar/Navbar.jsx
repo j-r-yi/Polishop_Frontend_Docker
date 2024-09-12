@@ -18,7 +18,13 @@ import ListNavBar from './ListNavBar';
 import DrawerNav from './DrawerNav';
 import ShoppingCartBtn from '../Cart/ShoppingCartBtn';
 import LocationModal from '../Navbar/LocationModal';
-import ProfileBtns from '../Account/ProfileBtns';
+// import ProfileBtns from '../Account/ProfileBtns';
+
+import dynamic from 'next/dynamic';
+
+const ProfileBtns = dynamic(() => import('../Account/ProfileBtns'), {
+  ssr: false, // Disable SSR for this component
+});
 
 const handleSearch = async function (term, setSearchResults, setSearchData) {
   try {

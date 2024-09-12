@@ -4,10 +4,15 @@ import '../styles/globals.css';
 import { Providers } from './providers';
 import Home from './page';
 // const inter = Inter({ subsets: ['latin'] });
-import Navbar from '../components/Navbar/Navbar';
-import Footer from '../components/Navbar/Footer';
 // import 'leaflet/dist/leaflet.css';
 // import '../styles/globals.css';
+import Navbar from '../components/Navbar/Navbar';
+// import Footer from '../components/Navbar/Footer';
+import dynamic from 'next/dynamic';
+
+const Footer = dynamic(() => import('../components/Navbar/Footer'), {
+  ssr: false, // Disable SSR for this component
+});
 
 export const metadata = {
   title: 'Poli Online Shop',
