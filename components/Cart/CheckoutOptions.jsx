@@ -16,7 +16,11 @@ export default function CheckoutOptions() {
         <Card w='100%'>
           <CardBody className='flex flex-row items-center justify-evenly'>
             <Text>1. Delivery Address</Text>
-            <Text>{localStorage.getItem('user')}</Text>
+            <Text>
+              {typeof window == 'undefined'
+                ? 'user'
+                : localStorage.getItem('user')}
+            </Text>
           </CardBody>
         </Card>
       </div>

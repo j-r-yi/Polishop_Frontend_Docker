@@ -1,10 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
+// Helper function to calculate cart item count
+const calculateCartItemCount = (items) => {
+  return items.reduce((accum, currItem) => accum + currItem.quantity, 0);
+};
+
+// Helper function to calculate total cart cost
+const calculateCartCost = (items) => {
+  return items.reduce(
+    (accum, currItem) => accum + currItem.price * currItem.quantity,
+    0,
+  );
+};
 
 // Returns an array of product objects
 const getCurrentCartItems = function () {
   // Check if user browser supports local storage
-  if (typeof Storage !== 'undefined') {
-    // const cartItems = localStorage.getItem('cartItems');
+  if (typeof window !== 'undefined') {
     if (
       localStorage.getItem('cartItems') == null ||
       localStorage.getItem('cartItems') == ''
@@ -19,15 +30,13 @@ const getCurrentCartItems = function () {
   }
 };
 const initialItems = getCurrentCartItems();
-//
-//
-//
+
 const updateCartStorage = function (updatedCart) {
-  localStorage.setItem('cartItems', JSON.stringify(updatedCart));
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('cartItems', JSON.stringify(updatedCart));
+  }
 };
-//
-//
-//
+
 const getCartItemCount = function () {
   return initialItems.reduce((accum, currItem) => {
     return accum + currItem.quantity;
@@ -51,6 +60,12 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
+    loadCartItems: (state, action) => {
+      const items = action.payload;
+      state.cartItems = items;
+      state.cartItemCount = calculateCartItemCount(items);
+      state.totalPrice = calculateCartCost(items);
+    },
     addToCart: (state, action) => {
       const tempId = action.payload.productId;
       state.totalPrice += action.payload.price;
@@ -91,7 +106,9 @@ export const cartSlice = createSlice({
       state.cartItems = [];
       state.cartItemCount = 0;
       state.totalPrice = 0;
-      localStorage.removeItem('cartItems');
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem('cartItems');
+      }
     },
 
     increment: (state, action) => {
@@ -120,7 +137,9 @@ export const cartSlice = createSlice({
       }
     },
     initializeCart: (state, action) => {
-      localStorage.clear();
+      if (typeof window !== 'undefined') {
+        localStorage.clear();
+      }
       console.log(action.payload.cart);
       state.cartItems = action.payload.cart;
       updateCartStorage(state.cartItems);
@@ -129,6 +148,7 @@ export const cartSlice = createSlice({
 });
 
 export const {
+  loadCartItems,
   addToCart,
   deleteFromCart,
   clearCart,

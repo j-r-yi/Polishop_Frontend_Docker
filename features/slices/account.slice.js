@@ -14,17 +14,19 @@ export const accountSlice = createSlice({
   reducers: {
     logIn: (state, action) => {
       try {
-        console.log('This step is executed');
-        localStorage.clear();
-        state.isLoggedIn = true;
-        state.currentUsername = action.payload.username;
-        state.currentUserEmail = action.payload.email;
-        if (action.payload.cart != null) {
-          state.currentUserCart = action.payload.cart;
-        } else {
-          state.currentUserCart = [];
+        if (typeof window !== 'undefined') {
+          console.log('This step is executed');
+          localStorage.clear();
+          state.isLoggedIn = true;
+          state.currentUsername = action.payload.username;
+          state.currentUserEmail = action.payload.email;
+          if (action.payload.cart != null) {
+            state.currentUserCart = action.payload.cart;
+          } else {
+            state.currentUserCart = [];
+          }
+          localStorage.setItem('cartItems', state.currentUserCart);
         }
-        localStorage.setItem('cartItems', state.currentUserCart);
       } catch (error) {
         console.log(error);
       }

@@ -10,7 +10,10 @@ import {
   Button,
 } from '@chakra-ui/react';
 import { useDisclosure } from '@chakra-ui/react';
-import Map from './Map';
+import dynamic from 'next/dynamic';
+
+// import Map from './Map';
+const Map = dynamic(() => import('./Map'), { ssr: false });
 
 export default function LcoationModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();

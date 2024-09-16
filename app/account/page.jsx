@@ -20,29 +20,29 @@ export default function AccountPage() {
     setUsernameDelete(e.target.value);
   };
 
-  const handleResetPassword = async function (e) {
-    e.preventDefault();
-    try {
-      const response = await axios.put(
-        `https://api.joshuayi.com/password_update/${username}`,
-        { new_password: password },
-      );
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const handleResetPassword = async function (e) {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await axios.put(
+  //       `https://api.joshuayi.com/password_update/${username}`,
+  //       { new_password: password },
+  //     );
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  const handleDeleteAccount = async function (e) {
-    e.preventDefault();
-    try {
-      const response = await axios.delete(
-        `https://api.joshuayi.com/users_delete/${usernameDelete}`,
-      );
-    } catch (error) {
-      console.log(error);
-    }
-    setUsernameDelete('');
-  };
+  // const handleDeleteAccount = async function (e) {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await axios.delete(
+  //       `https://api.joshuayi.com/users_delete/${usernameDelete}`,
+  //     );
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  //   setUsernameDelete('');
+  // };
 
   return (
     <div className='bg-white'>

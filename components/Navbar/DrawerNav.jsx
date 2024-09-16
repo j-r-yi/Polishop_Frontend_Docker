@@ -45,9 +45,13 @@ export default function DrawerNav() {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>
-            Hello{' '}
-            {localStorage.getItem('user') ? localStorage.getItem('user') : ''}
-            {' !'}
+            {/* Hello{' '}
+            {typeof window == 'undefined'
+              ? ' '
+              : localStorage.getItem('user')
+                ? localStorage.getItem('user')
+                : ''}
+            {' !'} */}
           </DrawerHeader>
 
           <DrawerBody>

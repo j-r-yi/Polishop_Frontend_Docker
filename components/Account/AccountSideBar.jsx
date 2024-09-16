@@ -15,10 +15,16 @@ const accountItems = [
 ];
 
 export default function AccountSideBar() {
-  const username =
-    localStorage.getItem('user') != null
-      ? localStorage.getItem('user')
-      : 'UNKNOWN USER';
+  let username;
+  if (typeof window !== 'undefined') {
+    username =
+      localStorage.getItem('user') != null
+        ? localStorage.getItem('user')
+        : 'UNKNOWN USER';
+  } else {
+    username = 'UNKNOWN USER';
+  }
+
   return (
     <div className=''>
       <Box boxShadow='md'>

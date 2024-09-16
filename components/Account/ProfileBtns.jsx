@@ -25,28 +25,36 @@ export default function ProfileBtns() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [hasLoggedOut, setHasLoggedOut] = useState(false);
   const router = useRouter();
-  const currentUsername = localStorage.getItem('user');
+
+  let currentUsername;
+  if (typeof window !== 'undefined') {
+    currentUsername = localStorage.getItem('user');
+  }
 
   useEffect(() => {
-    const userLoggedIn = localStorage.getItem('user') != null;
-    setIsLoggedIn(userLoggedIn);
+    if (typeof window !== 'undefined') {
+      const userLoggedIn = localStorage.getItem('user') != null;
+      setIsLoggedIn(userLoggedIn);
+    }
   }, []);
 
   const handleLogOut = async function () {
     try {
-      const updated_cart = {
-        new_cart: localStorage.getItem('cartItems'),
-      };
-      const response = await axios.put(
-        `https://api.joshuayi.com/logout/${currentUsername}`,
-        updated_cart,
-      );
-      if (response.data?.Error) {
-        console.log(response.Error);
-      } else {
-        localStorage.clear();
-        setIsLoggedIn(false);
-        setHasLoggedOut(true);
+      if (typeof window !== 'undefined') {
+        const updated_cart = {
+          new_cart: localStorage.getItem('cartItems'),
+        };
+        const response = await axios.put(
+          `https://api.joshuayi.com/logout/${currentUsername}`,
+          updated_cart,
+        );
+        if (response.data?.Error) {
+          console.log(response.Error);
+        } else {
+          localStorage.clear();
+          setIsLoggedIn(false);
+          setHasLoggedOut(true);
+        }
       }
     } catch (error) {
       console.log(error);
