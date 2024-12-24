@@ -28,7 +28,7 @@ const ProfileBtns = dynamic(() => import('../Account/ProfileBtns'), {
 
 const handleSearch = async function (term, setSearchResults, setSearchData) {
   try {
-    const res = await fetch(`https://api.joshuayi.com/search/${term}`);
+    const res = await fetch(`http://localhost:8000/search/${term}`);
     if (!res.ok) {
       throw new Error('Invalid Search');
     }

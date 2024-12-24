@@ -24,7 +24,7 @@ export default function AccountPage() {
   //   e.preventDefault();
   //   try {
   //     const response = await axios.put(
-  //       `https://api.joshuayi.com/password_update/${username}`,
+  //       `http://localhost:8000/password_update/${username}`,
   //       { new_password: password },
   //     );
   //   } catch (error) {
@@ -36,7 +36,7 @@ export default function AccountPage() {
   //   e.preventDefault();
   //   try {
   //     const response = await axios.delete(
-  //       `https://api.joshuayi.com/users_delete/${usernameDelete}`,
+  //       `http://localhost:8000/users_delete/${usernameDelete}`,
   //     );
   //   } catch (error) {
   //     console.log(error);

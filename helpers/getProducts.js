@@ -1,6 +1,6 @@
 export const getProduct = async function (productId) {
   try {
-    const res = await fetch(`https://api.joshuayi.com/products/${productId}`);
+    const res = await fetch(`http://localhost:8000/products/${productId}`);
     if (!res.ok) {
       throw new Error('Problem getting product');
     }
@@ -13,7 +13,7 @@ export const getProduct = async function (productId) {
 
 export const getAllProducts = async function () {
   try {
-    const res = await fetch(`https://api.joshuayi.com/products/`);
+    const res = await fetch(`http://localhost:8000/products/`);
     if (!res.ok) {
       throw new Error('Problem getting product');
     }

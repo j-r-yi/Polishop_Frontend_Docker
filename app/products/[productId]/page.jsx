@@ -4,7 +4,7 @@ import ProductGallery from '../../../components/Products/ProductGallery';
 
 export async function generateStaticParams() {
   try {
-    const res = await fetch('https://api.joshuayi.com/products');
+    const res = await fetch('http://localhost:8000/products');
     if (!res.ok) {
       throw new Error('Failed to fetch products');
     }
@@ -22,7 +22,7 @@ export async function generateStaticParams() {
 async function getProduct(productId) {
   console.log('Starting fetch');
   try {
-    const res = await fetch(`https://api.joshuayi.com/products/${productId}`, {
+    const res = await fetch(`http://localhost:8000/products/${productId}`, {
       cache: 'no-cache',
     });
     if (!res.ok) {

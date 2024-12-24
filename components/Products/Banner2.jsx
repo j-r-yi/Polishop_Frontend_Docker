@@ -8,7 +8,7 @@ export default function Banner2() {
   const [bannerData, setBannerData] = useState([]);
 
   useEffect(() => {
-    fetch(`https://api.joshuayi.com/banners`)
+    fetch(`http://localhost:8000/banners`)
       .then((res) => res.json())
       .then((data) => setBannerData(data));
   }, []);

@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
 
 const searchProducts = async function () {
   try {
-    const res = await fetch(`https://api.joshuayi.com/products`);
+    const res = await fetch(`http://localhost:8000/products`);
     if (!res.ok) {
       throw new Error(`Failed to fetch products`);
     }

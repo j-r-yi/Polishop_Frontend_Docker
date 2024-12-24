@@ -11,7 +11,7 @@ export default function Home() {
   const [productsData, setProductData] = useState([]);
 
   useEffect(() => {
-    fetch(`https://api.joshuayi.com/products/`)
+    fetch(`http://localhost:8000/products/`)
       .then((res) => res.json())
       .then((data) => setProductData(data));
   }, []);

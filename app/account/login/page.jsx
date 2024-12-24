@@ -65,7 +65,7 @@ export default function Login() {
     };
     try {
       const response = await axios.post(
-        'https://api.joshuayi.com/login',
+        'http://localhost:8000/login',
         userPackage,
       );
       if (response.data?.Error) {

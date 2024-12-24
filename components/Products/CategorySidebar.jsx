@@ -1,9 +1,11 @@
 'use client';
 import {
   Box,
+  Button,
   Card,
   CardHeader,
   CardBody,
+  CardFooter,
   Heading,
   Stack,
   StackDivider,
@@ -16,12 +18,15 @@ import {
   NumberDecrementStepper,
 } from '@chakra-ui/react';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function CategorySidebar() {
   const format = (val) => `$` + val;
   const parse = (val) => val.replace(/^\$/, '');
   const [value1, setValue1] = useState('0');
   const [value2, setValue2] = useState('9999');
+
+  const router = useRouter();
 
   return (
     <Card>
@@ -74,6 +79,15 @@ export default function CategorySidebar() {
           </Box>
         </Stack>
       </CardBody>
+      <CardFooter className='items-center justify-center'>
+        <Button
+          onClick={() => {
+            router.push('/products/addproduct');
+          }}
+        >
+          Add Product
+        </Button>
+      </CardFooter>
     </Card>
   );
 }

@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 
 const searchProducts = async function (subcat) {
   try {
-    const res = await fetch(`https://api.joshuayi.com/category/${subcat}`);
+    const res = await fetch(`http://localhost:8000/category/${subcat}`);
     if (!res.ok) {
       throw new Error(`Failed to fetch products with ${subcat}`);
     }
