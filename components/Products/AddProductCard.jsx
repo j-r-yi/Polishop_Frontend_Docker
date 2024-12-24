@@ -1,4 +1,5 @@
 'use client';
+
 import {
   Card,
   CardHeader,
@@ -28,14 +29,59 @@ export default function AddProductCard() {
     gallery_2: '',
   });
 
+  const [errors, setErrors] = useState({});
+
+  const validateInputs = () => {
+    const newErrors = {};
+
+    // Validation rules based on database schema
+    if (!formData.name.trim() || formData.name.length > 45)
+      newErrors.name =
+        'Product name is required and must be less than 45 characters';
+
+    if (!/^[0-9]+(\.[0-9]{1,2})?$/.test(formData.price))
+      newErrors.price = 'Enter a valid price (e.g., 99.99)';
+
+    if (formData.discount && !/^[0-9]+(\.[0-9]{1,2})?$/.test(formData.discount))
+      newErrors.discount = 'Enter a valid discount price (e.g., 10.50)';
+
+    if (!formData.description.trim())
+      newErrors.description = 'Description is required';
+
+    if (!formData.product_details.trim())
+      newErrors.product_details = 'Product details are required';
+
+    if (!formData.category.trim() || formData.category.length > 45)
+      newErrors.category =
+        'Category is required and must be less than 45 characters';
+
+    if (!formData.subcategory.trim() || formData.subcategory.length > 45)
+      newErrors.subcategory =
+        'Subcategory is required and must be less than 45 characters';
+
+    if (!formData.img || !/^https?:\/\//.test(formData.img))
+      newErrors.img = 'Enter a valid URL for the main image';
+
+    if (formData.gallery_1 && !/^https?:\/\//.test(formData.gallery_1))
+      newErrors.gallery_1 = 'Enter a valid URL for image 2';
+
+    if (formData.gallery_2 && !/^https?:\/\//.test(formData.gallery_2))
+      newErrors.gallery_2 = 'Enter a valid URL for image 3';
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = () => {
-    console.log('Form Data:', formData);
-    // You can add your form submission logic here
+    if (validateInputs()) {
+      console.log('Form Data:', formData);
+      // Add your form submission logic here
+    }
   };
 
   return (
@@ -50,8 +96,9 @@ export default function AddProductCard() {
           Add New Product
         </Heading>
       </CardHeader>
-      <CardBody>
+      <CardBody width='50%'>
         <VStack spacing={4} align='stretch'>
+          <Text>Product Name</Text>
           <Input
             name='name'
             placeholder='Enter product name'
@@ -60,7 +107,13 @@ export default function AddProductCard() {
             focusBorderColor='blue.500'
             value={formData.name}
             onChange={handleChange}
+            isInvalid={!!errors.name}
+            errorBorderColor='red.500'
+            width='100%'
           />
+          <Text color='red.500'>{errors.name}</Text>
+
+          <Text>Product Price</Text>
           <Input
             name='price'
             placeholder='Enter product price'
@@ -69,7 +122,13 @@ export default function AddProductCard() {
             focusBorderColor='blue.500'
             value={formData.price}
             onChange={handleChange}
+            isInvalid={!!errors.price}
+            errorBorderColor='red.500'
+            width='100%'
           />
+          <Text color='red.500'>{errors.price}</Text>
+
+          <Text>Discounted Price</Text>
           <Input
             name='discount'
             placeholder='Enter product discounted price'
@@ -78,7 +137,13 @@ export default function AddProductCard() {
             focusBorderColor='blue.500'
             value={formData.discount}
             onChange={handleChange}
+            isInvalid={!!errors.discount}
+            errorBorderColor='red.500'
+            width='100%'
           />
+          <Text color='red.500'>{errors.discount}</Text>
+
+          <Text>Description</Text>
           <Input
             name='description'
             placeholder='Enter product description'
@@ -87,7 +152,13 @@ export default function AddProductCard() {
             focusBorderColor='blue.500'
             value={formData.description}
             onChange={handleChange}
+            isInvalid={!!errors.description}
+            errorBorderColor='red.500'
+            width='100%'
           />
+          <Text color='red.500'>{errors.description}</Text>
+
+          <Text>Product Details</Text>
           <Input
             name='product_details'
             placeholder='Enter product details'
@@ -96,7 +167,13 @@ export default function AddProductCard() {
             focusBorderColor='blue.500'
             value={formData.product_details}
             onChange={handleChange}
+            isInvalid={!!errors.product_details}
+            errorBorderColor='red.500'
+            width='100%'
           />
+          <Text color='red.500'>{errors.product_details}</Text>
+
+          <Text>Category</Text>
           <Input
             name='category'
             placeholder='Enter product category'
@@ -105,7 +182,13 @@ export default function AddProductCard() {
             focusBorderColor='blue.500'
             value={formData.category}
             onChange={handleChange}
+            isInvalid={!!errors.category}
+            errorBorderColor='red.500'
+            width='100%'
           />
+          <Text color='red.500'>{errors.category}</Text>
+
+          <Text>Subcategory</Text>
           <Input
             name='subcategory'
             placeholder='Enter product subcategory'
@@ -114,7 +197,13 @@ export default function AddProductCard() {
             focusBorderColor='blue.500'
             value={formData.subcategory}
             onChange={handleChange}
+            isInvalid={!!errors.subcategory}
+            errorBorderColor='red.500'
+            width='100%'
           />
+          <Text color='red.500'>{errors.subcategory}</Text>
+
+          <Text>Image URL</Text>
           <Input
             name='img'
             placeholder='Enter product image 1 URL'
@@ -123,7 +212,13 @@ export default function AddProductCard() {
             focusBorderColor='blue.500'
             value={formData.img}
             onChange={handleChange}
+            isInvalid={!!errors.img}
+            errorBorderColor='red.500'
+            width='100%'
           />
+          <Text color='red.500'>{errors.img}</Text>
+
+          <Text>Gallery Image 2</Text>
           <Input
             name='gallery_1'
             placeholder='Enter product image 2 URL'
@@ -132,7 +227,13 @@ export default function AddProductCard() {
             focusBorderColor='blue.500'
             value={formData.gallery_1}
             onChange={handleChange}
+            isInvalid={!!errors.gallery_1}
+            errorBorderColor='red.500'
+            width='100%'
           />
+          <Text color='red.500'>{errors.gallery_1}</Text>
+
+          <Text>Gallery Image 3</Text>
           <Input
             name='gallery_2'
             placeholder='Enter product image 3 URL'
@@ -141,7 +242,11 @@ export default function AddProductCard() {
             focusBorderColor='blue.500'
             value={formData.gallery_2}
             onChange={handleChange}
+            isInvalid={!!errors.gallery_2}
+            errorBorderColor='red.500'
+            width='100%'
           />
+          <Text color='red.500'>{errors.gallery_2}</Text>
         </VStack>
       </CardBody>
       <CardFooter>
