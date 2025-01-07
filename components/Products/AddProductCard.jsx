@@ -92,7 +92,7 @@ export default function AddProductCard() {
       borderRadius='md'
     >
       <CardHeader>
-        <Heading size='md' textAlign='center' mb={4}>
+        <Heading size='md' textAlign='center' mb={4} color='#59c1c1'>
           Add New Product
         </Heading>
       </CardHeader>
@@ -251,9 +251,10 @@ export default function AddProductCard() {
       </CardBody>
       <CardFooter>
         <Button
-          colorScheme='blue'
-          size='md'
-          width='full'
+          variant='solid'
+          color='white'
+          backgroundColor='#59c1c1'
+          _hover={{ backgroundColor: '#49B1B1' }}
           onClick={handleSubmit}
         >
           Submit Product

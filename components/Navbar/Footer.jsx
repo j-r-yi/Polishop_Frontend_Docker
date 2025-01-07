@@ -38,7 +38,7 @@ const footerInfoList = [
 const moreContactList = [
   {
     icon: FaGithub,
-    link: 'https://github.com/Joshua-R-Yi',
+    link: 'https://github.com/j-r-yi',
     arialabel: 'github',
   },
   {
@@ -86,9 +86,9 @@ export default function Footer() {
           <Text fontSize='md'>We are alway here to help!</Text>
           <Divider
             orientation='vertical'
-            borderWidth='1px'
+            borderWidth='0.7px'
             borderStyle='solid'
-            borderColor={'gray'}
+            borderColor={'lightgray'}
           />
           <Text fontSize='md'>Contact us at: polishop@gmail.com</Text>
         </div>
@@ -108,9 +108,9 @@ export default function Footer() {
       </div>
       <Divider
         orientation='horizontal'
-        borderWidth='1px'
+        borderWidth='0.7px'
         borderStyle='solid'
-        borderColor={'gray'}
+        borderColor={'lightgray'}
       />
       <div className='hidden xl:flex justify-center items-center py-3 gap-20'>
         {footerInfoList.map((curr, idx) => {
@@ -128,10 +128,10 @@ export default function Footer() {
       <div className='hidden xl:block'>
         <Divider
           orientation='horizontal'
-          borderWidth='1px'
+          borderWidth='0.7px'
           borderStyle='solid'
           color='	#D3D3D3'
-          borderColor={'gray'}
+          borderColor={'lightgray'}
         />
       </div>
       <div className='hidden md:flex flex-row justify-between'>

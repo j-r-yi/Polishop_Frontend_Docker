@@ -84,6 +84,10 @@ export default function CategorySidebar() {
           onClick={() => {
             router.push('/products/addproduct');
           }}
+          variant='solid'
+          color='white'
+          backgroundColor='#59c1c1'
+          _hover={{ backgroundColor: '#49B1B1' }}
         >
           Add Product
         </Button>
