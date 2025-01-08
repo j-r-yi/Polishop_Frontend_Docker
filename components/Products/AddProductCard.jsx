@@ -1,5 +1,6 @@
 'use client';
 
+import axios from 'axios';
 import {
   Card,
   CardHeader,
@@ -30,6 +31,7 @@ export default function AddProductCard() {
   });
 
   const [errors, setErrors] = useState({});
+  const [errorMessage, setErrorMessage] = useState('');
 
   const validateInputs = () => {
     const newErrors = {};
@@ -77,10 +79,39 @@ export default function AddProductCard() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async function (e) {
     if (validateInputs()) {
-      console.log('Form Data:', formData);
-      // Add your form submission logic here
+      // console.log('Form Data:', formData);
+      e.preventDefault();
+
+      const productPackage = {
+        name: formData.name,
+        price: formData.price,
+        discount: formData.discount,
+        description: formData.description,
+        product_details: formData.product_details,
+        category: formData.category,
+        subcategory: formData.subcategory,
+        img: formData.img,
+        gallery_1: formData.gallery_1,
+        gallery_2: formData.gallery_2,
+        quantity: 1,
+      };
+
+      console.log(productPackage);
+      try {
+        const response = await axios.post(
+          'http://localhost:8000/product/add',
+          productPackage,
+        );
+        if (response.data?.Error) {
+          setErrorMessage(response.data?.Error);
+        } else {
+          console.log('Added to databse successfully!');
+        }
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
