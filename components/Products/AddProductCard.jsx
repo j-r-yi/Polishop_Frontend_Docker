@@ -98,17 +98,27 @@ export default function AddProductCard() {
         quantity: 1,
       };
 
-      console.log(productPackage);
+      const productArray = Array.from({ length: 1000 }, (_, i) => ({
+        ...productPackage,
+        name: `${productPackage.name}-${i + 1}`,
+      }));
+
       try {
-        const response = await axios.post(
-          'http://localhost:8000/product/add',
-          productPackage,
-        );
-        if (response.data?.Error) {
-          setErrorMessage(response.data?.Error);
-        } else {
-          console.log('Added to databse successfully!');
-        }
+        const promises = productArray.map((product) => {
+          axios.post('http://localhost:8000/product/add', product);
+        });
+        await Promise.all(promises);
+        alert('All items have been added successfully!');
+
+        // const response = await axios.post(
+        //   'http://localhost:8000/product/add',
+        //   productPackage,
+        // );
+        // if (response.data?.Error) {
+        //   setErrorMessage(response.data?.Error);
+        // } else {
+        //   console.log('Added to databse successfully!');
+        // }
       } catch (error) {
         console.log(error);
       }
